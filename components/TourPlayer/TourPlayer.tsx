@@ -8,7 +8,13 @@ import {
 } from "@/components/ui/drawer";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Play, Pause, SkipBack, SkipForward } from "lucide-react";
+import {
+  ChevronDown,
+  PlayCircle,
+  PauseCircle,
+  SkipBack,
+  SkipForward,
+} from "lucide-react";
 import { useState } from "react";
 
 type TourStop = {
@@ -99,19 +105,16 @@ const TourPlayer = ({
           onClick={onPrevious}
           className="text-white"
         >
-          <SkipBack className="h-8 w-8" />
+          <SkipBack className="fill-current" />
         </Button>
 
         <Button
-          size="icon"
+          size={"lg"}
+          variant={"destructive"}
           onClick={onPlayPause}
-          className="h-16 w-16 rounded-full bg-white text-black hover:bg-white/90"
+          className="rounded-full bg-white text-black hover:bg-white/90"
         >
-          {isPlaying ? (
-            <Pause className="h-8 w-8" />
-          ) : (
-            <Play className="h-8 w-8" />
-          )}
+          {isPlaying ? <PauseCircle /> : <PlayCircle />}
         </Button>
 
         <Button
@@ -120,7 +123,7 @@ const TourPlayer = ({
           onClick={onNext}
           className="text-white"
         >
-          <SkipForward className="h-8 w-8" />
+          <SkipForward className="fill-current" />
         </Button>
       </div>
 
