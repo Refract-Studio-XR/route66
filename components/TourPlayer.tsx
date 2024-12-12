@@ -7,13 +7,7 @@ import {
   DrawerTitle,
   DrawerDescription,
 } from "@/components/ui/drawer";
-import {
-  ChevronDown,
-  PlayCircle,
-  PauseCircle,
-  SkipBack,
-  SkipForward,
-} from "lucide-react";
+import { PlayCircle, PauseCircle, SkipBack, SkipForward } from "lucide-react";
 import ARPreviewSlider from "./ARPreviewSlider";
 
 type TourStop = {
