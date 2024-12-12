@@ -11,8 +11,10 @@ type ARPreviewSliderProps = {
 };
 
 const INNER_FRAME_URL = "https://8w.8thwall.app/inner-ar";
+const MAP_URL = "https://playground.8thwall.app/simple-map";
 
 const ARPreviewSlider = ({ slides }: ARPreviewSliderProps) => {
+  console.log(slides);
   const [showAR, setShowAR] = useState(false);
   const [emblaRef] = useEmblaCarousel({
     align: "center",
@@ -35,15 +37,14 @@ const ARPreviewSlider = ({ slides }: ARPreviewSliderProps) => {
               flex: "0 0 70%",
               marginRight: "12px",
             }}
-            className="relative aspect-square rounded-lg bg-[#4A4268] flex items-center justify-center"
+            className="relative aspect-square rounded-lg overflow-hidden"
           >
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-white/10 hover:bg-white/20 text-white border-white/20"
-            >
-              View AR Experience 1
-            </Button>
+            <iframe
+              id="mapScene"
+              className="absolute inset-0 w-full h-full"
+              src={MAP_URL}
+              allow="gyroscope;accelerometer;magnetometer;xr-spatial-tracking;geolocation;"
+            />
           </div>
 
           <div

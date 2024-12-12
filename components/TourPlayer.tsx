@@ -42,8 +42,6 @@ const TourPlayer = ({
   onNext,
   onPrevious,
   isPlaying,
-  progress,
-  onProgressChange,
 }: TourPlayerProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
