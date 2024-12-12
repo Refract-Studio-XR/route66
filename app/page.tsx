@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import TourPlayer from "@/components/TourPlayer/TourPlayer";
+import TourPlayer from "@/components/TourPlayer";
 import { tourStops } from "@/data/tourStops";
 
 export default function Home() {
