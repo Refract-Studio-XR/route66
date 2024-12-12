@@ -58,7 +58,7 @@ const ARPreviewSlider = ({ slides }: ARPreviewSliderProps) => {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src={INNER_FRAME_URL}
-                allow="camera;microphone;gyroscope;accelerometer"
+                allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone;"
                 allowFullScreen
               />
             ) : (
