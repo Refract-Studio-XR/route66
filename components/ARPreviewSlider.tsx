@@ -43,7 +43,7 @@ const ARPreviewSlider = ({ slides }: ARPreviewSliderProps) => {
               id="mapScene"
               className="absolute inset-0 w-full h-full"
               src={MAP_URL}
-              allow="gyroscope;accelerometer;magnetometer;xr-spatial-tracking;geolocation;"
+              allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone;geolocation"
             />
           </div>
 
@@ -58,7 +58,7 @@ const ARPreviewSlider = ({ slides }: ARPreviewSliderProps) => {
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src={INNER_FRAME_URL}
-                allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone;"
+                allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone;geolocation"
                 allowFullScreen
               />
             ) : (
