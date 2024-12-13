@@ -115,15 +115,10 @@ const TourPlayer = ({
           </Button>
 
           <Button
-            size="icon"
             onClick={onPlayPause}
             className="rounded-full bg-white text-black hover:bg-white active:scale-95 transition-transform h-16 w-16"
           >
-            {isPlaying ? (
-              <PauseCircle className="h-10 w-10 stroke-2" />
-            ) : (
-              <PlayCircle className="h-10 w-10 stroke-2" />
-            )}
+            {isPlaying ? <PauseCircle /> : <PlayCircle />}
           </Button>
 
           <Button

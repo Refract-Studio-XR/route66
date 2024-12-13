@@ -18,12 +18,7 @@ const MAP_URL = "https://playground.8thwall.app/simple-map";
 const ARPreviewSlider = () => {
   const [showAR, setShowAR] = useState(false);
   const [emblaRef] = useEmblaCarousel({
-    align: "center",
-    skipSnaps: false,
-    dragFree: false,
-    containScroll: "keepSnaps",
     startIndex: 1,
-    inViewThreshold: 0.7,
   });
 
   return (
@@ -35,18 +30,12 @@ const ARPreviewSlider = () => {
         />
       )}
 
-      <div className="px-4 py-6">
-        <div
-          className="overflow-hidden"
-          ref={emblaRef}
-        >
-          <div className="flex ml-[10%]">
+      <div className="py-2">
+        <div ref={emblaRef}>
+          <div className="flex">
             <div
-              style={{
-                flex: "0 0 70%",
-                marginRight: "12px",
-              }}
-              className="relative aspect-square rounded-lg overflow-hidden"
+              className="relative shrink-0 w-[70vw] mr-3 aspect-square rounded-lg bg-[#4A4268] overflow-hidden"
+              style={{ marginLeft: "10vw" }}
             >
               <iframe
                 id="mapScene"
@@ -54,15 +43,10 @@ const ARPreviewSlider = () => {
                 src={MAP_URL}
                 allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone;geolocation"
               />
+              <div className="absolute inset-0 z-10 touch-pan-y" />
             </div>
 
-            <div
-              style={{
-                flex: "0 0 70%",
-                marginRight: "12px",
-              }}
-              className="relative aspect-square rounded-lg bg-[#4A4268] flex items-center justify-center overflow-hidden"
-            >
+            <div className="relative shrink-0 w-[70vw] mr-3 aspect-square rounded-lg bg-[#4A4268] flex items-center justify-center overflow-hidden">
               <video
                 autoPlay
                 loop
@@ -85,18 +69,11 @@ const ARPreviewSlider = () => {
               </Button>
             </div>
 
-            <div
-              style={{
-                flex: "0 0 70%",
-                marginRight: "12px",
-              }}
-              className="relative aspect-square rounded-lg overflow-hidden"
-            >
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&controls=0&showinfo=0&rel=0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+            <div className="relative shrink-0 w-[70vw] aspect-square rounded-lg bg-[#4A4268] overflow-hidden">
+              <img
+                src="/olivia.jpg"
+                alt="Olivia"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
