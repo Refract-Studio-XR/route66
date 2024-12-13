@@ -7,8 +7,15 @@ import {
   DrawerTitle,
   DrawerDescription,
 } from "@/components/ui/drawer";
-import { PlayCircle, PauseCircle, SkipBack, SkipForward } from "lucide-react";
+import {
+  PlayCircle,
+  PauseCircle,
+  SkipBack,
+  SkipForward,
+  ChevronDown,
+} from "lucide-react";
 import ARPreviewSlider from "./ARPreviewSlider";
+import * as Slider from "@radix-ui/react-slider";
 
 type TourStop = {
   id: string;
@@ -36,6 +43,8 @@ const TourPlayer = ({
   onNext,
   onPrevious,
   isPlaying,
+  progress,
+  onProgressChange,
 }: TourPlayerProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -46,62 +55,97 @@ const TourPlayer = ({
   ];
 
   return (
-    <div className="fixed inset-0 bg-[#635985] text-white">
-      {/* Header - increased padding and text size */}
-      <div className="p-6 pt-10 flex items-center">
+    <div className="fixed inset-0 h-[100dvh] bg-[#635985] text-white flex flex-col">
+      {/* Header */}
+      <div className="p-1 pt-[2dvh] flex items-center">
+        <Button
+          variant="ghost"
+          className="text-white"
+        >
+          <ChevronDown className="h-6 w-6" />
+        </Button>
         <div className="flex-1 text-center">
-          <h1 className="text-xl font-medium">Crying in the club</h1>
+          <h1 className="text-lg font-medium">Route 66 AR</h1>
         </div>
-        <div className="w-12" />
+        <div className="w-10" />
       </div>
 
-      {/* Slider area - increased padding in ARPreviewSlider */}
-      <div className="flex-1">
-        <ARPreviewSlider slides={slides} />
+      {/* Main content */}
+      <div className="flex flex-col">
+        {/* Caro area */}
+        <ARPreviewSlider />
+
+        {/* Title area */}
+        <div className="px-1 text-center h-24 flex flex-col justify-center">
+          <h2 className="text-3xl font-bold leading-tight">
+            {currentStop.title}
+          </h2>
+          <p className="text-base text-white/70 mt-1">{currentStop.artist}</p>
+        </div>
+
+        {/* Progress bar */}
+        <div className="px-6 py-4">
+          <Slider.Root
+            className="relative flex items-center select-none touch-none w-full"
+            defaultValue={[0]}
+            value={[progress]}
+            max={100}
+            step={1}
+            onValueChange={(value) => onProgressChange(value[0])}
+          >
+            <Slider.Track className="bg-white/20 relative grow rounded-full h-1">
+              <Slider.Range className="absolute bg-white rounded-full h-full" />
+            </Slider.Track>
+            <Slider.Thumb className="hidden" />
+          </Slider.Root>
+        </div>
+
+        {/* Controls with subtle press states */}
+        <div className="flex justify-center items-center gap-8 px-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onPrevious}
+            className="active:bg-white/10 hover:bg-transparent"
+          >
+            <SkipBack
+              fill="white"
+              color="white"
+            />
+          </Button>
+
+          <Button
+            size="icon"
+            onClick={onPlayPause}
+            className="rounded-full bg-white text-black hover:bg-white active:scale-95 transition-transform h-16 w-16"
+          >
+            {isPlaying ? (
+              <PauseCircle className="h-10 w-10 stroke-2" />
+            ) : (
+              <PlayCircle className="h-10 w-10 stroke-2" />
+            )}
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onNext}
+            className="active:bg-white/10 hover:bg-transparent"
+          >
+            <SkipForward
+              fill="white"
+              color="white"
+            />
+          </Button>
+        </div>
       </div>
 
-      {/* Title and Artist - increased text sizes */}
-      <div className="px-6 text-center">
-        <h2 className="text-3xl font-bold">{currentStop.title}</h2>
-        <p className="text-base text-white/70 mt-2">{currentStop.artist}</p>
-      </div>
-
-      {/* Controls */}
-      <div className="flex justify-center items-center gap-12 px-6 py-8">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onPrevious}
-          className="text-white"
-        >
-          <SkipBack className="h-12 w-12 fill-current" />
-        </Button>
-
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={onPlayPause}
-          className="rounded-full bg-white text-black hover:bg-white/90 h-16 w-16"
-        >
-          {isPlaying ? <PauseCircle /> : <PlayCircle />}
-        </Button>
-
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onNext}
-          className="text-white"
-        >
-          <SkipForward className="h-12 w-12 fill-current" />
-        </Button>
-      </div>
-
-      {/* Full Drawer */}
+      {/* Drawer content with dvh */}
       <Drawer
         open={drawerOpen}
         onOpenChange={setDrawerOpen}
       >
-        <DrawerContent className="fixed inset-x-0 bottom-0 mt-24 rounded-t-[10px] bg-white dark:bg-zinc-900">
+        <DrawerContent className="fixed inset-x-0 bottom-0 mt-24 rounded-t-[10px] max-h-[90dvh] bg-white dark:bg-zinc-900">
           <DrawerHeader>
             <DrawerTitle className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
               {currentStop.title}

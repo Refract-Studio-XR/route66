@@ -1,32 +1,73 @@
-export const tourStops = [
+export type TourStop = {
+  id: number;
+  title: string;
+  artist: string;
+  location: string;
+  description: string;
+  artistStatement: string;
+  artistImage: string;
+  arUrl: string;
+};
+
+export const tourStops: TourStop[] = [
   {
-    id: "1",
-    title: "Urban Light Forest",
-    artist: "Sarah Chen",
-    duration: 180,
-    coverImage: "/demo-installation-1.jpg", // You'll need to add these images
-    artistStatement: `In this immersive installation, I explore the intersection of memory and urban spaces. The work draws from my experiences growing up in rapidly changing cityscapes, where the familiar transforms into the unknown overnight.
-
-Through the use of augmented reality, viewers are invited to witness the layered history of this space. Each interaction reveals a new dimension of the story, challenging our perception of what was, what is, and what could be.
-
-The piece incorporates found objects from demolished buildings in the area, each carrying its own narrative and emotional weight. These artifacts serve as anchors, connecting the digital elements to the physical reality of the space.
-
-By merging traditional sculptural elements with cutting-edge technology, this installation creates a dialogue between past and present, physical and digital, memory and reality. The viewer becomes an active participant in this exploration, their movements and choices shaping their unique experience of the work.`,
-    arExperienceUrl: "https://example.com/ar/1",
+    id: 1,
+    title: `Watch How Godzilla Aunt Eats the Cowboys`,
+    artist: `Artemisio Romero Y Carver`,
+    location: `Cowbelles Monument`,
+    description: `Artemisio responds to the Cowbelles monument by combining poetry, sculpture, and historic footage to explore themes of Manifest Destiny and colonization in relation to the Santa Fe Plaza.`,
+    artistStatement: `In most any United States History textbooks there is an image of a painting titled "American Progress" (1872). In "American Progress" Indigenous men, women, and children flee a flying Caucasian giantess and her entourage of cattle and settlers (it is of note that one of the European families, in their covered wagon, were in fact based on the same invading family, the Egolfs, also depicted in the pictured Cowbelles' plaque). The painting itself was made by artist John Gast, who in 1865, had personally witnessed and met the flying white woman, who introduced herself to him as Columbia, as she began her westward summer vacation. In his autobiography, Ghast is quoted as quipping that when he met the towering Columbia, she had told him how excited she was to dine on all these new Southwestern delicacies; awkwardly, he couldn't parse if she meant the foods or the people. Long after Ghast had died, having been trampled to death by a Buffalo in his New York apartment, nuclear testing in the New Mexican region, combined with a local tradition of matriarchy, would provide Columbia and her cattle with a lethal challenger. Enter: Godzilla Aunt.`,
+    artistImage: `/olivia.jpg`,
+    arUrl: `https://8w.8thwall.app/inner-ar`,
   },
   {
-    id: "2",
-    title: "Digital Echoes",
-    artist: "Marcus Rivera",
-    duration: 240,
-    coverImage: "/demo-installation-2.jpg",
-    artistStatement: `This piece examines the digital footprints we leave behind in physical spaces. Through augmented reality, visitors encounter ethereal traces of past interactions, creating a living, breathing archive of human presence.
-
-The installation uses machine learning to analyze movement patterns and translate them into visual poetry. Each visitor's journey through the space adds to an ever-evolving digital tapestry, visible only through the lens of technology.
-
-Sound plays a crucial role in this work, with spatial audio creating invisible boundaries and pathways. The audio landscape shifts and adapts based on collective movement patterns, creating a dynamic soundscape that reflects the organic flow of human traffic.
-
-This exploration of digital permanence in physical impermanence raises questions about memory, surveillance, and the nature of shared spaces in our increasingly connected world.`,
-    arExperienceUrl: "https://example.com/ar/2",
+    id: 2,
+    title: `MuggZ's Plight`,
+    artist: `Cliff Fragua`,
+    location: `St. Francis`,
+    description: `Cliff Fragua explores the relationship between himself, Po'Pay, and St. Francis through poetry and sculpture.`,
+    artistStatement: `I am an artist who is committed to my community. I believe we are an extension of our communities and my work reflects my devotion to the people. I believe we can give voice to our authentic narratives and create a deeper understanding of who we are as a people through the arts. We must understand our relationship with the environment and our homelands. Our traditional knowledge systems are unique and are an extension of our eco system. I strive to manifest that uniqueness and traditional knowledge systems through design concepts that will incorporate the relationship the people have with the homelands; using concepts as sustainability, resilience, and traditional ecological knowledge. The goal is to translate "who are the original people" to the public so that visitors can gain an appreciation and understanding of the original people through a different lens.`,
+    artistImage: `/olivia.jpg`,
+    arUrl: `https://8w.8thwall.app/inner-ar`,
+  },
+  {
+    id: 3,
+    title: `A River Through Time`,
+    artist: `Ehren Kee Natay`,
+    location: `Santa Fe River`,
+    description: `This immersive art piece explores the timelines of the Santa Fe Rivers past, present and imagined futures through a narrative about an Indigenous Time Machine. Ehren examines his own personal relationship to those histories while taking you on a comedic futurist journey.`,
+    artistStatement: `My piece entitled, "A River Through Time" explores a locational history near the Santa Fe River, downtown, in Santa Fe New Mexico. I initially approached this project with the question, "If I could travel back in time, what stories would the river tell me?" I imagined the distant past, pre-contact, and how the river would have served as a life source for my ancestors. My elders told me that long ago, our people visited the river daily, drawing water up with a gourd and carrying it back home in a clay pottery vessel. I then asked myself, "at what point in history did we become disconnected from our water source?"`,
+    artistImage: `/olivia.jpg`,
+    arUrl: `https://8w.8thwall.app/inner-ar`,
+  },
+  {
+    id: 4,
+    title: `Nawitlanpa Teotl`,
+    artist: `PAZ (Mapitzmitl) and Crystal Xochitl Zamora`,
+    location: `Barrio Analco`,
+    description: `In this immersive art experience created in collaboration between PAZ and his daughter Crystal, dancers made of energy and light perform an invocation to the 4 directions.`,
+    artistStatement: `Within Mexikayotl (Mexika-Chichimeka tradition) an invocation to Nawitlanpa Chanekeh (The guardians of the four cardinal directions) precedes most any ritual ceremony whether private or public. The energetic intent of this invocation is to acknowledge the presence of and the desire to interface with the non ordinary aspects of the world that are present albeit not generally recognized. The dance that is presented is a continuation of the relationship with the world that has been respectfully requested via the invocation. Nawi Olin (Four Movement) represents the manner in which we as humans move within the space/time continuum.`,
+    artistImage: `/olivia.jpg`,
+    arUrl: `https://8w.8thwall.app/inner-ar`,
+  },
+  {
+    id: 5,
+    title: `Plight of the Recon Watchmen`,
+    artist: `Virgil Ortiz`,
+    location: `What Lies Beneath`,
+    description: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy.`,
+    artistStatement: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy. Over the past two decades, Ortiz has been creating a combination of ceramic pots, busts, masks, and elaborate costumes that depict 19 groups of characters representing the 19 remaining Pueblos in New Mexico.`,
+    artistImage: `/olivia.jpg`,
+    arUrl: `https://8w.8thwall.app/inner-ar`,
+  },
+  {
+    id: 6,
+    title: `Jornada del Muerto`,
+    artist: `Olivia Romo`,
+    location: `Oppenheimer's Office`,
+    description: `A poetic re-imagination of the secret war post, where Robert J. Oppenheimer and his team of scientists launched the Manhattan Project.`,
+    artistStatement: `Jornada del Muerto is a poetic re-imagination of the secret war post, the location of the historic office of Robert J. Oppenheimer where he and his team of scientist launched the Manhattan Project. Using Augmented Reality (AR) the digital installation manifests a lab worker dressed in a hazmat suit. The character delivers a poem taking participants on a nuclear colonial journey of the establishment of Los Alamos National Laboratory (LANL) and a legend of the first nuclear weapon. At the doorway, leading into the office, a person dressed in a hazmat suit delivers my poem that takes participants on a nuclear colonial journey of the establishment of Los Alamos National Laboratory (LANL) and a legend of the first nuclear weapon.`,
+    artistImage: `/olivia.jpg`,
+    arUrl: `https://8w.8thwall.app/inner-ar`,
   },
 ];
