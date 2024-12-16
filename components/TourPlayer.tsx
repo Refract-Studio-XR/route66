@@ -6,6 +6,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerDescription,
+  DrawerTrigger,
 } from "@/components/ui/drawer";
 import {
   PlayCircle,
@@ -16,7 +17,16 @@ import {
 } from "lucide-react";
 import ARPreviewSlider from "./ARPreviewSlider";
 import * as Slider from "@radix-ui/react-slider";
-import { type TourStop } from "@/data/tourStops";
+
+type TourStop = {
+  id: string;
+  title: string;
+  artist: string;
+  duration: number;
+  coverImage: string;
+  artistStatement: string;
+  arExperienceUrl: string;
+};
 
 type TourPlayerProps = {
   currentStop: TourStop;
@@ -122,43 +132,23 @@ const TourPlayer = ({
 
       {/* Drawer content with dvh */}
       <Drawer
-        open={drawerOpen}
-        onOpenChange={setDrawerOpen}
+        open={true}
+        snapPoints={[0.5, 0.6, 0.7, 0.8, 0.9, 1]}
+        activeSnapPoint={0.5}
       >
-        <DrawerContent className="fixed inset-x-0 bottom-0 mt-24 rounded-t-[10px] max-h-[90dvh] bg-white dark:bg-zinc-900">
+        <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-              {currentStop.title}
-            </DrawerTitle>
-            <DrawerDescription className="text-sm text-zinc-500 dark:text-zinc-400">
-              by {currentStop.artist}
-            </DrawerDescription>
+            <DrawerTitle>{currentStop.title}</DrawerTitle>
+            <DrawerDescription>by {currentStop.artist}</DrawerDescription>
           </DrawerHeader>
-          <div className="px-4 pb-8">
-            <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed whitespace-pre-line">
+          <div className="px-4 pb-8  relative">
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
               {currentStop.artistStatement}
             </p>
+            <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
           </div>
         </DrawerContent>
       </Drawer>
-
-      {/* Mini Drawer Preview */}
-      {!drawerOpen && (
-        <div
-          className="fixed bottom-0 inset-x-0 bg-white dark:bg-zinc-900 rounded-t-[10px] cursor-pointer"
-          onClick={() => setDrawerOpen(true)}
-        >
-          <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
-          <div className="p-4 relative">
-            <div className="relative h-[3em] overflow-hidden">
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                {currentStop.artistStatement}
-              </p>
-              <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
