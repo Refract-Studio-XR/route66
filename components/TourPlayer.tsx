@@ -16,16 +16,7 @@ import {
 } from "lucide-react";
 import ARPreviewSlider from "./ARPreviewSlider";
 import * as Slider from "@radix-ui/react-slider";
-
-type TourStop = {
-  id: string;
-  title: string;
-  artist: string;
-  duration: number;
-  coverImage: string;
-  artistStatement: string;
-  arExperienceUrl: string;
-};
+import { type TourStop } from "@/data/tourStops";
 
 type TourPlayerProps = {
   currentStop: TourStop;
@@ -47,12 +38,6 @@ const TourPlayer = ({
   onProgressChange,
 }: TourPlayerProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const slides = [
-    { id: "1", title: "AR Experience 1" },
-    { id: "2", title: "AR Experience 2" },
-    { id: "3", title: "AR Experience 3" },
-  ];
 
   return (
     <div className="fixed inset-0 h-[100dvh] bg-[#635985] text-white flex flex-col">
@@ -76,7 +61,7 @@ const TourPlayer = ({
         <ARPreviewSlider />
 
         {/* Title area */}
-        <div className="px-1 text-center h-24 flex flex-col justify-center">
+        <div className="px-1 pt-2 text-center h-24 flex flex-col justify-center">
           <h2 className="text-3xl font-bold leading-tight">
             {currentStop.title}
           </h2>

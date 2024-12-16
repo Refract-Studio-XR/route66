@@ -30,7 +30,7 @@ const ARPreviewSlider = () => {
         />
       )}
 
-      <div className="py-2">
+      <div className="py-8">
         <div ref={emblaRef}>
           <div className="flex">
             <div
