@@ -1,12 +1,5 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import {
   PlayCircle,
   PauseCircle,
@@ -14,19 +7,17 @@ import {
   SkipForward,
   ChevronDown,
 } from "lucide-react";
-import { DrawerClose } from "@/components/ui/drawer";
-import { X } from "lucide-react";
 import ARPreviewSlider from "./ARPreviewSlider";
 import * as Slider from "@radix-ui/react-slider";
 
 type TourStop = {
-  id: string;
+  id: number | string;
   title: string;
   artist: string;
-  duration: number;
-  coverImage: string;
+  duration?: number;
+  coverImage?: string;
   artistStatement: string;
-  arExperienceUrl: string;
+  arExperienceUrl?: string;
 };
 
 type TourPlayerProps = {
@@ -50,8 +41,6 @@ const TourPlayer = ({
   progress,
   onProgressChange,
 }: TourPlayerProps) => {
-  const [snap, setSnap] = useState<number | string | null>(SNAP_POINTS[0]);
-
   return (
     <div className="fixed inset-0 h-[100dvh] bg-[#635985] text-white flex flex-col">
       {/* Header */}
@@ -108,7 +97,6 @@ const TourPlayer = ({
             size="icon"
             onClick={() => {
               onPrevious();
-              setSnap(SNAP_POINTS[0]);
             }}
             className="text-white active:bg-white/10 hover:bg-transparent"
           >
@@ -132,7 +120,6 @@ const TourPlayer = ({
             size="icon"
             onClick={() => {
               onNext();
-              setSnap(SNAP_POINTS[0]);
             }}
             className="text-white active:bg-white/10 hover:bg-transparent"
           >
@@ -146,16 +133,9 @@ const TourPlayer = ({
         modal={false}
         open
         snapPoints={SNAP_POINTS}
-        onOpenChange={(open) => {
-          setSnap(open ? SNAP_POINTS[0] : SNAP_POINTS[1]);
-        }}
-        activeSnapPoint={snap}
+        snapToSequentialPoint
       >
-        <DrawerHeader>
-          {/* <DrawerTitle>{currentStop.title}</DrawerTitle>
-            <DrawerDescription>by {currentStop.artist}</DrawerDescription> */}
-        </DrawerHeader>
-        <DrawerContent className="max-w-[400px] h-[650px] mx-auto">
+        <DrawerContent className="max-w-[450px] h-[650px] mx-auto">
           <div className="px-4 pb-8 pt-4 relative">
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
               {currentStop.artistStatement}

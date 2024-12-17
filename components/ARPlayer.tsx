@@ -21,7 +21,7 @@ const ARPlayer = ({ url, onClose }: ARPlayerProps) => {
       <iframe
         className="h-full w-full"
         src={url}
-        allow="camera;microphone;gyroscope;accelerometer"
+        allow="camera;gyroscope;accelerometer;magnetometer;xr-spatial-tracking;microphone;geolocation"
         allowFullScreen
       />
     </div>,
