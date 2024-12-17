@@ -6,7 +6,6 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerDescription,
-  DrawerTrigger,
 } from "@/components/ui/drawer";
 import {
   PlayCircle,
@@ -15,6 +14,8 @@ import {
   SkipForward,
   ChevronDown,
 } from "lucide-react";
+import { DrawerClose } from "@/components/ui/drawer";
+import { X } from "lucide-react";
 import ARPreviewSlider from "./ARPreviewSlider";
 import * as Slider from "@radix-ui/react-slider";
 
@@ -38,6 +39,8 @@ type TourPlayerProps = {
   onProgressChange: (value: number) => void;
 };
 
+const SNAP_POINTS = [0.2, `${window.innerHeight * 0.9}px`];
+
 const TourPlayer = ({
   currentStop,
   onPlayPause,
@@ -47,7 +50,7 @@ const TourPlayer = ({
   progress,
   onProgressChange,
 }: TourPlayerProps) => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [snap, setSnap] = useState<number | string | null>(SNAP_POINTS[0]);
 
   return (
     <div className="fixed inset-0 h-[100dvh] bg-[#635985] text-white flex flex-col">
@@ -96,56 +99,67 @@ const TourPlayer = ({
         </div>
 
         {/* Controls with subtle press states */}
-        <div className="flex justify-center items-center gap-8 px-4">
+        <div
+          className="flex justify-center items-center gap-8 px-4"
+          style={{ position: "relative", zIndex: 2 }}
+        >
           <Button
             variant="ghost"
             size="icon"
-            onClick={onPrevious}
-            className="active:bg-white/10 hover:bg-transparent"
+            onClick={() => {
+              onPrevious();
+              setSnap(SNAP_POINTS[0]);
+            }}
+            className="text-white active:bg-white/10 hover:bg-transparent"
           >
-            <SkipBack
-              fill="white"
-              color="white"
-            />
+            <SkipBack className="h-8 w-8 fill-current" />
           </Button>
 
           <Button
+            size="icon"
             onClick={onPlayPause}
             className="rounded-full bg-white text-black hover:bg-white active:scale-95 transition-transform h-16 w-16"
           >
-            {isPlaying ? <PauseCircle /> : <PlayCircle />}
+            {isPlaying ? (
+              <PauseCircle className="h-10 w-10 stroke-2" />
+            ) : (
+              <PlayCircle className="h-10 w-10 stroke-2" />
+            )}
           </Button>
 
           <Button
             variant="ghost"
             size="icon"
-            onClick={onNext}
-            className="active:bg-white/10 hover:bg-transparent"
+            onClick={() => {
+              onNext();
+              setSnap(SNAP_POINTS[0]);
+            }}
+            className="text-white active:bg-white/10 hover:bg-transparent"
           >
-            <SkipForward
-              fill="white"
-              color="white"
-            />
+            <SkipForward className="h-8 w-8 fill-current" />
           </Button>
         </div>
       </div>
 
       {/* Drawer content with dvh */}
       <Drawer
-        open={true}
-        snapPoints={[0.5, 0.6, 0.7, 0.8, 0.9, 1]}
-        activeSnapPoint={0.5}
+        modal={false}
+        open
+        snapPoints={SNAP_POINTS}
+        onOpenChange={(open) => {
+          setSnap(open ? SNAP_POINTS[0] : SNAP_POINTS[1]);
+        }}
+        activeSnapPoint={snap}
       >
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>{currentStop.title}</DrawerTitle>
-            <DrawerDescription>by {currentStop.artist}</DrawerDescription>
-          </DrawerHeader>
-          <div className="px-4 pb-8  relative">
+        <DrawerHeader>
+          {/* <DrawerTitle>{currentStop.title}</DrawerTitle>
+            <DrawerDescription>by {currentStop.artist}</DrawerDescription> */}
+        </DrawerHeader>
+        <DrawerContent className="max-w-[540px] h-[700px] mx-auto">
+          <div className="px-4 pb-8 pt-4 relative">
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
               {currentStop.artistStatement}
             </p>
-            <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-white dark:from-zinc-900 to-transparent" />
           </div>
         </DrawerContent>
       </Drawer>
