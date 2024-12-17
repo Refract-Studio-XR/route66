@@ -39,7 +39,7 @@ type TourPlayerProps = {
   onProgressChange: (value: number) => void;
 };
 
-const SNAP_POINTS = [0.2, `${window.innerHeight * 0.9}px`];
+const SNAP_POINTS = [0.25, 1];
 
 const TourPlayer = ({
   currentStop,
@@ -155,7 +155,7 @@ const TourPlayer = ({
           {/* <DrawerTitle>{currentStop.title}</DrawerTitle>
             <DrawerDescription>by {currentStop.artist}</DrawerDescription> */}
         </DrawerHeader>
-        <DrawerContent className="max-w-[540px] h-[700px] mx-auto">
+        <DrawerContent className="max-w-[400px] h-[650px] mx-auto">
           <div className="px-4 pb-8 pt-4 relative">
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
               {currentStop.artistStatement}
