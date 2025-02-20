@@ -35,7 +35,7 @@ const ARPreviewSlider = () => {
         <div ref={emblaRef}>
           <div className="flex">
             <div
-              className="relative shrink-0 w-[70vw] mr-3 aspect-square rounded-lg bg-[#4A4268] overflow-hidden"
+              className="relative shrink-0 w-[70vw] mr-3 aspect-square rounded-lg bg-[#4A4268] overflow-hidden "
               style={{ marginLeft: "10vw" }}
             >
               <iframe
