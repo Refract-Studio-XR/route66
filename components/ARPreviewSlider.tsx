@@ -12,7 +12,7 @@ const PREVIEW_ANIMATION = "/ehren_demo.webm";
 //   }>;
 // };
 
-const INNER_FRAME_URL = "https://refractstudio.staging.8thwall.app/vps-test/";
+const INNER_FRAME_URL = "https://refractstudio.8thwall.app/vps-test";
 const MAP_URL = "https://playground.8thwall.app/simple-map";
 
 const ARPreviewSlider = () => {
