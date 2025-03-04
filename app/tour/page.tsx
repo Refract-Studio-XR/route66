@@ -16,7 +16,7 @@ export default function TourStopList() {
   const featuredStop = tourStops[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-900 via-red-950 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-b from-red-900 via-red-990 to-black text-white">
       <div className="container mx-auto px-3 py-8">
         {/* Hero section - Spotify-style with image above text */}
         <div className="mb-4 p-2">
@@ -66,35 +66,41 @@ export default function TourStopList() {
           <div className="rounded-lg overflow-hidden">
             {/* List items */}
             {tourStops.map((stop) => (
-              <Card
-                key={`list-${stop.id}`}
-                className="bg-transparent border-none rounded-none hover:bg-zinc-800/30 transition-colors"
+              <Link
+                key={stop.id}
+                href={`/tour/${stop.slug}`}
+                className="block"
               >
-                <Link href={`/tour/${stop.id}`}>
-                  <CardContent className="flex items-center p-0 px-2 py-2">
-                    <div className="flex-1 flex items-center">
-                      <Avatar className="h-9 w-9 mr-3">
-                        <AvatarImage
+                <div className="flex items-center bg-white/5 rounded-md p-3 hover:bg-white/10 transition-colors">
+                  <div className="w-20 h-20 flex-shrink-0 mr-4">
+                    <AspectRatio
+                      ratio={1}
+                      className="bg-muted rounded-md overflow-hidden"
+                    >
+                      {stop.coverImage && (
+                        <Image
                           src={stop.coverImage}
                           alt={stop.title}
+                          fill
+                          className="object-cover"
                         />
-                        <AvatarFallback>{stop.title.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <div className="min-w-0">
-                        <div className="text-white text-sm font-medium truncate max-w-[150px] md:max-w-none">
-                          {stop.title}
-                        </div>
-                        <div className="text-gray-400 text-xs truncate max-w-[150px] md:max-w-none">
-                          {stop.artist}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-1/3 text-xs text-gray-300 truncate text-right">
+                      )}
+                    </AspectRatio>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-lg font-semibold truncate">
+                      {stop.title}
+                    </h2>
+                    <p className="text-sm text-gray-300 truncate">
+                      {stop.artist}
+                    </p>
+                    <p className="text-xs text-gray-400 mt-1">
                       {stop.location}
-                    </div>
-                  </CardContent>
-                </Link>
-              </Card>
+                    </p>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

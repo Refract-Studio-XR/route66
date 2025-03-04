@@ -1,4 +1,4 @@
-export type TourStop = {
+export interface TourStop {
   id: number;
   title: string;
   artist: string;
@@ -10,7 +10,8 @@ export type TourStop = {
   duration?: number;
   coverImage?: string;
   arExperienceUrl?: string;
-};
+  slug: string;
+}
 
 export const tourStops: TourStop[] = [
   {
@@ -25,6 +26,7 @@ export const tourStops: TourStop[] = [
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
+    slug: "artemisio-romero-cowbelles-monument",
   },
   {
     id: 2,
@@ -38,6 +40,7 @@ export const tourStops: TourStop[] = [
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
+    slug: "cliff-fragua-st-francis",
   },
   {
     id: 3,
@@ -51,6 +54,7 @@ export const tourStops: TourStop[] = [
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
+    slug: "ehren-kee-natay-santa-fe-river",
   },
   {
     id: 4,
@@ -64,6 +68,7 @@ export const tourStops: TourStop[] = [
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
+    slug: "paz-crystal-xochitl-zamora-barrio-analco",
   },
   {
     id: 5,
@@ -77,6 +82,7 @@ export const tourStops: TourStop[] = [
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
+    slug: "virgil-ortiz-what-lies-beneath",
   },
   {
     id: 6,
@@ -90,5 +96,6 @@ export const tourStops: TourStop[] = [
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
+    slug: "olivia-romo-oppenheimers-office",
   },
 ];

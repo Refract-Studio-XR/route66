@@ -2,6 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import ARPlayer from "./ARPlayer";
+import Image from "next/image";
 
 const PREVIEW_ANIMATION = "/ehren_demo.webm";
 
@@ -30,7 +31,7 @@ const ARPreviewSlider = () => {
         />
       )}
 
-      <div className="py-8">
+      <div className="">
         <div ref={emblaRef}>
           <div className="flex">
             <div
@@ -70,10 +71,11 @@ const ARPreviewSlider = () => {
             </div>
 
             <div className="relative shrink-0 w-[70vw] aspect-square rounded-lg bg-[#4A4268] overflow-hidden">
-              <img
+              <Image
                 src="/olivia.jpg"
                 alt="Olivia"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </div>
