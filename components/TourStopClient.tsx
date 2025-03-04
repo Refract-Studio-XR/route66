@@ -93,9 +93,9 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-900 red-950 to-black text-white">
+    <div className="fixed inset-0 bg-gradient-to-b from-red-900 via-red-950 to-black text-white overflow-auto">
       {/* Header */}
-      <div className="p-2 pt-8 flex items-center">
+      <div className="p-2 pt-8 flex items-center safe-top">
         <Link href="/tour">
           <Button
             variant="ghost"
@@ -248,7 +248,7 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
         </div>
 
         {/* Artist Statement Section */}
-        <div className="mt-6 bg-black/30 p-3 rounded-t-3xl">
+        <div className="mt-6 bg-black/30 p-3 rounded-t-3xl safe-bottom">
           <div className="flex justify-center mb-3">
             <div className="w-10 h-1 bg-white/30 rounded-full" />
           </div>
