@@ -1,25 +1,12 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tour Player",
-  description: "Interactive AR Tour Experience",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  other: {
-    "8thwall:package": ["@8thwall.xrextras", "@8thwall.landing-page"],
-  },
+  title: "Route 66 Audio Tour",
+  description: "Explore Route 66 through immersive audio experiences",
 };
 
 export default function RootLayout({
@@ -29,11 +16,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            // Fix for iOS Safari viewport height issue
+            function setAppHeight() {
+              document.documentElement.style.setProperty('--app-height', \`\${window.innerHeight}px\`);
+            }
+            window.addEventListener('resize', setAppHeight);
+            setAppHeight();
+          `,
+          }}
+        />
+      </head>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

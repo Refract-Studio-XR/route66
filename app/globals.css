@@ -40,6 +40,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     --vh: 1vh;
+    --app-height: 100%;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -75,7 +76,23 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    background-color: #7f1d1d;
+    height: 100%;
+    overflow: hidden;
   }
+}
+
+.safari-fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  height: var(--app-height);
+  width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .safe-top {
