@@ -15,7 +15,7 @@ export default function TourStopList() {
   const featuredStop = tourStops[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-900 via-red-990 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-b from-red-900 via-red-990 to-black text-white inset-0">
       <div className="container mx-auto px-3 py-8">
         {/* Hero section - Spotify-style with image above text */}
         <div className="mb-4 p-2">

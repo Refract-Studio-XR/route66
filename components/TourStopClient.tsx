@@ -93,7 +93,7 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-b from-red-900 via-red-950 to-black text-white overflow-auto">
+    <div className="fixed inset-0 bg-gradient-to-b from-red-900 via-red-950 to-black text-white overflow-auto inset-0">
       {/* Header */}
       <div className="p-2 pt-8 flex items-center safe-top">
         <Link href="/tour">
