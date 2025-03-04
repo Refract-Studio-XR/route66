@@ -11,6 +11,7 @@ export interface TourStop {
   coverImage?: string;
   arExperienceUrl?: string;
   slug: string;
+  audioUrl: string;
 }
 
 export const tourStops: TourStop[] = [
@@ -27,6 +28,7 @@ export const tourStops: TourStop[] = [
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
     slug: "artemisio-romero-cowbelles-monument",
+    audioUrl: "/audio/artemisio-romero-cowbelles-monument.mp3",
   },
   {
     id: 2,
@@ -41,6 +43,7 @@ export const tourStops: TourStop[] = [
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
     slug: "cliff-fragua-st-francis",
+    audioUrl: "/audio/cliff-fragua-st-francis.mp3",
   },
   {
     id: 3,
@@ -55,6 +58,7 @@ export const tourStops: TourStop[] = [
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
     slug: "ehren-kee-natay-santa-fe-river",
+    audioUrl: "/audio/ehren-kee-natay-santa-fe-river.mp3",
   },
   {
     id: 4,
@@ -69,6 +73,7 @@ export const tourStops: TourStop[] = [
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
     slug: "paz-crystal-xochitl-zamora-barrio-analco",
+    audioUrl: "/audio/paz-crystal-xochitl-zamora-barrio-analco.mp3",
   },
   {
     id: 5,
@@ -83,6 +88,7 @@ export const tourStops: TourStop[] = [
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
     slug: "virgil-ortiz-what-lies-beneath",
+    audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
   },
   {
     id: 6,
@@ -97,5 +103,6 @@ export const tourStops: TourStop[] = [
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
     slug: "olivia-romo-oppenheimers-office",
+    audioUrl: "/audio/olivia-romo-oppenheimers-office.mp3",
   },
 ];
