@@ -20,7 +20,7 @@ export default function TourStopList() {
         {/* Hero section - Spotify-style with image above text */}
         <div className="mb-4 p-2">
           <div className="flex flex-col items-center md:items-start md:flex-row md:gap-6">
-            <div className="w-48 h-48 md:w-48 md:h-48 flex-shrink-0 shadow-lg mb-4 md:mb-0">
+            <div className="w-48 h-48 md:w-48 md:h-48 flex-shrink-0 shadow-lg mb-4 md:mb-0 rounded-md overflow-hidden">
               <AspectRatio
                 ratio={1}
                 className="bg-muted"
@@ -30,7 +30,7 @@ export default function TourStopList() {
                     src={featuredStop.coverImage}
                     alt="Featured Tour"
                     fill
-                    className="object-cover rounded-md"
+                    className="object-cover"
                   />
                 )}
               </AspectRatio>
@@ -71,10 +71,10 @@ export default function TourStopList() {
                 className="block"
               >
                 <div className="flex items-center bg-white/5 rounded-md p-3 hover:bg-white/10 transition-colors">
-                  <div className="w-20 h-20 flex-shrink-0 mr-4">
+                  <div className="w-20 h-20 flex-shrink-0 mr-4 rounded-md overflow-hidden">
                     <AspectRatio
                       ratio={1}
-                      className="bg-muted rounded-md overflow-hidden"
+                      className="bg-muted"
                     >
                       {stop.coverImage && (
                         <Image
@@ -106,7 +106,7 @@ export default function TourStopList() {
       </div>
 
       {/* Spotify-like fixed player at bottom - smaller for mobile */}
-      <div className="fixed bottom-0 left-0 right-0 h-14 md:h-16 bg-zinc-900/90 backdrop-blur-sm border-t border-zinc-800 flex items-center px-3">
+      <div className="fixed bottom-0 left-0 right-0 h-14 md:h-16 bg-zinc-900/90 backdrop-blur-sm border-t border-zinc-800 flex items-center px-3 safe-bottom">
         <div className="w-full max-w-screen-xl mx-auto flex justify-between items-center">
           <div className="flex items-center">
             <Avatar className="h-10 w-10 mr-2 bg-zinc-800">

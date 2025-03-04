@@ -95,17 +95,21 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
   return (
     <div className="safari-fix bg-gradient-to-b from-red-900 via-red-950 to-black text-white">
       {/* Header */}
-      <div className="p-2 pt-8 flex items-center safe-top">
+      <div className="p-2 mt-8 flex items-center safe-top">
         <Link href="/tour">
           <Button
             variant="ghost"
             className="text-white p-1"
+            size="lg"
           >
-            <ChevronDown className="h-5 w-5" />
+            <ChevronDown
+              size={36}
+              strokeWidth={2.5}
+            />
           </Button>
         </Link>
         <div className="flex-1 text-center">
-          <h1 className="text-base font-medium">{stop.title}</h1>
+          <h1 className="text-lg font-medium">{stop.title}</h1>
         </div>
         <div className="w-8" />
       </div>
@@ -113,7 +117,7 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
       {/* Main content */}
       <div className="flex flex-col">
         {/* AR Preview area (replacing hero image) */}
-        <div className="px-3 py-8">
+        <div className="px-3 py-6">
           <div className="rounded-md overflow-hidden">
             <ARPreviewSlider />
           </div>
@@ -149,14 +153,14 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
         </div>
 
         {/* Controls */}
-        <div className="flex justify-center items-center gap-6 px-3 py-2">
+        <div className="flex justify-center items-center gap-8 px-3 py-4">
           <button
-            className="text-white opacity-80 focus:outline-none active:opacity-100 touch-manipulation"
+            className="text-white opacity-80 focus:outline-none active:opacity-100 touch-manipulation p-2"
             aria-label="Previous track"
           >
             <svg
-              width="32"
-              height="32"
+              width="40"
+              height="40"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -177,13 +181,14 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
 
           <button
             onClick={handlePlayPause}
-            className="bg-white rounded-full w-14 h-14 flex items-center justify-center focus:outline-none active:bg-gray-100 touch-manipulation"
+            className="bg-white rounded-full w-18 h-18 flex items-center justify-center focus:outline-none active:bg-gray-100 touch-manipulation"
             aria-label={isPlaying ? "Pause" : "Play"}
+            style={{ width: "4.5rem", height: "4.5rem" }}
           >
             {isPlaying ? (
               <svg
-                width="28"
-                height="28"
+                width="40"
+                height="40"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -207,8 +212,8 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
               </svg>
             ) : (
               <svg
-                width="28"
-                height="28"
+                width="40"
+                height="40"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -222,12 +227,12 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
           </button>
 
           <button
-            className="text-white opacity-80 focus:outline-none active:opacity-100 touch-manipulation"
+            className="text-white opacity-80 focus:outline-none active:opacity-100 touch-manipulation p-2"
             aria-label="Next track"
           >
             <svg
-              width="32"
-              height="32"
+              width="40"
+              height="40"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
