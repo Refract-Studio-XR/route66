@@ -10,6 +10,11 @@ type ARPlayerProps = {
 const ARPlayer = ({ url, onClose }: ARPlayerProps) => {
   return createPortal(
     <div className="fixed inset-0 z-50 bg-black">
+      <a data-8code="6q7xc"></a>
+      <script
+        defer
+        src="//cdn.8thwall.com/web/share/embed8.js"
+      ></script>
       <Button
         variant="ghost"
         size="icon"
