@@ -102,7 +102,7 @@ export const tourStops: TourStop[] = [
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
-    slug: "virgil-ortiz-what-lies-beneath",
+    slug: "vps-office-test",
     audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
   },
 ];
