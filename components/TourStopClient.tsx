@@ -119,7 +119,7 @@ export default function TourStopClient({ stop }: TourStopClientProps) {
         {/* AR Preview area (replacing hero image) */}
         <div className="px-3 py-6">
           <div className="rounded-md overflow-hidden">
-            <ARPreviewSlider />
+            <ARPreviewSlider url={stop.arUrl} />
           </div>
         </div>
 

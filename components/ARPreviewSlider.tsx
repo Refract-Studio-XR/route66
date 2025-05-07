@@ -13,10 +13,14 @@ const PREVIEW_ANIMATION = "/ehren_demo.webm";
 //   }>;
 // };
 
-const INNER_FRAME_URL = "https://refractstudio.8thwall.app/vps-test";
+interface ARPreviewSliderProps {
+  url: string;
+}
+
+// const INNER_FRAME_URL = "https://refractstudio.8thwall.app/vps-test";
 const MAP_URL = "https://playground.8thwall.app/simple-map";
 
-const ARPreviewSlider = () => {
+const ARPreviewSlider = ({ url }: ARPreviewSliderProps) => {
   const [showAR, setShowAR] = useState(false);
   const [emblaRef] = useEmblaCarousel({
     startIndex: 1,
@@ -26,7 +30,7 @@ const ARPreviewSlider = () => {
     <>
       {showAR && (
         <ARPlayer
-          url={INNER_FRAME_URL}
+          url={url}
           onClose={() => setShowAR(false)}
         />
       )}
