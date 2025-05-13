@@ -16,6 +16,21 @@ export interface TourStop {
 
 export const tourStops: TourStop[] = [
   {
+    id: 0,
+    title: `A-Frame VPS Demo`,
+    artist: `Refract Studio`,
+    location: `Refract Studio`,
+    description: `A-Frame VPS Demo`,
+    artistStatement: `A-Frame VPS Demo`,
+    artistImage: `/olivia.jpg`,
+    arUrl: `https://refractstudio.8thwall.app/a-frame-vps-demo/`,
+    duration: 30,
+    coverImage: "/olivia.jpg",
+    arExperienceUrl: "",
+    slug: "a-frame-vps-demo",
+    audioUrl: "/audio/artemisio-romero-cowbelles-monument.mp3",
+  },
+  {
     id: 1,
     title: `Fourth and Central`,
     artist: `Artemisio Romero Y Carver`,
@@ -23,7 +38,7 @@ export const tourStops: TourStop[] = [
     description: `Artemisio responds to the Cowbelles monument by combining poetry, sculpture, and historic footage to explore themes of Manifest Destiny and colonization in relation to the Santa Fe Plaza.`,
     artistStatement: `In most any United States History textbooks there is an image of a painting titled "American Progress" (1872). In "American Progress" Indigenous men, women, and children flee a flying Caucasian giantess and her entourage of cattle and settlers (it is of note that one of the European families, in their covered wagon, were in fact based on the same invading family, the Egolfs, also depicted in the pictured Cowbelles' plaque). The painting itself was made by artist John Gast, who in 1865, had personally witnessed and met the flying white woman, who introduced herself to him as Columbia, as she began her westward summer vacation. In his autobiography, Ghast is quoted as quipping that when he met the towering Columbia, she had told him how excited she was to dine on all these new Southwestern delicacies; awkwardly, he couldn't parse if she meant the foods or the people. Long after Ghast had died, having been trampled to death by a Buffalo in his New York apartment, nuclear testing in the New Mexican region, combined with a local tradition of matriarchy, would provide Columbia and her cattle with a lethal challenger. Enter: Godzilla Aunt.`,
     artistImage: `/olivia.jpg`,
-    arUrl: `https://refractstudio.8thwall.app/a-frame-vps-demo/`,
+    arUrl: `https://refractstudio.8thwall.app/route66-4th-central/`,
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
