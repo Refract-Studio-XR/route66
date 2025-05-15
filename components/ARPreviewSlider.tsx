@@ -76,6 +76,7 @@ const ARPreviewSlider = ({ url }: ARPreviewSliderProps) => {
 
             <div className="relative shrink-0 w-[70vw] aspect-square rounded-lg bg-[#4A4268] overflow-hidden">
               <Image
+                priority={true}
                 src="/olivia.jpg"
                 alt="Olivia"
                 fill

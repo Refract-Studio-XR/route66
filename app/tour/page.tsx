@@ -27,6 +27,7 @@ export default function TourStopList() {
               >
                 {featuredStop.coverImage && (
                   <Image
+                    priority={true}
                     src={featuredStop.coverImage}
                     alt="Featured Tour"
                     fill
@@ -78,6 +79,7 @@ export default function TourStopList() {
                     >
                       {stop.coverImage && (
                         <Image
+                          priority={true}
                           src={stop.coverImage}
                           alt={stop.title}
                           fill
