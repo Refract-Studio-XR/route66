@@ -8,8 +8,9 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "@/components/ui/drawer";
+import TourStopList from "./TourStopList";
 
-const snapPoints = [0.65, 1];
+const snapPoints = [0.3, 0.8];
 
 const TourStopsDrawer = () => {
   const [activeSnapPoint, setActiveSnapPoint] = useState<
@@ -26,40 +27,19 @@ const TourStopsDrawer = () => {
       setActiveSnapPoint={setActiveSnapPoint}
       modal={false}
     >
-      <DrawerContent className="fixed flex flex-col bg-zinc-900 border border-zinc-800 border-b-0 rounded-t-2xl bottom-0 left-0 right-0 z-20 shadow-lg outline-none ring-0 focus:ring-0 p-4">
-        <DrawerHeader className="text-left p-0">
+      <DrawerContent
+        className={`flex flex-col rounded-t-2xl bg-zinc-900 border border-zinc-800 border-b-0 bottom-0 left-0 right-0 z-20 shadow-lg outline-none ring-0 focus:ring-0 h-[110vh] box-border ${
+          activeSnapPoint === 0.8 ? "pb-[200px]" : "pb-[700px]"
+        }`}
+      >
+        <DrawerHeader className="text-left p-4">
           <DrawerTitle className="text-white">Tour Stops</DrawerTitle>
           <DrawerDescription className="text-gray-400">
             Explore various tour stops. Drag to see more details.
           </DrawerDescription>
         </DrawerHeader>
-        <div className="mt-4 text-gray-300">
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
-          <p>Content for tour stops will be listed here.</p>
-          <p>This is a simplified view for testing drawer behavior.</p>
+        <div className="flex-1 overflow-y-auto mt-4 px-4">
+          <TourStopList drawerOpen={activeSnapPoint === 0.8} />
         </div>
       </DrawerContent>
     </Drawer>
