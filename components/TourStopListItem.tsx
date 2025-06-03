@@ -6,6 +6,7 @@ interface TourStopListItemProps {
   title: string;
   artist: string;
   coverImage?: string;
+  onClick?: () => void;
 }
 
 const TourStopListItem: React.FC<TourStopListItemProps> = ({
@@ -13,9 +14,14 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
   title,
   artist,
   coverImage,
+  onClick,
 }) => {
   return (
-    <div className="flex flex-col bg-zinc-800 rounded-xl p-4 mb-4 shadow-md">
+    <div
+      className="flex flex-col bg-zinc-800 rounded-xl p-4 mb-4 shadow-md"
+      onClick={onClick}
+      style={{ cursor: onClick ? "pointer" : undefined }}
+    >
       <div className="flex gap-3">
         <Image
           priority={true}
