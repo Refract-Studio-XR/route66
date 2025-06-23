@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import {
   Drawer,
   DrawerContent,
@@ -6,14 +7,11 @@ import {
   DrawerTitle,
   DrawerDescription,
 } from "@/components/ui/drawer";
+import ARPlayer from "./ARPlayer";
+import type { TourStop } from "@/data/tourStops";
 
 interface TourStopDetailDrawerProps {
-  tourStop: {
-    location: string;
-    title: string;
-    artist: string;
-    artistStatement: string;
-  } | null;
+  tourStop: TourStop | null;
   open: boolean;
   onClose: () => void;
 }
@@ -118,16 +116,44 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             max={100}
             value={progress}
             onChange={(e) => setProgress(Number(e.target.value))}
-            className={`w-1/4 h-2 accent-zinc-600 transition-all duration-300 ${
+            className={`w-1/4 h-2 accent-zinc-600 transition-all duration-500 ${
               hasPlayed ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
             aria-label="Audio progress"
           />
         </div>
-        <div className="text-gray-300 p-4 whitespace-pre-line min-h-[300px]">
+        {(tourStop.coverImage || tourStop.artistImage) && (
+          <div className="flex justify-start gap-4 p-4">
+            {tourStop.coverImage && (
+              <Image
+                src={tourStop.coverImage}
+                alt={tourStop.title}
+                width={120}
+                height={120}
+                className="rounded-xl border border-zinc-700 object-cover"
+                priority
+              />
+            )}
+            {tourStop.artistImage && (
+              <Image
+                src={tourStop.artistImage}
+                alt={tourStop.artist}
+                width={120}
+                height={120}
+                className="rounded-xl border border-zinc-700 object-cover"
+                priority
+              />
+            )}
+          </div>
+        )}
+        <div className="text-gray-300 p-4 whitespace-pre-line min-h-[300px] max-h-[550px] overflow-y-auto">
           {tourStop.artistStatement}
         </div>
       </DrawerContent>
+      <ARPlayer
+        url={tourStop.arUrl}
+        onClose={() => {}}
+      />
     </Drawer>
   );
 };

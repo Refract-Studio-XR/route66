@@ -9,7 +9,7 @@ type ARPlayerProps = {
 
 const ARPlayer = ({ url, onClose }: ARPlayerProps) => {
   return createPortal(
-    <div className="fixed inset-0 z-50 bg-black">
+    <div className="fixed inset-0 z-[100] bg-black">
       {/* <a data-8code="6q7xc"></a>
       <script
         defer

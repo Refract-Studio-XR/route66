@@ -59,6 +59,7 @@ const TourStopsDrawer = () => {
         </DrawerContent>
       </Drawer>
       <TourStopDetailDrawer
+        key={selectedTourStop?.id}
         tourStop={selectedTourStop}
         open={!!selectedTourStop}
         onClose={handleCloseDetail}
