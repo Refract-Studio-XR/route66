@@ -1,4 +1,3 @@
-import React from "react";
 import { tourStops, TourStop } from "@/data/tourStops";
 import TourStopListItem from "./TourStopListItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
