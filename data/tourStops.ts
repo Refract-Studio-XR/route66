@@ -12,11 +12,13 @@ export interface TourStop {
   arExperienceUrl?: string;
   slug: string;
   audioUrl: string;
+  coordinates: [number, number];
 }
 
 export const tourStops: TourStop[] = [
   {
     id: 0,
+    coordinates: [-106.65145, 35.08443],
     title: `A-Frame VPS Demo`,
     artist: `Refract Studio`,
     location: `Refract Studio`,
@@ -32,6 +34,7 @@ export const tourStops: TourStop[] = [
   },
   {
     id: 1,
+    coordinates: [-106.65145, 35.08443],
     title: `Fourth and Central`,
     artist: `Artemisio Romero Y Carver`,
     location: `Cowbelles Monument`,
@@ -47,6 +50,7 @@ export const tourStops: TourStop[] = [
   },
   {
     id: 2,
+    coordinates: [-106.642328, 35.083567],
     title: `Special Collections Library`,
     artist: `Cliff Fragua`,
     location: `St. Francis`,
@@ -63,6 +67,7 @@ export const tourStops: TourStop[] = [
   {
     id: 3,
     title: `Bio Park`,
+    coordinates: [-106.679495, 35.093496],
     artist: `Ehren Kee Natay`,
     location: `Santa Fe River`,
     description: `This immersive art piece explores the timelines of the Santa Fe Rivers past, present and imagined futures through a narrative about an Indigenous Time Machine. Ehren examines his own personal relationship to those histories while taking you on a comedic futurist journey.`,
@@ -78,6 +83,7 @@ export const tourStops: TourStop[] = [
   {
     id: 4,
     title: `Guild Cinema`,
+    coordinates: [-106.606715, 35.080217],
     artist: `PAZ (Mapitzmitl) and Crystal Xochitl Zamora`,
     location: `Barrio Analco`,
     description: `In this immersive art experience created in collaboration between PAZ and his daughter Crystal, dancers made of energy and light perform an invocation to the 4 directions.`,
@@ -92,9 +98,10 @@ export const tourStops: TourStop[] = [
   },
   {
     id: 5,
-    title: `Guild Cinema`,
+    coordinates: [-106.56798, 35.07522],
+    title: `Talin Market`,
     artist: `Virgil Ortiz`,
-    location: `What Lies Beneath`,
+    location: `Talin Market`,
     description: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy.`,
     artistStatement: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy. Over the past two decades, Ortiz has been creating a combination of ceramic pots, busts, masks, and elaborate costumes that depict 19 groups of characters representing the 19 remaining Pueblos in New Mexico.`,
     artistImage: "/olivia.jpg",
@@ -107,9 +114,26 @@ export const tourStops: TourStop[] = [
   },
   {
     id: 6,
-    title: `Refract Office Test`,
+    coordinates: [-106.499539, 35.06418],
+    title: `Singing Arrow Open Space`,
     artist: `Refract Studio`,
-    location: `What Lies Beneath`,
+    location: `Singing Arrow Open Space`,
+    description: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy.`,
+    artistStatement: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy. Over the past two decades, Ortiz has been creating a combination of ceramic pots, busts, masks, and elaborate costumes that depict 19 groups of characters representing the 19 remaining Pueblos in New Mexico.`,
+    artistImage: "/olivia.jpg",
+    arUrl: `https://refractstudio.8thwall.app/vps-office-test/`,
+    duration: 30,
+    coverImage: "/olivia.jpg",
+    arExperienceUrl: "",
+    slug: "vps-office-test",
+    audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
+  },
+  {
+    id: 7,
+    coordinates: [-106.499539, 35.06418],
+    title: `Abq Museum`,
+    artist: `Refract Studio`,
+    location: `Abq Museum`,
     description: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy.`,
     artistStatement: `During the 1600s, the Spanish colonized parts of the Southwest. In 1680, a Pueblo leader named Po'Pay led a successful revolt against them, pushing them out of the Pueblos they had begun to occupy. Over the past two decades, Ortiz has been creating a combination of ceramic pots, busts, masks, and elaborate costumes that depict 19 groups of characters representing the 19 remaining Pueblos in New Mexico.`,
     artistImage: "/olivia.jpg",

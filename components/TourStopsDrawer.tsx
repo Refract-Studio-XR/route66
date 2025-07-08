@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Drawer,
   DrawerContent,
@@ -10,11 +10,16 @@ import {
 } from "@/components/ui/drawer";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
-import { TourStop } from "@/data/tourStops";
+import { TourStop, tourStops } from "@/data/tourStops";
+import { MarkerData } from "@/hooks/useMapbox";
 
 const snapPoints = [0.3, 0.8];
 
-const TourStopsDrawer = () => {
+type Props = {
+  setOnMapMarkerClick: (callback: (data: MarkerData) => void) => void;
+};
+
+const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const [activeSnapPoint, setActiveSnapPoint] = useState<
     string | number | null
   >(snapPoints[0]);
@@ -26,6 +31,18 @@ const TourStopsDrawer = () => {
     setSelectedTourStop(stop);
     setActiveSnapPoint(snapPoints[0]);
   };
+
+  // Set up the marker click handler when component mounts
+  useEffect(() => {
+    setOnMapMarkerClick((data: MarkerData) => {
+      console.log("howdy");
+      const tourStop = tourStops.find((stop) => stop.id === data.id);
+      if (tourStop) {
+        handleSelectTourStop(tourStop);
+      }
+    });
+  }, [setOnMapMarkerClick]);
+
   const handleCloseDetail = () => setSelectedTourStop(null);
 
   return (
