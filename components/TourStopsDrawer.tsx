@@ -18,8 +18,8 @@ const snapPoints = [0.3, 0.8];
 type Props = {
   setOnMapMarkerClick: (callback: (data: MarkerData) => void) => void;
 };
-const urlParams = new URLSearchParams(window.location.search);
-const tourStopLocation = urlParams.get("location");
+const urlParams = window ? new URLSearchParams(window.location.search) : null;
+const tourStopLocation = urlParams ? urlParams.get("location") : null;
 const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const [activeSnapPoint, setActiveSnapPoint] = useState<
     string | number | null
