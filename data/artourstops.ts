@@ -1,5 +1,7 @@
+import { v4 as uuidv4 } from "uuid";
+
 export interface TourStop {
-  id: number;
+  id: string;
   title: string;
   artist: string;
   location: string;
@@ -18,32 +20,15 @@ export interface TourStop {
 
 export const tourStops: TourStop[] = [
   {
-    id: 0,
-    coordinates: [-106.65145, 35.08443],
-    title: `A-Frame VPS Demo`,
-    artist: `Refract Studio`,
-    location: `Refract Studio`,
-    description: `A-Frame VPS Demo`,
-    artistStatement: `A-Frame VPS Demo`,
-    artistImage: "/olivia.jpg",
-    arUrl: `https://refractstudio.8thwall.app/a-frame-vps-demo/`,
-    duration: 30,
-    coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
-    slug: "a-frame-vps-demo",
-    audioUrl: "/audio/artemisio-romero-cowbelles-monument.mp3",
-    visible: false,
-  },
-  {
-    id: 1,
+    id: uuidv4(),
     coordinates: [-106.65145, 35.08443],
     title: `Fourth and Central`,
     artist: `Artemisio Romero Y Carver`,
-    location: `Cowbelles Monument`,
+    location: `Fourth and Central`,
     description: `Artemisio responds to the Cowbelles monument by combining poetry, sculpture, and historic footage to explore themes of Manifest Destiny and colonization in relation to the Santa Fe Plaza.`,
     artistStatement: `In most any United States History textbooks there is an image of a painting titled "American Progress" (1872). In "American Progress" Indigenous men, women, and children flee a flying Caucasian giantess and her entourage of cattle and settlers (it is of note that one of the European families, in their covered wagon, were in fact based on the same invading family, the Egolfs, also depicted in the pictured Cowbelles' plaque). The painting itself was made by artist John Gast, who in 1865, had personally witnessed and met the flying white woman, who introduced herself to him as Columbia, as she began her westward summer vacation. In his autobiography, Ghast is quoted as quipping that when he met the towering Columbia, she had told him how excited she was to dine on all these new Southwestern delicacies; awkwardly, he couldn't parse if she meant the foods or the people. Long after Ghast had died, having been trampled to death by a Buffalo in his New York apartment, nuclear testing in the New Mexican region, combined with a local tradition of matriarchy, would provide Columbia and her cattle with a lethal challenger. Enter: Godzilla Aunt.`,
     artistImage: "/olivia.jpg",
-    arUrl: `https://refractstudio.8thwall.app/route66-4th-central/`,
+    arUrl: `https://refractstudio.8thwall.app/route66-fourth-central/`,
     duration: 30,
     coverImage: "/olivia.jpg",
     arExperienceUrl: "",
@@ -52,7 +37,7 @@ export const tourStops: TourStop[] = [
     visible: true,
   },
   {
-    id: 2,
+    id: uuidv4(),
     coordinates: [-106.642328, 35.083567],
     title: `Special Collections Library`,
     artist: `Cliff Fragua`,
@@ -69,7 +54,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: 3,
+    id: uuidv4(),
     title: `Bio Park`,
     coordinates: [-106.679495, 35.093496],
     artist: `Ehren Kee Natay`,
@@ -86,7 +71,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: 4,
+    id: uuidv4(),
     title: `Guild Cinema`,
     coordinates: [-106.606715, 35.080217],
     artist: `PAZ (Mapitzmitl) and Crystal Xochitl Zamora`,
@@ -103,7 +88,7 @@ export const tourStops: TourStop[] = [
     visible: true,
   },
   {
-    id: 5,
+    id: uuidv4(),
     coordinates: [-106.56798, 35.07522],
     title: `Talin Market`,
     artist: `Virgil Ortiz`,
@@ -120,7 +105,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: 6,
+    id: uuidv4(),
     coordinates: [-106.499539, 35.06418],
     title: `Singing Arrow Open Space`,
     artist: `Refract Studio`,
@@ -137,7 +122,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: 7,
+    id: uuidv4(),
     coordinates: [-106.499539, 35.06418],
     title: `Abq Museum`,
     artist: `Refract Studio`,

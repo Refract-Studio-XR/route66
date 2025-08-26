@@ -26,7 +26,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [showAR, setShowAR] = useState(false);
   const [audioProgress, setAudioProgress] = useState(0);
   const [hasPlayedAudio, setHasPlayedAudio] = useLocalStorage(
-    `hasPlayed-${tourStop?.id}`,
+    `hasPlayed-${tourStop?.title}`,
     false
   );
   if (!tourStop) return null;

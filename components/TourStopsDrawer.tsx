@@ -20,11 +20,14 @@ type Props = {
 };
 
 const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tourStopLocation = urlParams.get("location");
+  console.log(tourStopLocation);
   const [activeSnapPoint, setActiveSnapPoint] = useState<
     string | number | null
   >(snapPoints[0]);
   const [selectedTourStop, setSelectedTourStop] = useState<TourStop | null>(
-    null
+    tourStops.find((stop) => stop.location === tourStopLocation) || null
   );
 
   const handleSelectTourStop = (stop: TourStop) => {
