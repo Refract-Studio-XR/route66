@@ -9,6 +9,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
 import { TourStop, tourStops } from "@/data/artourstops";
@@ -25,6 +26,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
     string | number | null
   >(snapPoints[0]);
   const urlParams = useSearchParams();
+  const router = useRouter();
   const tourStopLocation = urlParams.get("location");
   const [selectedTourStop, setSelectedTourStop] = useState<TourStop | null>(
     tourStops.find((stop) => stop.location === tourStopLocation) || null
@@ -33,11 +35,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const handleSelectTourStop = (stop: TourStop) => {
     setSelectedTourStop(stop);
     setActiveSnapPoint(snapPoints[0]);
-    window.history.pushState(
-      {},
-      "",
-      window.location.pathname + `?location=${stop.location}`
-    );
+    router.push(`?location=${stop.location}`);
   };
 
   // Set up the marker click handler when component mounts
@@ -53,7 +51,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
 
   const handleCloseDetail = () => {
     setSelectedTourStop(null);
-    window.history.pushState({}, "", window.location.pathname);
+    router.push("/tour");
   };
 
   return (
