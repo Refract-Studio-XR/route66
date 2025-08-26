@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
-import { TourStop, tourStops } from "@/data/tourStops";
+import { TourStop, tourStops } from "@/data/artourstops";
 import { MarkerData } from "@/hooks/useMapbox";
 
 const snapPoints = [0.3, 0.8];

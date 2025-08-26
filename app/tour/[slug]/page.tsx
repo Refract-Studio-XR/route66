@@ -1,4 +1,4 @@
-import { tourStops } from "@/data/tourStops";
+import { tourStops } from "@/data/artourstops";
 import { notFound } from "next/navigation";
 import TourStopClient from "@/components/TourStopClient";
 

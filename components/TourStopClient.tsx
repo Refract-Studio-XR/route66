@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { TourStop } from "@/data/tourStops";
+import { TourStop } from "@/data/artourstops";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import ARPreviewSlider from "./ARPreviewSlider";

@@ -13,6 +13,7 @@ export interface TourStop {
   slug: string;
   audioUrl: string;
   coordinates: [number, number];
+  visible: boolean;
 }
 
 export const tourStops: TourStop[] = [
@@ -31,6 +32,7 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "a-frame-vps-demo",
     audioUrl: "/audio/artemisio-romero-cowbelles-monument.mp3",
+    visible: false,
   },
   {
     id: 1,
@@ -47,6 +49,7 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "artemisio-romero-cowbelles-monument",
     audioUrl: "/audio/artemisio-romero-cowbelles-monument.mp3",
+    visible: true,
   },
   {
     id: 2,
@@ -63,6 +66,7 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "cliff-fragua-st-francis",
     audioUrl: "/audio/cliff-fragua-st-francis.mp3",
+    visible: false,
   },
   {
     id: 3,
@@ -79,6 +83,7 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "ehren-kee-natay-santa-fe-river",
     audioUrl: "/audio/ehren-kee-natay-santa-fe-river.mp3",
+    visible: false,
   },
   {
     id: 4,
@@ -95,6 +100,7 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "paz-crystal-xochitl-zamora-barrio-analco",
     audioUrl: "/audio/paz-crystal-xochitl-zamora-barrio-analco.mp3",
+    visible: true,
   },
   {
     id: 5,
@@ -111,6 +117,7 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "virgil-ortiz-what-lies-beneath",
     audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
+    visible: false,
   },
   {
     id: 6,
@@ -127,6 +134,7 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "vps-office-test",
     audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
+    visible: false,
   },
   {
     id: 7,
@@ -143,5 +151,6 @@ export const tourStops: TourStop[] = [
     arExperienceUrl: "",
     slug: "vps-office-test",
     audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
+    visible: false,
   },
 ];

@@ -3,7 +3,7 @@
 import MapScene from "@/components/MapScene";
 import TourStopsDrawer from "@/components/TourStopsDrawer";
 import useMapbox from "@/hooks/useMapbox";
-import { tourStops } from "@/data/tourStops";
+import { tourStops } from "@/data/artourstops";
 
 export default function TourPage() {
   const { mapContainerRef, setOnMarkerClick } = useMapbox({

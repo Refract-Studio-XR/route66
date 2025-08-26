@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/drawer";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import ARPlayer from "./ARPlayer";
-import type { TourStop } from "@/data/tourStops";
+import type { TourStop } from "@/data/artourstops";
 
 interface TourStopDetailDrawerProps {
   tourStop: TourStop | null;
@@ -52,10 +52,11 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
         </DrawerHeader>
         <div className="flex items-center justify-start py-2 px-4 gap-4">
           <button
+            disabled={!hasPlayedAudio}
             onClick={() => {
-              setIsPlayingAudio(true);
+              setShowAR(true);
             }}
-            className="bg-blue-600 text-white rounded-full px-4 py-2 font-semibold shadow hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white rounded-full px-4 py-2 font-semibold shadow hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Start AR"
           >
             Start AR
@@ -125,7 +126,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             value={audioProgress}
             onChange={(e) => setAudioProgress(Number(e.target.value))}
             className={`w-1/4 h-2 accent-zinc-600 transition-all duration-500 ${
-              hasPlayedAudio ? "opacity-100" : "opacity-0 pointer-events-none"
+              isPlayingAudio ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
             aria-label="Audio progress"
           />
