@@ -22,7 +22,7 @@ type Props = {
 const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const urlParams = new URLSearchParams(window.location.search);
   const tourStopLocation = urlParams.get("location");
-  console.log(tourStopLocation);
+
   const [activeSnapPoint, setActiveSnapPoint] = useState<
     string | number | null
   >(snapPoints[0]);
@@ -33,6 +33,11 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const handleSelectTourStop = (stop: TourStop) => {
     setSelectedTourStop(stop);
     setActiveSnapPoint(snapPoints[0]);
+    window.history.pushState(
+      {},
+      "",
+      window.location.pathname + `?location=${stop.location}`
+    );
   };
 
   // Set up the marker click handler when component mounts
@@ -46,7 +51,10 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
     });
   }, [setOnMapMarkerClick]);
 
-  const handleCloseDetail = () => setSelectedTourStop(null);
+  const handleCloseDetail = () => {
+    setSelectedTourStop(null);
+    window.history.pushState({}, "", window.location.pathname);
+  };
 
   return (
     <>
