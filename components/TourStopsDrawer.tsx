@@ -15,7 +15,7 @@ import TourStopDetailDrawer from "./TourStopDetailDrawer";
 import { TourStop, tourStops } from "@/data/artourstops";
 import { MarkerData } from "@/hooks/useMapbox";
 
-const snapPoints = [0.3, 0.8];
+const snapPoints = [0.3, 0.7];
 
 type Props = {
   setOnMapMarkerClick: (callback: (data: MarkerData) => void) => void;
@@ -67,7 +67,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
       >
         <DrawerContent
           className={`flex flex-col rounded-t-2xl bg-zinc-900 border border-zinc-800 border-b-0 bottom-0 left-0 right-0 z-20 shadow-lg outline-none ring-0 focus:ring-0 h-[110vh] box-border ${
-            activeSnapPoint === 0.8 ? "pb-[200px]" : "pb-[700px]"
+            activeSnapPoint === 0.7 ? "pb-[200px]" : "pb-[700px]"
           }`}
         >
           <DrawerHeader className="text-left p-4">
@@ -77,10 +77,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
             </DrawerDescription>
           </DrawerHeader>
           <div className="flex-1 overflow-y-auto mt-4 px-4">
-            <TourStopList
-              drawerOpen={activeSnapPoint === 0.8}
-              onSelectTourStop={handleSelectTourStop}
-            />
+            <TourStopList onSelectTourStop={handleSelectTourStop} />
           </div>
         </DrawerContent>
       </Drawer>

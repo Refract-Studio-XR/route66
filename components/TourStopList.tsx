@@ -3,7 +3,6 @@ import TourStopListItem from "./TourStopListItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface TourStopListProps {
-  drawerOpen?: boolean;
   onSelectTourStop?: (stop: TourStop) => void;
 }
 

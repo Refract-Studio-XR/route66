@@ -52,13 +52,14 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             </DrawerDescription>
           </div>
         </DrawerHeader>
-        <div className="flex items-center justify-start py-2 px-4 gap-4">
+        <div className="flex items-center justify-start py-2 pl-4 gap-4">
           <button
             disabled={!hasPlayedAudio}
             onClick={() => {
               setShowAR(true);
             }}
             className="bg-blue-600 text-white rounded-full px-4 py-2 font-semibold shadow hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ width: 100 }}
             aria-label="Start AR"
           >
             Start AR
@@ -69,10 +70,10 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               setIsPlayingAudio((p) => !p);
             }}
             className={`bg-zinc-800 text-white rounded-full p-3 shadow hover:bg-zinc-700 transition-all duration-300 flex items-center gap-1`}
-            style={{ minWidth: isPlayingAudio ? 48 : 140 }}
+            style={{ minWidth: isPlayingAudio ? 48 : 150 }}
             aria-label={isPlayingAudio ? "Pause" : "Play"}
           >
-            {(!hasPlayedAudio || !isPlayingAudio) && (
+            {!isPlayingAudio && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"
