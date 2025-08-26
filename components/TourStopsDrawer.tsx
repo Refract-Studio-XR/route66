@@ -76,7 +76,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
               Explore various tour stops. Drag to see more details.
             </DrawerDescription>
           </DrawerHeader>
-          <div className="flex-1 overflow-y-auto mt-4 px-4">
+          <div className="flex-1 overflow-y-auto mt-4 px-4 min-h-[700px]">
             <TourStopList onSelectTourStop={handleSelectTourStop} />
           </div>
         </DrawerContent>

@@ -35,6 +35,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
 
   return (
     <Drawer
+      snapPoints={[0.7, 0.9]}
       open={open}
       onOpenChange={(v) => {
         if (!v) onClose();
@@ -52,7 +53,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             </DrawerDescription>
           </div>
         </DrawerHeader>
-        <div className="flex items-center justify-start py-2 pl-4 gap-4">
+        <div className="flex items-center justify-start py-2 pl-4 ">
           <button
             disabled={!hasPlayedAudio}
             onClick={() => {
@@ -69,7 +70,9 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               if (!hasPlayedAudio) setHasPlayedAudio(true);
               setIsPlayingAudio((p) => !p);
             }}
-            className={`bg-zinc-800 text-white rounded-full p-3 shadow hover:bg-zinc-700 transition-all duration-300 flex items-center gap-1`}
+            className={`bg-zinc-800 text-white rounded-full p-3
+                mx-2
+               shadow hover:bg-zinc-700 transition-all duration-300 flex items-center`}
             style={{ minWidth: isPlayingAudio ? 48 : 150 }}
             aria-label={isPlayingAudio ? "Pause" : "Play"}
           >
@@ -158,7 +161,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             )}
           </div>
         )}
-        <div className="text-gray-300 p-4 whitespace-pre-line min-h-[300px] max-h-[550px] overflow-y-auto">
+        <div className="text-gray-300 p-4 pb-28 whitespace-pre-line min-h-[300px] max-h-[550px] overflow-y-auto">
           {tourStop.artistStatement}
         </div>
       </DrawerContent>
