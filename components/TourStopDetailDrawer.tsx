@@ -7,6 +7,7 @@ import {
   DrawerTitle,
   DrawerDescription,
 } from "@/components/ui/drawer";
+import { useLocalStorage } from "@uidotdev/usehooks";
 import ARPlayer from "./ARPlayer";
 import type { TourStop } from "@/data/tourStops";
 
@@ -21,9 +22,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   open,
   onClose,
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [hasPlayed, setHasPlayed] = useState(false);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [showAR, setShowAR] = useState(false);
+  const [audioProgress, setAudioProgress] = useState(0);
+  const [hasPlayedAudio, setHasPlayedAudio] = useLocalStorage(
+    `hasPlayed-${tourStop?.id}`,
+    false
+  );
   if (!tourStop) return null;
 
   return (
@@ -48,8 +53,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
         <div className="flex items-center justify-start py-2 px-4 gap-4">
           <button
             onClick={() => {
-              setIsPlaying(true);
-              setHasPlayed(true);
+              setIsPlayingAudio(true);
             }}
             className="bg-blue-600 text-white rounded-full px-4 py-2 font-semibold shadow hover:bg-blue-700 transition"
             aria-label="Start AR"
@@ -58,14 +62,14 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           </button>
           <button
             onClick={() => {
-              setIsPlaying((p) => !p);
-              if (!hasPlayed) setHasPlayed(true);
+              if (!hasPlayedAudio) setHasPlayedAudio(true);
+              setIsPlayingAudio((p) => !p);
             }}
             className={`bg-zinc-800 text-white rounded-full p-3 shadow hover:bg-zinc-700 transition-all duration-300 flex items-center gap-1`}
-            style={{ minWidth: hasPlayed ? 48 : 140 }}
-            aria-label={isPlaying ? "Pause" : "Play"}
+            style={{ minWidth: isPlayingAudio ? 48 : 140 }}
+            aria-label={isPlayingAudio ? "Pause" : "Play"}
           >
-            {(!hasPlayed || !isPlaying) && (
+            {(!hasPlayedAudio || !isPlayingAudio) && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"
@@ -79,7 +83,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 />
               </svg>
             )}
-            {isPlaying && hasPlayed && (
+            {isPlayingAudio && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"
@@ -107,9 +111,9 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             )}
             <span
               className={`ml-1 text-xs transition-all duration-300 ${
-                hasPlayed ? "opacity-0 w-0" : "opacity-100 w-auto"
+                isPlayingAudio ? "opacity-0 w-0" : "opacity-100 w-auto"
               }`}
-              style={{ display: hasPlayed ? "none" : "inline" }}
+              style={{ display: isPlayingAudio ? "none" : "inline" }}
             >
               Play intro audio
             </span>
@@ -118,10 +122,10 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             type="range"
             min={0}
             max={100}
-            value={progress}
-            onChange={(e) => setProgress(Number(e.target.value))}
+            value={audioProgress}
+            onChange={(e) => setAudioProgress(Number(e.target.value))}
             className={`w-1/4 h-2 accent-zinc-600 transition-all duration-500 ${
-              hasPlayed ? "opacity-100" : "opacity-0 pointer-events-none"
+              hasPlayedAudio ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
             aria-label="Audio progress"
           />
@@ -154,11 +158,11 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           {tourStop.artistStatement}
         </div>
       </DrawerContent>
-      {isPlaying && (
+      {showAR && (
         <ARPlayer
           url={tourStop.arUrl}
           onClose={() => {
-            setIsPlaying(false);
+            setShowAR(false);
           }}
         />
       )}
