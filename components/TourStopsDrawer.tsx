@@ -8,6 +8,7 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "@/components/ui/drawer";
+import { useSearchParams } from "next/navigation";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
 import { TourStop, tourStops } from "@/data/artourstops";
@@ -18,12 +19,13 @@ const snapPoints = [0.3, 0.8];
 type Props = {
   setOnMapMarkerClick: (callback: (data: MarkerData) => void) => void;
 };
-const urlParams = window ? new URLSearchParams(window.location.search) : null;
-const tourStopLocation = urlParams ? urlParams.get("location") : null;
+
 const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const [activeSnapPoint, setActiveSnapPoint] = useState<
     string | number | null
   >(snapPoints[0]);
+  const urlParams = useSearchParams();
+  const tourStopLocation = urlParams.get("location");
   const [selectedTourStop, setSelectedTourStop] = useState<TourStop | null>(
     tourStops.find((stop) => stop.location === tourStopLocation) || null
   );
