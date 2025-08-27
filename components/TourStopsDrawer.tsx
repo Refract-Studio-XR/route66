@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-} from "@/components/ui/drawer";
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import TourStopList from "./TourStopList";
@@ -15,16 +15,11 @@ import TourStopDetailDrawer from "./TourStopDetailDrawer";
 import { TourStop, tourStops } from "@/data/artourstops";
 import { MarkerData } from "@/hooks/useMapbox";
 
-const snapPoints = [0.3, 0.7];
-
 type Props = {
   setOnMapMarkerClick: (callback: (data: MarkerData) => void) => void;
 };
 
 const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
-  const [activeSnapPoint, setActiveSnapPoint] = useState<
-    string | number | null
-  >(snapPoints[0]);
   const urlParams = useSearchParams();
   const router = useRouter();
   const tourStopLocation = urlParams.get("location");
@@ -34,7 +29,6 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
 
   const handleSelectTourStop = (stop: TourStop) => {
     setSelectedTourStop(stop);
-    setActiveSnapPoint(snapPoints[0]);
     router.push(`?location=${stop.location}`);
   };
 
@@ -56,31 +50,25 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
 
   return (
     <>
-      <Drawer
+      <Sheet
         open={true}
-        shouldScaleBackground={true}
-        dismissible={false}
-        snapPoints={snapPoints}
-        activeSnapPoint={activeSnapPoint}
-        setActiveSnapPoint={setActiveSnapPoint}
         modal={false}
       >
-        <DrawerContent
-          className={`flex flex-col rounded-t-2xl bg-zinc-900 border border-zinc-800 border-b-0 bottom-0 left-0 right-0 z-20 shadow-lg outline-none ring-0 focus:ring-0 h-[110vh] box-border ${
-            activeSnapPoint === 0.7 ? "pb-[200px]" : "pb-[700px]"
-          }`}
+        <SheetContent
+          side="bottom"
+          className="h-[45vh] rounded-t-2xl bg-zinc-900 border border-zinc-800 border-b-0 p-0 [&>button]:hidden flex flex-col"
         >
-          <DrawerHeader className="text-left p-4">
-            <DrawerTitle className="text-white">Tour Stops</DrawerTitle>
-            <DrawerDescription className="text-gray-400">
-              Explore various tour stops. Drag to see more details.
-            </DrawerDescription>
-          </DrawerHeader>
-          <div className="flex-1 overflow-y-auto mt-4 px-4 min-h-[700px]">
+          <SheetHeader className="text-left p-4 pb-2 flex-shrink-0">
+            <SheetTitle className="text-white">Tour Stops</SheetTitle>
+            <SheetDescription className="text-gray-400">
+              Explore various tour stops. Scroll to see more details.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="flex-1 overflow-y-auto px-4 pb-4 min-h-0">
             <TourStopList onSelectTourStop={handleSelectTourStop} />
           </div>
-        </DrawerContent>
-      </Drawer>
+        </SheetContent>
+      </Sheet>
       <TourStopDetailDrawer
         key={selectedTourStop?.id}
         tourStop={selectedTourStop}

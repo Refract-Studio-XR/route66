@@ -1,5 +1,5 @@
 type Props = {
-  mapContainerRef: React.RefObject<HTMLDivElement>;
+  mapContainerRef: React.RefObject<HTMLDivElement | null>;
 };
 
 const MapScene = ({ mapContainerRef }: Props) => {

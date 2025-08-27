@@ -18,18 +18,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
             // Fix for iOS Safari viewport height issue
             function setAppHeight() {
+            if (typeof window === 'undefined') return
               document.documentElement.style.setProperty('--app-height', \`\${window.innerHeight}px\`);
             }
             window.addEventListener('resize', setAppHeight);
             setAppHeight();
           `,
           }}
-        />
+        /> */}
       </head>
       <body className={inter.className}>{children}</body>
     </html>

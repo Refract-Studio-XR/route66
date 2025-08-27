@@ -9,7 +9,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function TourStopPage({ params }: { params: { slug: string } }) {
+export default async function TourStopPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   // Find the current stop based on the slug
   const stop = tourStops.find((s) => s.slug === params.slug);
 

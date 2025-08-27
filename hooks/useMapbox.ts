@@ -16,8 +16,8 @@ type Options = {
 
 const useMapbox = (options?: Options) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<mapboxgl.Map>();
-  const geoLocationControlRef = useRef<mapboxgl.GeolocateControl>();
+  const mapRef = useRef<mapboxgl.Map>(undefined);
+  const geoLocationControlRef = useRef<mapboxgl.GeolocateControl>(undefined);
   const markersRef = useRef<mapboxgl.Marker[]>([]);
   const onMarkerClickRef = useRef<((data: MarkerData) => void) | undefined>(
     options?.onMarkerClick

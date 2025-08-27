@@ -1,7 +1,5 @@
-import { v4 as uuidv4 } from "uuid";
-
 export interface TourStop {
-  id: string;
+  id: number;
   title: string;
   artist: string;
   location: string;
@@ -20,7 +18,7 @@ export interface TourStop {
 
 export const tourStops: TourStop[] = [
   {
-    id: uuidv4(),
+    id: 0,
     coordinates: [-106.65145, 35.08443],
     title: `Fourth and Central`,
     artist: `Artemisio Romero Y Carver`,
@@ -37,7 +35,7 @@ export const tourStops: TourStop[] = [
     visible: true,
   },
   {
-    id: uuidv4(),
+    id: 1,
     coordinates: [-106.642328, 35.083567],
     title: `Special Collections Library`,
     artist: `Cliff Fragua`,
@@ -54,7 +52,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: uuidv4(),
+    id: 2,
     title: `Bio Park`,
     coordinates: [-106.679495, 35.093496],
     artist: `Ehren Kee Natay`,
@@ -71,7 +69,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: uuidv4(),
+    id: 3,
     title: `Guild Cinema`,
     coordinates: [-106.606715, 35.080217],
     artist: `PAZ (Mapitzmitl) and Crystal Xochitl Zamora`,
@@ -88,7 +86,7 @@ export const tourStops: TourStop[] = [
     visible: true,
   },
   {
-    id: uuidv4(),
+    id: 4,
     coordinates: [-106.56798, 35.07522],
     title: `Talin Market`,
     artist: `Virgil Ortiz`,
@@ -105,7 +103,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: uuidv4(),
+    id: 5,
     coordinates: [-106.499539, 35.06418],
     title: `Singing Arrow Open Space`,
     artist: `Refract Studio`,
@@ -122,7 +120,7 @@ export const tourStops: TourStop[] = [
     visible: false,
   },
   {
-    id: uuidv4(),
+    id: 6,
     coordinates: [-106.499539, 35.06418],
     title: `Abq Museum`,
     artist: `Refract Studio`,
