@@ -41,9 +41,8 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
       }}
       dismissible
     >
-      <DrawerContent className="bg-zinc-900 border border-zinc-800 max-h-[70vh] overflow-y-auto">
-        <DrawerHeader className="text-left px-4 flex flex-col items-start">
-          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 h-2 w-20 rounded-full bg-zinc-400" />
+      <DrawerContent className="bg-zinc-900 border border-zinc-800 h-[70vh] flex flex-col overflow-hidden">
+        <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
           <div>
             <DrawerTitle className="text-white text-xl">
               {tourStop.title}
@@ -53,7 +52,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             </DrawerDescription>
           </div>
         </DrawerHeader>
-        <div className="flex items-center justify-start py-2 pl-4">
+        <div className="flex items-center justify-start py-2 pl-4 flex-shrink-0">
           <button
             disabled={!hasPlayedAudio}
             onClick={() => {
@@ -137,31 +136,31 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             aria-label="Audio progress"
           />
         </div>
-        {(tourStop.coverImage || tourStop.artistImage) && (
-          <div className="flex justify-start gap-4 p-4">
-            {tourStop.coverImage && (
-              <Image
-                src={tourStop.coverImage}
-                alt={tourStop.title}
-                width={120}
-                height={120}
-                className="rounded-xl border border-zinc-700 object-cover"
-                priority
-              />
-            )}
-            {tourStop.artistImage && (
-              <Image
-                src={tourStop.artistImage}
-                alt={tourStop.artist}
-                width={120}
-                height={120}
-                className="rounded-xl border border-zinc-700 object-cover"
-                priority
-              />
-            )}
-          </div>
-        )}
-        <div className="text-gray-300 p-4 pb-28 whitespace-pre-line">
+        <div className="flex-1 overflow-y-auto p-4 pb-8 text-gray-300 whitespace-pre-line min-h-0">
+          {(tourStop.coverImage || tourStop.artistImage) && (
+            <div className="flex justify-start gap-4 mb-4">
+              {tourStop.coverImage && (
+                <Image
+                  src={tourStop.coverImage}
+                  alt={tourStop.title}
+                  width={120}
+                  height={120}
+                  className="rounded-xl border border-zinc-700 object-cover"
+                  priority
+                />
+              )}
+              {tourStop.artistImage && (
+                <Image
+                  src={tourStop.artistImage}
+                  alt={tourStop.artist}
+                  width={120}
+                  height={120}
+                  className="rounded-xl border border-zinc-700 object-cover"
+                  priority
+                />
+              )}
+            </div>
+          )}
           {tourStop.artistStatement}
         </div>
       </DrawerContent>
