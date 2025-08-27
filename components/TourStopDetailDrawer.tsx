@@ -35,15 +35,15 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
 
   return (
     <Drawer
-      snapPoints={[0.6]}
       open={open}
       onOpenChange={(v) => {
         if (!v) onClose();
       }}
       dismissible
     >
-      <DrawerContent className="flex flex-col rounded-t-2xl bg-zinc-900 border border-zinc-800 border-b-0 z-50 shadow-lg outline-none ">
-        <DrawerHeader className="text-left p-4 flex items-center justify-between">
+      <DrawerContent className="bg-zinc-900 border border-zinc-800 max-h-[70vh] overflow-y-auto">
+        <DrawerHeader className="text-left px-4 flex flex-col items-start">
+          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 h-2 w-20 rounded-full bg-zinc-400" />
           <div>
             <DrawerTitle className="text-white text-xl">
               {tourStop.title}
@@ -53,7 +53,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             </DrawerDescription>
           </div>
         </DrawerHeader>
-        <div className="flex items-center justify-start py-2 pl-4 ">
+        <div className="flex items-center justify-start py-2 pl-4">
           <button
             disabled={!hasPlayedAudio}
             onClick={() => {
@@ -161,7 +161,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             )}
           </div>
         )}
-        <div className="text-gray-300 p-4 pb-28 whitespace-pre-line min-h-[300px] max-h-[550px] overflow-y-auto">
+        <div className="text-gray-300 p-4 pb-28 whitespace-pre-line">
           {tourStop.artistStatement}
         </div>
       </DrawerContent>
