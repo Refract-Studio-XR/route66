@@ -35,7 +35,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
 
   return (
     <Drawer
-      snapPoints={[0.7, 0.9]}
+      snapPoints={[0.7, 0.0]}
       open={open}
       onOpenChange={(v) => {
         if (!v) onClose();
