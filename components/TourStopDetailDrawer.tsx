@@ -40,6 +40,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
         if (!v) onClose();
       }}
       dismissible
+      modal={false}
     >
       <DrawerContent className="bg-zinc-900 border border-zinc-800 h-[70vh] flex flex-col overflow-hidden">
         <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
