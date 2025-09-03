@@ -9,16 +9,18 @@ interface TourStopListProps {
 const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
   return (
     <ScrollArea>
-      {tourStops.map((stop) => (
-        <TourStopListItem
-          key={stop.id}
-          location={stop.location}
-          title={stop.title}
-          artist={stop.artist}
-          coverImage={stop.coverImage}
-          onClick={() => onSelectTourStop && onSelectTourStop(stop)}
-        />
-      ))}
+      {tourStops
+        .filter((stop) => stop.visible)
+        .map((stop) => (
+          <TourStopListItem
+            key={stop.id}
+            location={stop.location}
+            title={stop.title}
+            artist={stop.artist}
+            coverImage={stop.coverImage}
+            onClick={() => onSelectTourStop && onSelectTourStop(stop)}
+          />
+        ))}
     </ScrollArea>
   );
 };

@@ -35,7 +35,6 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   // Set up the marker click handler when component mounts
   useEffect(() => {
     setOnMapMarkerClick((data: MarkerData) => {
-      console.log("howdy");
       const tourStop = tourStops.find((stop) => stop.id === data.id);
       if (tourStop) {
         handleSelectTourStop(tourStop);
