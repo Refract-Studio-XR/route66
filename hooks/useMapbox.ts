@@ -47,7 +47,6 @@ const useMapbox = (options?: Options) => {
         .addTo(mapRef.current);
 
       marker.getElement().onclick = () => {
-        console.log("Marker clicked:", data);
         setSelectedMarkerData(data);
         onMarkerClickRef.current?.(data);
       };
@@ -73,7 +72,6 @@ const useMapbox = (options?: Options) => {
   }, []);
 
   const setOnMarkerClick = useCallback((fn: (data: MarkerData) => void) => {
-    console.log("Setting marker click handler");
     onMarkerClickRef.current = fn;
   }, []);
 
