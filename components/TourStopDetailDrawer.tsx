@@ -166,7 +166,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           {tourStop.artistStatement}
         </div>
       </DrawerContent>
-      {showAR && (
+      {showAR && tourStop.arUrl && (
         <ARPlayer
           url={tourStop.arUrl}
           onClose={() => {

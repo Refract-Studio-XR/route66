@@ -1,15 +1,14 @@
 export interface TourStop {
-  id: number;
+  id: number | string;
   title: string;
   artist: string;
   location: string;
   description: string;
   artistStatement: string;
   artistImage: string;
-  arUrl: string;
+  arUrl?: string;
   duration?: number;
   coverImage?: string;
-  arExperienceUrl?: string;
   slug: string;
   audioUrl: string;
   coordinates: [number, number];
@@ -29,7 +28,7 @@ export const tourStops: TourStop[] = [
     arUrl: `https://refractstudio.8thwall.app/aframe-vps-template/`,
     duration: 30,
     coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
+
     slug: "artemisio-romero-cowbelles-monument",
     audioUrl: "/audio/artemisio-romero-cowbelles-monument.mp3",
     visible: true,
@@ -46,7 +45,7 @@ export const tourStops: TourStop[] = [
     arUrl: `https://refractstudio.8thwall.app/route66-special-collections-library/`,
     duration: 30,
     coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
+
     slug: "cliff-fragua-st-francis",
     audioUrl: "/audio/cliff-fragua-st-francis.mp3",
     visible: false,
@@ -63,7 +62,7 @@ export const tourStops: TourStop[] = [
     arUrl: `https://refractstudio.8thwall.app/route66-biopark-pond`,
     duration: 30,
     coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
+
     slug: "ehren-kee-natay-santa-fe-river",
     audioUrl: "/audio/ehren-kee-natay-santa-fe-river.mp3",
     visible: true,
@@ -80,7 +79,7 @@ export const tourStops: TourStop[] = [
     arUrl: `https://refractstudio.8thwall.app/route66-guild-cinema`,
     duration: 30,
     coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
+
     slug: "paz-crystal-xochitl-zamora-barrio-analco",
     audioUrl: "/audio/paz-crystal-xochitl-zamora-barrio-analco.mp3",
     visible: true,
@@ -97,7 +96,7 @@ export const tourStops: TourStop[] = [
     arUrl: `https://refractstudio.8thwall.app/route66-singing-arrow/`,
     duration: 30,
     coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
+
     slug: "virgil-ortiz-what-lies-beneath",
     audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
     visible: false,
@@ -114,7 +113,7 @@ export const tourStops: TourStop[] = [
     arUrl: `https://refractstudio.8thwall.app/vps-office-test/`,
     duration: 30,
     coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
+
     slug: "vps-office-test",
     audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
     visible: false,
@@ -131,7 +130,7 @@ export const tourStops: TourStop[] = [
     arUrl: `https://refractstudio.8thwall.app/vps-office-test/`,
     duration: 30,
     coverImage: "/olivia.jpg",
-    arExperienceUrl: "",
+
     slug: "vps-office-test",
     audioUrl: "/audio/virgil-ortiz-what-lies-beneath.mp3",
     visible: false,

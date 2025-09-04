@@ -12,7 +12,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
-import { TourStop, tourStops } from "@/data/artourstops";
+import { allTourStops, TourStop } from "@/data/";
 import { MarkerData } from "@/hooks/useMapbox";
 
 type Props = {
@@ -24,7 +24,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const router = useRouter();
   const tourStopLocation = urlParams.get("location");
   const [selectedTourStop, setSelectedTourStop] = useState<TourStop | null>(
-    tourStops.find((stop) => stop.location === tourStopLocation) || null
+    allTourStops.find((stop) => stop.location === tourStopLocation) || null
   );
 
   const handleSelectTourStop = (stop: TourStop) => {
@@ -35,7 +35,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   // Set up the marker click handler when component mounts
   useEffect(() => {
     setOnMapMarkerClick((data: MarkerData) => {
-      const tourStop = tourStops.find((stop) => stop.id === data.id);
+      const tourStop = allTourStops.find((stop) => stop.id === data.id);
       if (tourStop) {
         handleSelectTourStop(tourStop);
       }
