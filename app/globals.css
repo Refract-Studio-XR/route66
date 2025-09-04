@@ -17,6 +17,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .h-app {
+    height: var(--app-height);
+  }
+
+  .min-h-app {
+    min-height: var(--app-height);
+  }
 }
 
 @layer base {

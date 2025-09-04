@@ -18,19 +18,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-            // Fix for iOS Safari viewport height issue
-            function setAppHeight() {
-            if (typeof window === 'undefined') return
-              document.documentElement.style.setProperty('--app-height', \`\${window.innerHeight}px\`);
-            }
-            window.addEventListener('resize', setAppHeight);
-            setAppHeight();
-          `,
+              (function setAppHeight() {
+                const updateHeight = () => {
+                  document.documentElement.style.setProperty('--app-height', window.innerHeight + 'px');
+                };
+                window.addEventListener('resize', updateHeight);
+                updateHeight();
+              })();
+            `,
           }}
-        /> */}
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
