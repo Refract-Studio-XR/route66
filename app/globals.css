@@ -94,12 +94,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    background-color: linear-gradient(
-      to right,
-      #1e103f,
-      #352053,
-      #6a3f7e,
-      #8f5e96
-    );
+    background-color: #8f5e96;
   }
 }
