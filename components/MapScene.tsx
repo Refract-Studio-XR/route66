@@ -4,7 +4,7 @@ type Props = {
 
 const MapScene = ({ mapContainerRef }: Props) => {
   return (
-    <div className="w-full h-[60vh] min-h-[300px] rounded-xl shadow-lg overflow-hidden bg-[#4A4268] relative">
+    <div className="w-full h-[60vh] min-h-[300px] rounded-xl shadow-lg overflow-hidden relative">
       <div
         id="map"
         style={{ width: "100%", height: "100%" }}
