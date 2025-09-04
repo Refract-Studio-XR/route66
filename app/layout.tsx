@@ -25,23 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function setAppHeight() {
-                const updateHeight = () => {
-                  document.documentElement.style.setProperty('--app-height', window.innerHeight + 'px');
-                };
-                window.addEventListener('resize', updateHeight);
-                updateHeight();
-              })();
-            `,
-          }}
-        /> */}
-      </head>
-
-      <body className={`${inter.className} h-app`}>{children}</body>
+      <body className={`${inter.className} `}>{children}</body>
     </html>
   );
 }
