@@ -11,7 +11,15 @@ export default function TourPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-900 via-red-990 to-black text-white overflow-auto">
+    <div
+      className="min-h-screen text-white overflow-auto"
+      style={{
+        backgroundImage: "url('/route66bg.jpeg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container mx-auto px-3 py-4 relative">
         <MapScene mapContainerRef={mapContainerRef} />
         <Suspense fallback={<div>Loading...</div>}>

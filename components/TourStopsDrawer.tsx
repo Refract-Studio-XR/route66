@@ -55,11 +55,13 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
       >
         <SheetContent
           side="bottom"
-          className="h-[45vh] rounded-t-2xl bg-zinc-900 border border-zinc-800 border-b-0 p-0 [&>button]:hidden flex flex-col"
+          className="h-[45vh] rounded-t-2xl bg-black/35 backdrop-blur-md border border-white/20 border-b-0 p-0 [&>button]:hidden flex flex-col"
         >
           <SheetHeader className="text-left p-4 pb-2 flex-shrink-0">
-            <SheetTitle className="text-white">Tour Stops</SheetTitle>
-            <SheetDescription className="text-gray-400">
+            <SheetTitle className="text-white drop-shadow-lg">
+              Tour Stops
+            </SheetTitle>
+            <SheetDescription className="text-gray-200 drop-shadow-md">
               Explore various tour stops. Scroll to see more details.
             </SheetDescription>
           </SheetHeader>

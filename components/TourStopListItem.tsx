@@ -17,7 +17,7 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
 }) => {
   return (
     <div
-      className="flex flex-col bg-zinc-800 rounded-xl p-4 mb-4 shadow-md"
+      className="flex flex-col bg-black/10 backdrop-blur-sm rounded-xl p-4 mb-4 shadow-lg border border-white/10"
       onClick={onClick}
       style={{ cursor: onClick ? "pointer" : undefined }}
     >
@@ -28,14 +28,16 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
           width={100}
           src={coverImage || "/stub.jpg"}
           alt={title}
-          className="w-20 h-20 object-cover rounded-lg border border-zinc-700 bg-zinc-700"
+          className="w-20 h-20 object-cover rounded-lg border border-white/20 bg-zinc-700"
         />
         <div className="flex flex-col justify-center">
-          <div className="font-bold text-white text-lg leading-tight">
+          <div className="font-bold text-white text-lg leading-tight drop-shadow-lg">
             {location}
           </div>
-          <div className="text-zinc-300 text-base">{title}</div>
-          <div className="text-zinc-400 text-sm mt-1">{artist}</div>
+          <div className="text-gray-200 text-base drop-shadow-md">{title}</div>
+          <div className="text-gray-300 text-sm mt-1 drop-shadow-sm">
+            {artist}
+          </div>
         </div>
       </div>
     </div>
