@@ -4,6 +4,7 @@ import MapScene from "@/components/MapScene";
 import TourStopsDrawer from "@/components/TourStopsDrawer";
 import useMapbox from "@/hooks/useMapbox";
 import { tourStops } from "@/data/artourstops";
+import { muralsData } from "@/hooks/useMuralsData";
 
 export default function TourPage() {
   const { mapContainerRef, setOnMarkerClick } = useMapbox({
@@ -12,6 +13,9 @@ export default function TourPage() {
       id: stop.id,
     })),
   });
+
+  // Console log the murals data
+  console.log("Murals data:", muralsData);
   return (
     <div className="min-h-screen bg-gradient-to-b from-red-900 via-red-990 to-black text-white overflow-auto">
       <div className="container mx-auto px-3 py-4 relative">
