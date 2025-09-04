@@ -11,13 +11,11 @@ export default function TourPage() {
   });
 
   return (
-    <main className="h-app">
-      <div className="container mx-auto px-3 py-4 relative">
-        <MapScene mapContainerRef={mapContainerRef} />
-        <Suspense fallback={<div>Loading...</div>}>
-          <TourStopsDrawer setOnMapMarkerClick={setOnMarkerClick} />
-        </Suspense>
-      </div>
-    </main>
+    <div className="container mx-auto px-3 py-4 relative">
+      <MapScene mapContainerRef={mapContainerRef} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <TourStopsDrawer setOnMapMarkerClick={setOnMarkerClick} />
+      </Suspense>
+    </div>
   );
 }
