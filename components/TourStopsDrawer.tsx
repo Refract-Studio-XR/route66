@@ -55,7 +55,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
       >
         <SheetContent
           side="bottom"
-          className="h-[45vh] rounded-t-2xl bg-black/35 backdrop-blur-md border border-white/20 border-b-0 p-0 [&>button]:hidden flex flex-col"
+          className="h-[45vh] rounded-t-2xl bg-black/35 backdrop-blur-md border border-white/20  p-0 [&>button]:hidden flex flex-col"
         >
           <SheetHeader className="text-left p-4 pb-2 flex-shrink-0">
             <SheetTitle className="text-white drop-shadow-lg">

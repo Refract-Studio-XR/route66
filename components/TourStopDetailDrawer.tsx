@@ -73,7 +73,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               if (!hasPlayedAudio) setHasPlayedAudio(true);
               setIsPlayingAudio((p) => !p);
             }}
-            className={`bg-zinc-800 text-white rounded-full p-3
+            className={`bg-zinc-800 text-white rounded-full py-2 px-4
                 mx-2
                shadow hover:bg-zinc-700 transition-all duration-300 flex items-center`}
             style={{ minWidth: isPlayingAudio ? 48 : 150 }}
