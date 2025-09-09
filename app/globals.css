@@ -7,6 +7,14 @@ body {
   padding: 0;
   margin: 0;
   height: 100dvh;
+  background-color: linear-gradient(
+    180deg,
+    #7dd3fc 0%,
+    #38bdf8 25%,
+    #0ea5e9 50%,
+    #0284c7 75%,
+    #0369a1 100%
+  );
 }
 
 body {
@@ -96,14 +104,14 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(
+    /* background: linear-gradient(
       180deg,
       #7dd3fc 0%,
       #38bdf8 25%,
       #0ea5e9 50%,
       #0284c7 75%,
       #0369a1 100%
-    );
+    ); */
     overflow: hidden;
   }
 }
