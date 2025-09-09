@@ -8,8 +8,8 @@ const MapScene = ({ mapContainerRef }: Props) => {
       className="w-full h-[60vh] min-h-[300px] rounded-xl overflow-hidden relative"
       style={{
         boxShadow:
-          "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2)",
-        filter: "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5))",
+          "0 20px 20px -20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2)",
+        filter: "drop-shadow(0 1px 10px rgba(0, 0, 0, 0.3))",
       }}
     >
       <div
