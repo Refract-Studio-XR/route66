@@ -9,7 +9,7 @@ const MapScene = ({ mapContainerRef }: Props) => {
       style={{
         boxShadow:
           "0 20px 20px -20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2)",
-        filter: "drop-shadow(0 1px 10px rgba(0, 0, 0, 0.3))",
+        filter: "drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2))",
       }}
     >
       <div
