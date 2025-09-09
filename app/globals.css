@@ -55,6 +55,12 @@ body {
     --radius: 0.5rem;
     --vh: 1vh;
     --app-height: 100%;
+    --adobe: #ab7a68;
+    --turquoise: #7dd3fc;
+    --chile: #a6231f;
+    --sunset: #f4b942;
+    --mesa: #947c9e;
+    --neon: #d77ee6;
   }
   .dark {
     --background: 240 10% 3.9%;

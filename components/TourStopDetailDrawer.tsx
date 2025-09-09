@@ -61,8 +61,15 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 if (!tourStop.visible) return;
                 setShowAR(true);
               }}
-              className="bg-blue-600 text-white rounded-full px-4 py-2 font-semibold shadow hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ width: 100 }}
+              className="text-white rounded-full px-4 py-2 font-semibold shadow-2xl transition disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                width: 100,
+                background:
+                  "linear-gradient(145deg, rgba(125, 211, 252, 0.5), rgba(125, 211, 252, 0.3))",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                boxShadow:
+                  "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
+              }}
               aria-label="Start AR"
             >
               Start AR
@@ -73,10 +80,15 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               if (!hasPlayedAudio) setHasPlayedAudio(true);
               setIsPlayingAudio((p) => !p);
             }}
-            className={`bg-zinc-800 text-white rounded-full py-2 px-4
-                mx-2
-               shadow hover:bg-zinc-700 transition-all duration-300 flex items-center`}
-            style={{ minWidth: isPlayingAudio ? 48 : 150 }}
+            className="text-white rounded-full py-2 px-4 mx-2 shadow-2xl transition-all duration-300 flex items-center"
+            style={{
+              minWidth: isPlayingAudio ? 48 : 150,
+              background:
+                "linear-gradient(145deg, rgba(244, 185, 66, 0.5), rgba(244, 185, 66, 0.3))",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              boxShadow:
+                "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
+            }}
             aria-label={isPlayingAudio ? "Pause" : "Play"}
           >
             {!isPlayingAudio && (
