@@ -117,4 +117,33 @@ body {
   h6 {
     font-family: var(--font-corma), serif;
   }
+
+  @keyframes opacity-bounce {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes logo-exit {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+  }
+
+  .animate-opacity-bounce {
+    animation: opacity-bounce 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+      forwards;
+  }
+
+  .animate-logo-exit {
+    animation: logo-exit 1s ease-out forwards;
+  }
 }

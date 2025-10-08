@@ -25,6 +25,7 @@ const useMapbox = (options?: Options) => {
   const [selectedMarkerData, setSelectedMarkerData] = useState<
     Options["data"][0] | null
   >(null);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   useEffect(() => {
     mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -66,6 +67,7 @@ const useMapbox = (options?: Options) => {
 
     mapRef.current.on("load", () => {
       //geoLocationControlRef.current?.trigger();
+      setIsMapLoaded(true);
     });
 
     return () => mapRef.current?.remove();
@@ -80,6 +82,7 @@ const useMapbox = (options?: Options) => {
     selectedMarkerData,
     setSelectedMarkerData,
     setOnMarkerClick,
+    isMapLoaded,
   };
 };
 
