@@ -40,7 +40,7 @@ const useMapbox = (options?: Options) => {
 
     options?.data.forEach((data) => {
       const marker = new mapboxgl.Marker({
-        color: "#000",
+        color: "#C50E3D",
       })
         .setLngLat(data.coordinates)
         // @ts-expect-error - mapbox-gl types issue

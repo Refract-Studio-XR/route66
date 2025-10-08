@@ -55,14 +55,14 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
       >
         <SheetContent
           side="bottom"
-          className="h-[45vh] rounded-t-2xl bg-black/35 backdrop-blur-md border border-white/20  p-0 [&>button]:hidden flex flex-col"
+          className="h-[45vh] rounded-t-2xl bg-black/50 backdrop-blur-md border border-white/20  p-0 [&>button]:hidden flex flex-col"
         >
           <SheetHeader className="text-left p-4 pb-2 flex-shrink-0">
-            <SheetTitle className="text-white drop-shadow-lg">
-              Tour Stops
+            <SheetTitle className="text-white drop-shadow-lg text-3xl">
+              Route 66 Remixed
             </SheetTitle>
             <SheetDescription className="text-gray-200 drop-shadow-md">
-              Explore various tour stops. Scroll to see more details.
+              Explore tour stops. Scroll to see more.
             </SheetDescription>
           </SheetHeader>
           <div className="flex-1 overflow-y-auto px-4 pb-4 min-h-0">
