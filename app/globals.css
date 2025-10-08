@@ -10,11 +10,12 @@ body {
 }
 
 html {
-  background-color: #7dd3fc;
+  background-color: #00838f;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Gothic A1", "Century Gothic", "AppleGothic", sans-serif;
+  font-weight: 300;
 }
 
 @layer utilities {
@@ -59,12 +60,9 @@ body {
     --radius: 0.5rem;
     --vh: 1vh;
     --app-height: 100%;
-    --adobe: #ab7a68;
-    --turquoise: #7dd3fc;
-    --chile: #a6231f;
-    --sunset: #f4b942;
-    --mesa: #947c9e;
-    --neon: #d77ee6;
+    --yellow: #ffc700;
+    --red: #c50e3d;
+    --turquoise: #00838f;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -102,12 +100,21 @@ body {
     @apply bg-background text-foreground;
     background: linear-gradient(
       180deg,
-      #7dd3fc 0%,
-      #38bdf8 25%,
-      #0ea5e9 50%,
-      #0284c7 75%,
-      #0369a1 100%
+      #00838f 0%,
+      #006d78 25%,
+      #005961 50%,
+      #00454a 75%,
+      #003133 100%
     );
     overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-corma), serif;
   }
 }

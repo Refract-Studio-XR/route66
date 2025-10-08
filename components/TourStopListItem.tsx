@@ -17,7 +17,7 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
 }) => {
   return (
     <div
-      className="flex flex-col bg-black/10 backdrop-blur-sm rounded-xl p-4 mb-4 shadow-lg border border-white/10"
+      className="flex flex-col bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-4 shadow-lg border border-white/10"
       onClick={onClick}
       style={{ cursor: onClick ? "pointer" : undefined }}
     >

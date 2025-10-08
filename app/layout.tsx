@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const corma = localFont({
+  src: "../public/fonts/Corma.otf",
+  variable: "--font-corma",
+});
 
 export const metadata: Metadata = {
   title: "Route 66 Audio Tour",
@@ -24,8 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} `}>{children}</body>
+    <html
+      lang="en"
+      className={corma.variable}
+    >
+      <body>{children}</body>
     </html>
   );
 }

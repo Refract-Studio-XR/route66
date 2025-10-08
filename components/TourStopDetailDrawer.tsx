@@ -42,115 +42,117 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
       dismissible
       modal={false}
     >
-      <DrawerContent className="bg-black/40 backdrop-blur-md border border-white/20 h-[70vh] flex flex-col overflow-hidden">
+      <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-[70vh] flex flex-col overflow-hidden">
         <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
           <div>
             <DrawerTitle className="text-white text-xl">
               {tourStop.title}
             </DrawerTitle>
-            <DrawerDescription className="text-gray-200 text-base">
+            <DrawerDescription className="text-gray-200 text-base mt-2">
               {tourStop.location} — {tourStop.artist}
             </DrawerDescription>
           </div>
         </DrawerHeader>
         <div className="flex items-center justify-start py-2 pl-4 flex-shrink-0">
+          <button
+            onClick={() => {
+              if (!hasPlayedAudio) setHasPlayedAudio(true);
+              setIsPlayingAudio((p) => !p);
+            }}
+            className="text-white bg-route66Turquoise hover:bg-route66Turquoise/80 rounded-full py-2 px-4 text-sm flex items-center whitespace-nowrap overflow-hidden"
+            style={{
+              width: isPlayingAudio ? 200 : 150,
+              transition:
+                "width 500ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms",
+            }}
+            aria-label={isPlayingAudio ? "Pause" : "Play"}
+          >
+            <div className="relative flex items-center justify-center w-full">
+              <div
+                className={`flex items-center gap-2 transition-all duration-500 ${
+                  !isPlayingAudio
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-4 absolute"
+                }`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <polygon
+                    points="6,4 20,12 6,20"
+                    fill="currentColor"
+                  />
+                </svg>
+                <span>Listen to intro</span>
+              </div>
+              <div
+                className={`flex items-center gap-2 w-full transition-all duration-500 ${
+                  isPlayingAudio
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-4 absolute"
+                }`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <rect
+                    x="6"
+                    y="5"
+                    width="4"
+                    height="14"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                  <rect
+                    x="14"
+                    y="5"
+                    width="4"
+                    height="14"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                </svg>
+                <div className="flex-1 min-w-0 px-1">
+                  <input
+                    type="range"
+                    min={0}
+                    max={100}
+                    value={audioProgress}
+                    onChange={(e) => setAudioProgress(Number(e.target.value))}
+                    className="w-full h-1 accent-white/80 cursor-pointer transition-opacity duration-300"
+                    aria-label="Audio progress"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </div>
+              </div>
+            </div>
+          </button>
           {tourStop.arUrl && (
             <button
-              // disabled={!hasPlayedAudio}
+              disabled={!hasPlayedAudio}
               onClick={() => {
                 if (!tourStop.visible) return;
                 setShowAR(true);
               }}
-              className="text-white rounded-full px-4 py-2 font-semibold shadow-2xl transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className={`text-white bg-white/20 hover:bg-white/30 rounded-full px-4 py-2 mx-2 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center whitespace-nowrap ${
+                !hasPlayedAudio ? "" : "border-2 border-route66Turquoise"
+              }`}
               style={{
-                width: 100,
-                background:
-                  "linear-gradient(145deg, rgba(125, 211, 252, 0.5), rgba(125, 211, 252, 0.3))",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                boxShadow:
-                  "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
+                minWidth: 100,
               }}
               aria-label="Start AR"
             >
               Start AR
             </button>
           )}
-          <button
-            onClick={() => {
-              if (!hasPlayedAudio) setHasPlayedAudio(true);
-              setIsPlayingAudio((p) => !p);
-            }}
-            className="text-white rounded-full py-2 px-4 mx-2 shadow-2xl transition-all duration-300 flex items-center"
-            style={{
-              minWidth: isPlayingAudio ? 48 : 150,
-              background:
-                "linear-gradient(145deg, rgba(244, 185, 66, 0.5), rgba(244, 185, 66, 0.3))",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              boxShadow:
-                "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
-            }}
-            aria-label={isPlayingAudio ? "Pause" : "Play"}
-          >
-            {!isPlayingAudio && (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <polygon
-                  points="6,4 20,12 6,20"
-                  fill="currentColor"
-                />
-              </svg>
-            )}
-            {isPlayingAudio && (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <rect
-                  x="6"
-                  y="5"
-                  width="4"
-                  height="14"
-                  rx="1"
-                  fill="currentColor"
-                />
-                <rect
-                  x="14"
-                  y="5"
-                  width="4"
-                  height="14"
-                  rx="1"
-                  fill="currentColor"
-                />
-              </svg>
-            )}
-            <span
-              className={`ml-1 text-xs transition-all duration-300 ${
-                isPlayingAudio ? "opacity-0 w-0" : "opacity-100 w-auto"
-              }`}
-              style={{ display: isPlayingAudio ? "none" : "inline" }}
-            >
-              Play intro audio
-            </span>
-          </button>
-          <input
-            type="range"
-            min={0}
-            max={100}
-            value={audioProgress}
-            onChange={(e) => setAudioProgress(Number(e.target.value))}
-            className={`w-1/4 h-2 accent-zinc-600 transition-all duration-500 ${
-              isPlayingAudio ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-            aria-label="Audio progress"
-          />
         </div>
         <div className="flex-1 overflow-y-auto p-4 pb-8 text-gray-300 whitespace-pre-line min-h-0">
           {(tourStop.coverImage || tourStop.artistImage) && (
