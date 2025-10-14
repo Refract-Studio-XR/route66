@@ -162,6 +162,8 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               width={120}
               height={120}
               className="rounded-xl border border-zinc-700 object-cover"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
               priority
             />
 
@@ -172,6 +174,8 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 width={120}
                 height={120}
                 className="rounded-xl border border-zinc-700 object-cover"
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
                 priority
               />
             }

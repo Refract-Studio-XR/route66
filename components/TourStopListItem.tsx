@@ -29,6 +29,8 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
           src={"/olivia.jpg"}
           alt={title}
           className="w-20 h-20 object-cover rounded-lg border border-white/20 bg-zinc-700"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
         />
         <div className="flex flex-col justify-center">
           <div className="font-bold text-white text-lg leading-tight drop-shadow-lg">

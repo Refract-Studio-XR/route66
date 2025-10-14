@@ -41,6 +41,8 @@ export default function LoadingScreen({ isMapLoaded }: LoadingScreenProps) {
             WebkitMaskImage:
               "radial-gradient(circle, black 60%, transparent 100%)",
           }}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
           priority
         />
       </div>
