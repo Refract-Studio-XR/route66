@@ -15,7 +15,7 @@ export default function TourPage() {
   return (
     <>
       <LoadingScreen isMapLoaded={isMapLoaded} />
-      <div className="container mx-auto px-3 py-4 relative">
+      <div className="container mx-auto max-w-[480px] md:max-w-[640px] lg:max-w-[900px] px-3 py-4 relative">
         <MapScene mapContainerRef={mapContainerRef} />
         <div className="absolute top-0 left-0 z-10">
           <Image
