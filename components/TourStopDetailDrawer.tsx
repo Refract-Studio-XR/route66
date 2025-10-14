@@ -11,10 +11,11 @@ import {
 } from "@/components/ui/drawer";
 import { useLocalStorage } from "usehooks-ts";
 import ARPlayer from "./ARPlayer";
-import type { TourStop } from "@/data/artourstops";
+
+import { LocationData } from "@/data";
 
 interface TourStopDetailDrawerProps {
-  tourStop: TourStop | null;
+  tourStop: LocationData | null;
   open: boolean;
   onClose: () => void;
 }
@@ -28,7 +29,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [showAR, setShowAR] = useState(false);
   const [audioProgress, setAudioProgress] = useState(0);
   const [hasPlayedAudio, setHasPlayedAudio] = useLocalStorage(
-    `hasPlayed-${tourStop?.title}`,
+    `hasPlayed-${tourStop?.artTitle}`,
     false
   );
   if (!tourStop) return null;
@@ -46,10 +47,10 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
         <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
           <div>
             <DrawerTitle className="text-white text-xl">
-              {tourStop.title}
+              {tourStop.artTitle}
             </DrawerTitle>
             <DrawerDescription className="text-gray-200 text-base mt-2">
-              {tourStop.location} — {tourStop.artist}
+              {tourStop.locationDescription}
             </DrawerDescription>
           </div>
         </DrawerHeader>
@@ -135,11 +136,10 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               </div>
             </div>
           </button>
-          {tourStop.arUrl && (
+          {tourStop.isAR && (
             <button
-              disabled={!hasPlayedAudio}
+              disabled={!hasPlayedAudio || !tourStop.arURL}
               onClick={() => {
-                if (!tourStop.visible) return;
                 setShowAR(true);
               }}
               className={`text-white bg-white/20 hover:bg-white/30 rounded-full px-4 py-2 mx-2 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center whitespace-nowrap ${
@@ -150,7 +150,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               }}
               aria-label="Start AR"
             >
-              Start AR
+              {!tourStop.arURL ? "AR Coming Soon" : "Start AR"}
             </button>
           )}
         </div>
@@ -182,9 +182,9 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           {tourStop.artistStatement}
         </div>
       </DrawerContent>
-      {showAR && tourStop.arUrl && (
+      {showAR && tourStop.arURL && (
         <ARPlayer
-          url={tourStop.arUrl}
+          url={tourStop.arURL}
           onClose={() => {
             setShowAR(false);
           }}

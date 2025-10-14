@@ -26,15 +26,17 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
           priority={true}
           height={100}
           width={100}
-          src={coverImage || "/stub.jpg"}
+          src={"/olivia.jpg"}
           alt={title}
           className="w-20 h-20 object-cover rounded-lg border border-white/20 bg-zinc-700"
         />
         <div className="flex flex-col justify-center">
           <div className="font-bold text-white text-lg leading-tight drop-shadow-lg">
+            {title}
+          </div>
+          <div className="text-gray-200 text-base drop-shadow-md">
             {location}
           </div>
-          <div className="text-gray-200 text-base drop-shadow-md">{title}</div>
           <div className="text-gray-300 text-sm mt-1 drop-shadow-sm">
             {artist}
           </div>

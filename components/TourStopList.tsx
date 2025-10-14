@@ -1,22 +1,21 @@
-import { allTourStops, TourStop } from "@/data/";
+import { locationData, LocationData } from "@/data/";
 import TourStopListItem from "./TourStopListItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface TourStopListProps {
-  onSelectTourStop?: (stop: TourStop) => void;
+  onSelectTourStop?: (stop: LocationData) => void;
 }
 
 const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
   return (
     <ScrollArea>
-      {allTourStops.map((stop) => (
+      {locationData.map((location: LocationData) => (
         <TourStopListItem
-          key={stop.id}
-          location={stop.location}
-          title={stop.title}
-          artist={stop.artist}
-          coverImage={stop.coverImage}
-          onClick={() => onSelectTourStop && onSelectTourStop(stop)}
+          key={location.id}
+          location={location.locationDescription}
+          title={location.artTitle}
+          artist={location.artist}
+          onClick={() => onSelectTourStop && onSelectTourStop(location)}
         />
       ))}
     </ScrollArea>

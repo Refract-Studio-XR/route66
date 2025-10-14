@@ -5,11 +5,11 @@ import MapScene from "@/components/MapScene";
 import TourStopsDrawer from "@/components/TourStopsDrawer";
 import LoadingScreen from "@/components/LoadingScreen";
 import useMapbox from "@/hooks/useMapbox";
-import { allTourStops } from "@/data";
+import { locationData } from "@/data";
 
 export default function TourPage() {
   const { mapContainerRef, setOnMarkerClick, isMapLoaded } = useMapbox({
-    data: allTourStops,
+    data: locationData,
   });
 
   return (

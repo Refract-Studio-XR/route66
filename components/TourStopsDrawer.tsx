@@ -12,7 +12,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
-import { allTourStops, TourStop } from "@/data/";
+import { allTourStops, TourStop, LocationData, locationData } from "@/data/";
 import { MarkerData } from "@/hooks/useMapbox";
 
 type Props = {
@@ -23,13 +23,13 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const urlParams = useSearchParams();
   const router = useRouter();
   const tourStopLocation = urlParams.get("location");
-  const [selectedTourStop, setSelectedTourStop] = useState<TourStop | null>(
-    allTourStops.find((stop) => stop.location === tourStopLocation) || null
+  const [selectedTourStop, setSelectedTourStop] = useState<LocationData | null>(
+    locationData.find((stop) => stop.locationParam === tourStopLocation) || null
   );
 
-  const handleSelectTourStop = (stop: TourStop) => {
-    setSelectedTourStop(stop);
-    router.push(`?location=${stop.location}`);
+  const handleSelectTourStop = (location: LocationData) => {
+    setSelectedTourStop(location);
+    router.push(`?location=${location.locationParam}`);
   };
 
   // Set up the marker click handler when component mounts
