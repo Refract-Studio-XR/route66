@@ -155,31 +155,29 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           )}
         </div>
         <div className="flex-1 overflow-y-auto p-4 pb-8 text-gray-300 whitespace-pre-line min-h-0">
-          {(tourStop.coverImage || tourStop.artistImage) && (
-            <div className="flex justify-start gap-4 mb-4">
-              {tourStop.coverImage && (
-                <Image
-                  src={tourStop.coverImage}
-                  alt={tourStop.title}
-                  width={120}
-                  height={120}
-                  className="rounded-xl border border-zinc-700 object-cover"
-                  priority
-                />
-              )}
-              {tourStop.artistImage && (
-                <Image
-                  src={tourStop.artistImage}
-                  alt={tourStop.artist}
-                  width={120}
-                  height={120}
-                  className="rounded-xl border border-zinc-700 object-cover"
-                  priority
-                />
-              )}
-            </div>
-          )}
-          {tourStop.artistStatement}
+          <div className="flex justify-start gap-4 mb-4">
+            <Image
+              src={""}
+              alt={tourStop.artTitle}
+              width={120}
+              height={120}
+              className="rounded-xl border border-zinc-700 object-cover"
+              priority
+            />
+
+            {
+              <Image
+                src={""}
+                alt={tourStop.artist}
+                width={120}
+                height={120}
+                className="rounded-xl border border-zinc-700 object-cover"
+                priority
+              />
+            }
+          </div>
+
+          {"artist statement"}
         </div>
       </DrawerContent>
       {showAR && tourStop.arURL && (
