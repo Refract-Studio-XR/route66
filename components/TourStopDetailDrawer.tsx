@@ -11,7 +11,7 @@ import {
 import { useLocalStorage } from "usehooks-ts";
 import ARPlayer from "./ARPlayer";
 
-import { LocationData, artistData } from "@/data";
+import { LocationData, ArtistData, artistData } from "@/data";
 
 interface TourStopDetailDrawerProps {
   tourStop: LocationData | null;
@@ -25,7 +25,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   onClose,
 }) => {
   const stopArtistData = artistData.filter(
-    (artist) => artist.stop === tourStop?.stop
+    (artist: ArtistData) => artist.stop === tourStop?.stop
   );
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [showAR, setShowAR] = useState(false);
@@ -213,7 +213,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
 
               {/* Links Section */}
               {stopArtistData.some(
-                (artist) => artist.links && artist.links.length > 0
+                (artist: ArtistData) => artist.links && artist.links.length > 0
               ) && (
                 <div>
                   <h3 className="text-white text-lg font-semibold mb-3">
