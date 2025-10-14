@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import {
   Drawer,
   DrawerContent,
@@ -12,7 +11,7 @@ import {
 import { useLocalStorage } from "usehooks-ts";
 import ARPlayer from "./ARPlayer";
 
-import { LocationData } from "@/data";
+import { LocationData, artistData } from "@/data";
 
 interface TourStopDetailDrawerProps {
   tourStop: LocationData | null;
@@ -25,6 +24,9 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   open,
   onClose,
 }) => {
+  const stopArtistData = artistData.filter(
+    (artist) => artist.stop === tourStop?.stop
+  );
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [showAR, setShowAR] = useState(false);
   const [audioProgress, setAudioProgress] = useState(0);
@@ -43,12 +45,25 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
       dismissible
       modal={false}
     >
-      <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-[70vh] flex flex-col overflow-hidden">
+      <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-[70vh] flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
         <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
           <div>
-            <DrawerTitle className="text-white text-xl">
+            <DrawerTitle className="text-white text-xl tracking-wide">
               {tourStop.artTitle}
             </DrawerTitle>
+            {stopArtistData.length > 0 && (
+              <div className="mt-2 text-sm">
+                {stopArtistData.map((artist, index) => (
+                  <div
+                    key={index}
+                    className="text-gray-400"
+                  >
+                    {artist.credittitle}:{" "}
+                    <span className="text-white">{artist.fullname}</span>
+                  </div>
+                ))}
+              </div>
+            )}
             <DrawerDescription className="text-gray-200 text-base mt-2">
               {tourStop.locationDescription}
             </DrawerDescription>
@@ -62,7 +77,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             }}
             className="text-white bg-route66Turquoise hover:bg-route66Turquoise/80 rounded-full py-2 px-4 text-sm flex items-center whitespace-nowrap overflow-hidden"
             style={{
-              width: isPlayingAudio ? 200 : 150,
+              width: isPlayingAudio ? 200 : 180,
               transition:
                 "width 500ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms",
             }}
@@ -88,7 +103,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     fill="currentColor"
                   />
                 </svg>
-                <span>Listen to intro</span>
+                <span>Listen to intro poem</span>
               </div>
               <div
                 className={`flex items-center gap-2 w-full transition-all duration-500 ${
@@ -154,34 +169,99 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             </button>
           )}
         </div>
-        <div className="flex-1 overflow-y-auto p-4 pb-8 text-gray-300 whitespace-pre-line min-h-0">
-          <div className="flex justify-start gap-4 mb-4">
-            <Image
-              src={""}
-              alt={tourStop.artTitle}
-              width={120}
-              height={120}
-              className="rounded-xl border border-zinc-700 object-cover"
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
-              priority
-            />
+        <div className="flex-1 overflow-y-auto p-4 pb-8 text-gray-300 min-h-0">
+          {stopArtistData.length > 0 ? (
+            <div className="space-y-6">
+              {/* Artist Statements Section */}
+              <div>
+                <h3 className="text-white text-lg font-semibold mb-3">
+                  {stopArtistData.length > 1
+                    ? "Artist Statements"
+                    : "Artist Statement"}
+                </h3>
+                {stopArtistData.map((artist, index) => (
+                  <div
+                    key={index}
+                    className="mb-4"
+                  >
+                    <p className="whitespace-pre-line">
+                      {artist.artiststatement}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
-            {
-              <Image
-                src={""}
-                alt={tourStop.artist}
-                width={120}
-                height={120}
-                className="rounded-xl border border-zinc-700 object-cover"
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
-                priority
-              />
-            }
-          </div>
+              {/* Artist Bios Section */}
+              <div>
+                <h3 className="text-white text-lg font-semibold mb-3">
+                  {stopArtistData.length > 1 ? "Artist Bios" : "Artist Bio"}
+                </h3>
+                {stopArtistData.map((artist, index) => (
+                  <div
+                    key={index}
+                    className="mb-4"
+                  >
+                    {stopArtistData.length > 1 && (
+                      <h4 className="text-white text-base font-medium mb-2">
+                        {artist.fullname}
+                      </h4>
+                    )}
+                    <p className="whitespace-pre-line">{artist.artistbio}</p>
+                  </div>
+                ))}
+              </div>
 
-          {"artist statement"}
+              {/* Links Section */}
+              {stopArtistData.some(
+                (artist) => artist.links && artist.links.length > 0
+              ) && (
+                <div>
+                  <h3 className="text-white text-lg font-semibold mb-3">
+                    {stopArtistData.length > 1
+                      ? "Artist Links"
+                      : "Artist Links"}
+                  </h3>
+                  {stopArtistData.map(
+                    (artist, index) =>
+                      artist.links &&
+                      artist.links.length > 0 && (
+                        <div
+                          key={index}
+                          className="mb-4"
+                        >
+                          {stopArtistData.length > 1 && (
+                            <h4 className="text-white text-base font-medium mb-2">
+                              {artist.fullname}
+                            </h4>
+                          )}
+                          <div className="space-y-2">
+                            {artist.links.map((link, linkIndex) => (
+                              <a
+                                key={linkIndex}
+                                href={
+                                  link.startsWith("http")
+                                    ? link
+                                    : `https://${link}`
+                                }
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block text-route66Turquoise hover:text-white underline transition-colors"
+                              >
+                                {link}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <p className="text-gray-400 italic">
+              No artist information available for this stop.
+            </p>
+          )}
         </div>
       </DrawerContent>
       {showAR && tourStop.arURL && (

@@ -2,6 +2,7 @@ import { tourStops, TourStop } from "./artourstops";
 import { muralsData } from "./muralsData";
 import { v4 as uuidv4 } from "uuid";
 import { locationData, LocationData } from "./locationData";
+import { artistData, ArtistData } from "./artistsData";
 
 // Convert murals data to TourStop format
 const muralStops: TourStop[] = muralsData.map((mural) => ({
@@ -26,5 +27,5 @@ const muralStops: TourStop[] = muralsData.map((mural) => ({
 export const allTourStops: TourStop[] = [...tourStops, ...muralStops];
 
 // Export individual datasets
-export { tourStops, muralStops, muralsData, locationData };
-export type { TourStop, LocationData };
+export { tourStops, muralStops, muralsData, locationData, artistData };
+export type { TourStop, LocationData, ArtistData };

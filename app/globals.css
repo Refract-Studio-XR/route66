@@ -118,6 +118,11 @@ body {
     font-family: var(--font-corma), serif;
   }
 
+  .font-bold,
+  .font-semibold {
+    letter-spacing: 1px;
+  }
+
   @keyframes opacity-bounce {
     0% {
       opacity: 0;

@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "npm run location-data && next build",
+    "build": "npm run location-data && npm run artist-data && next build",
     "start": "next start",
     "lint": "next lint",
-    "location-data": "node scripts/generateLocationData.js"
+    "location-data": "node scripts/generateLocationData.js",
+    "artist-data": "node scripts/generateArtistData.js"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^1.1.2",

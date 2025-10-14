@@ -7,9 +7,13 @@ interface TourStopListProps {
 }
 
 const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
+  const sortedLocations = [...locationData].sort((a, b) => {
+    return parseFloat(a.stop) - parseFloat(b.stop);
+  });
+
   return (
     <ScrollArea>
-      {locationData.map((location: LocationData) => (
+      {sortedLocations.map((location: LocationData) => (
         <TourStopListItem
           key={location.id}
           location={location.locationDescription}

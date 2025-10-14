@@ -1,10 +1,7 @@
-import Image from "next/image";
-
 interface TourStopListItemProps {
   location: string;
   title: string;
   artist: string;
-  coverImage?: string;
   onClick?: () => void;
 }
 
@@ -12,7 +9,6 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
   location,
   title,
   artist,
-  coverImage,
   onClick,
 }) => {
   return (
@@ -22,16 +18,7 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
       style={{ cursor: onClick ? "pointer" : undefined }}
     >
       <div className="flex gap-3">
-        <Image
-          priority={true}
-          height={100}
-          width={100}
-          src={"/olivia.jpg"}
-          alt={title}
-          className="w-20 h-20 object-cover rounded-lg border border-white/20 bg-zinc-700"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
-        />
+        <div className="w-20 h-20 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
         <div className="flex flex-col justify-center">
           <div className="font-bold text-white text-lg leading-tight drop-shadow-lg">
             {title}
