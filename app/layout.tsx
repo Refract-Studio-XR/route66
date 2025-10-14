@@ -9,8 +9,9 @@ const corma = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Route 66 Audio Tour",
-  description: "Explore Route 66 through immersive audio experiences",
+  title: "Route 66 Remixed Augmented Reality Tour",
+  description:
+    "Explore Route 66 through immersive audio and augmented reality experiences",
 };
 
 export const viewport: Viewport = {
