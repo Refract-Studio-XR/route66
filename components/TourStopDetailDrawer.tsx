@@ -144,13 +144,14 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             </DrawerDescription>
           </div>
         </DrawerHeader>
-        <div className="flex items-center justify-start py-2 pl-4 flex-shrink-0">
+        <div className="flex items-center justify-start py-2 pl-4 ">
           <button
             onClick={toggleAudio}
             disabled={!audioUrl}
             className="text-white bg-route66Turquoise hover:bg-route66Turquoise/80 rounded-full py-2 px-4 text-sm flex items-center whitespace-nowrap overflow-hidden"
             style={{
               width: isPlayingAudio ? 200 : 180,
+              height: 40,
               transition:
                 "width 500ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms",
             }}
