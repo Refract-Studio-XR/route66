@@ -26,7 +26,7 @@ export const locationData: LocationData[] = [
     "artist": "Deb Jojola",
     "locationParam": "tuei",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "2",
@@ -38,7 +38,7 @@ export const locationData: LocationData[] = [
       35.0759315
     ],
     "locationDescription": "International District (hubcap sign)",
-    "artist": "",
+    "artist": "Nazario Sandoval (aka Wemfer)",
     "locationParam": "keep-66-rolling",
     "arURL": "",
     "isAR": false
@@ -67,11 +67,11 @@ export const locationData: LocationData[] = [
       -106.5680389,
       35.0752639
     ],
-    "locationDescription": "Entrance of Talin Market",
+    "locationDescription": "Talin Market",
     "artist": "Helen Atkins",
     "locationParam": "neon-platano",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "4",
@@ -86,7 +86,7 @@ export const locationData: LocationData[] = [
     "artist": "Dale Deforest",
     "locationParam": "lets-not-forget-albuquerque-is-a-character-too",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "5",
@@ -112,7 +112,7 @@ export const locationData: LocationData[] = [
       -106.6273151,
       35.0818343
     ],
-    "locationDescription": "UNM Arts Lab Central and University",
+    "locationDescription": "UNM Arts Lab",
     "artist": "Noé Barnett & Travis Black",
     "locationParam": "mother-moment",
     "arURL": "",
@@ -127,16 +127,16 @@ export const locationData: LocationData[] = [
       -106.6424639,
       35.0838227
     ],
-    "locationDescription": "Corner of Central and Edith",
+    "locationDescription": "Special Collections Library",
     "artist": "Jessica Helen Lopez",
     "locationParam": "the-mother-road-blooms---100-years-special-collection-library",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "9",
     "stop": "9",
-    "artTitle": "Mother Earth Cruise",
+    "artTitle": "Mother Road Cruise",
     "location": "416 Central Ave SW, Albuquerque, NM 87102",
     "coordinates": [
       -106.6514649,
@@ -144,7 +144,7 @@ export const locationData: LocationData[] = [
     ],
     "locationDescription": "4th and Central",
     "artist": "Gael Luna",
-    "locationParam": "mother-earth-cruise",
+    "locationParam": "mother-road-cruise",
     "arURL": "",
     "isAR": false
   },
@@ -161,7 +161,7 @@ export const locationData: LocationData[] = [
     "artist": "Carmen Montes",
     "locationParam": "the-old-road---el-viejo-camino",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "11",
@@ -206,7 +206,7 @@ export const locationData: LocationData[] = [
     "artist": "Sonja Killer",
     "locationParam": "albuquerque-museum-sculpture-garden-ar-experience",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "14",
@@ -221,7 +221,7 @@ export const locationData: LocationData[] = [
     "artist": "Lea Anderson",
     "locationParam": "enchanted-pond",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "15",
@@ -266,7 +266,7 @@ export const locationData: LocationData[] = [
     "artist": "Akilah Martinez",
     "locationParam": "origin-route",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   },
   {
     "id": "18",
@@ -296,6 +296,6 @@ export const locationData: LocationData[] = [
     "artist": "Karl Orozco",
     "locationParam": "signs-of-life",
     "arURL": "",
-    "isAR": false
+    "isAR": true
   }
 ]
