@@ -120,7 +120,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
       dismissible
       modal={false}
     >
-      <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-[70vh] flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
+      <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-[77vh] flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
         <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
           <div>
             <DrawerTitle className="text-white text-xl tracking-wide">
