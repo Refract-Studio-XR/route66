@@ -52,8 +52,8 @@ export const locationData: LocationData[] = [
   {
     id: "2",
     stop: "2",
-    artTitle: "\n The Mother Road",
-    location: "\n\n10921 Central Ave NE, Albuquerque, 87123",
+    artTitle: "The Mother Road",
+    location: "10921 Central Ave NE, Albuquerque, 87123",
     coordinates: [-106.5250996, 35.07165],
     locationDescription: "\nEast Gateway (Jones surplus sign)",
     artist: "Nazario Sandoval (aka Wemfer)",
