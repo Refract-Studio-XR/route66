@@ -4,7 +4,7 @@ export const artistImages: Record<string, string> = {
   "Thomas Christopher Haag": "/artists/thomas_bio.jpg",
   "Dante Tsuzuki Betsch": "/artists/dante_bio.jpg",
   "Travis Bruce Black": "/artists/travis_bio.jpg",
-  "Gael Luna": "/artists/gael_bio.jpg",
+  "Gael Luna": "/artists/gael_bio_1.jpg",
   "Hakim Bellamy": "/artists/hakim_bio_1.jpg",
   "Lynnette Haozous": "/artists/lynette_bio.jpg",
   "Nazario Sandoval": "/artists/nazario_bio.jpg",
