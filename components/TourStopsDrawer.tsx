@@ -12,7 +12,13 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
-import { allTourStops, TourStop, LocationData, locationData } from "@/data/";
+import {
+  allTourStops,
+  TourStop,
+  LocationData,
+  locationData,
+  artistData,
+} from "@/data/";
 import { MarkerData } from "@/hooks/useMapbox";
 
 type Props = {
@@ -37,8 +43,18 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
     setOnMapMarkerClick((data: MarkerData) => {
       const tourStop = locationData.find((stop) => stop.id === data.id);
       if (tourStop) {
-        // Don't allow opening stops that are AR but have no AR URL
-        const isComingSoon = tourStop.isAR && !tourStop.arURL.length;
+        // Check if has artist statement
+        const hasArtistStatement = artistData.some(
+          (artist) =>
+            Math.floor(parseFloat(artist.stop)) ===
+              Math.floor(parseFloat(tourStop.stop)) &&
+            artist.artiststatement &&
+            artist.artiststatement.length > 0
+        );
+
+        // Don't allow opening stops that are AR but have no AR URL or have no artist statement
+        const isComingSoon =
+          (tourStop.isAR && !tourStop.arURL.length) || !hasArtistStatement;
         if (isComingSoon) return;
 
         handleSelectTourStop(tourStop);

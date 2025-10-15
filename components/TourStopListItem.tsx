@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { artistSquareImages } from "@/data";
+
 interface TourStopListItemProps {
   id: string;
   location: string;
@@ -5,6 +8,7 @@ interface TourStopListItemProps {
   artist: string;
   isAR?: boolean;
   arURL?: string;
+  hasArtistStatement?: boolean;
   onClick?: () => void;
 }
 
@@ -15,9 +19,12 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
   artist,
   isAR,
   arURL,
+  hasArtistStatement,
   onClick,
 }) => {
-  const isComingSoon = isAR && !arURL;
+  const isComingSoon = (isAR && !arURL) || !hasArtistStatement;
+  const squareImage = artistSquareImages[artist];
+
   return (
     <div
       className="flex flex-col bg-white/10 backdrop-blur-sm rounded-xl p-3 mb-3 shadow-lg border border-white/10 relative"
@@ -27,7 +34,17 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
       }}
     >
       <div className="flex gap-2.5">
-        <div className="w-16 h-16 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
+        {squareImage ? (
+          <Image
+            src={squareImage}
+            alt={artist}
+            width={64}
+            height={64}
+            className="w-16 h-16 flex-shrink-0 rounded-lg object-cover border border-white/20"
+          />
+        ) : (
+          <div className="w-16 h-16 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
+        )}
         <div className="flex flex-col justify-center">
           <div className="font-bold text-white text-base leading-tight drop-shadow-lg">
             {title}

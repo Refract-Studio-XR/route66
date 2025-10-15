@@ -1,4 +1,4 @@
-import { locationData, LocationData } from "@/data/";
+import { locationData, LocationData, artistData } from "@/data/";
 import TourStopListItem from "./TourStopListItem";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -13,18 +13,30 @@ const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
 
   return (
     <ScrollArea>
-      {sortedLocations.map((location: LocationData) => (
-        <TourStopListItem
-          key={location.id}
-          id={location.id}
-          location={location.locationDescription}
-          title={location.artTitle}
-          artist={location.artist}
-          isAR={location.isAR}
-          arURL={location.arURL}
-          onClick={() => onSelectTourStop && onSelectTourStop(location)}
-        />
-      ))}
+      {sortedLocations.map((location: LocationData) => {
+        // Check if this location has artist statement data
+        const hasArtistStatement = artistData.some(
+          (artist) =>
+            Math.floor(parseFloat(artist.stop)) ===
+              Math.floor(parseFloat(location.stop)) &&
+            artist.artiststatement &&
+            artist.artiststatement.length > 0
+        );
+
+        return (
+          <TourStopListItem
+            key={location.id}
+            id={location.id}
+            location={location.locationDescription}
+            title={location.artTitle}
+            artist={location.artist}
+            isAR={location.isAR}
+            arURL={location.arURL}
+            hasArtistStatement={hasArtistStatement}
+            onClick={() => onSelectTourStop && onSelectTourStop(location)}
+          />
+        );
+      })}
     </ScrollArea>
   );
 };

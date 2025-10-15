@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { locationData, LocationData } from "./locationData";
 import { artistData, ArtistData } from "./artistsData";
 import { artistImages } from "./artistImages";
+import { artistSquareImages } from "./artistSquareImages";
 
 // Convert murals data to TourStop format
 const muralStops: TourStop[] = muralsData.map((mural) => ({
@@ -35,5 +36,6 @@ export {
   locationData,
   artistData,
   artistImages,
+  artistSquareImages,
 };
 export type { TourStop, LocationData, ArtistData };

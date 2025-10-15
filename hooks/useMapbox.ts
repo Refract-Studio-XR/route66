@@ -9,6 +9,7 @@ export type MarkerData = {
   id: string | number;
   isAR?: boolean;
   arURL?: string;
+  hasArtistStatement?: boolean;
 };
 
 type Options = {
@@ -42,9 +43,10 @@ const useMapbox = (options?: Options) => {
     });
 
     options?.data.forEach((data) => {
-      // Determine if this is a "coming soon" AR location
+      // Determine if this is a "coming soon" location (AR without URL or no artist statement)
       const isComingSoon =
-        data.isAR && (!data.arURL || data.arURL.length === 0);
+        (data.isAR && (!data.arURL || data.arURL.length === 0)) ||
+        !data.hasArtistStatement;
       const markerColor = isComingSoon ? "#9CA3AF" : "#C50E3D"; // grey-400 : red
 
       const marker = new mapboxgl.Marker({
