@@ -44,6 +44,12 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
     `audioTime-${tourStop?.stop}`,
     0
   );
+  const [isStatementExpanded, setIsStatementExpanded] = useState(false);
+
+  // Reset statement expansion when tour stop changes
+  useEffect(() => {
+    setIsStatementExpanded(false);
+  }, [tourStop?.id]);
 
   // Load saved timestamp when audio is ready
   useEffect(() => {
@@ -299,16 +305,77 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 <h3 className="text-white text-lg font-semibold mb-3">
                   Artist Statement
                 </h3>
-                {stopArtistData.map((artist: ArtistData, index) => (
-                  <div
-                    key={index}
-                    className="mb-4"
-                  >
-                    <p className="whitespace-pre-line">
-                      {artist.artiststatement}
-                    </p>
-                  </div>
-                ))}
+                {(() => {
+                  const totalStatementLength = stopArtistData.reduce(
+                    (sum, artist) =>
+                      sum + (artist.artiststatement?.length || 0),
+                    0
+                  );
+                  const needsExpand = totalStatementLength > 400;
+
+                  return needsExpand ? (
+                    <div className="relative">
+                      <div
+                        className={`relative overflow-hidden transition-all duration-300 ${
+                          isStatementExpanded ? "max-h-none" : "max-h-44"
+                        }`}
+                      >
+                        {stopArtistData.map((artist: ArtistData, index) => (
+                          <div
+                            key={index}
+                            className="mb-4"
+                          >
+                            <p className="whitespace-pre-line">
+                              {artist.artiststatement}
+                            </p>
+                          </div>
+                        ))}
+                        {!isStatementExpanded && (
+                          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent pointer-events-none" />
+                        )}
+                      </div>
+                      <button
+                        onClick={() =>
+                          setIsStatementExpanded(!isStatementExpanded)
+                        }
+                        className="flex items-center justify-center gap-2 text-route66Turquoise transition-colors mt-3 relative z-10 w-full"
+                      >
+                        <span className="text-base font-semibold">
+                          {isStatementExpanded ? "Show less" : "Read more"}
+                        </span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className={`w-5 h-5 transition-transform duration-300 ${
+                            isStatementExpanded ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    <div>
+                      {stopArtistData.map((artist: ArtistData, index) => (
+                        <div
+                          key={index}
+                          className="mb-4"
+                        >
+                          <p className="whitespace-pre-line">
+                            {artist.artiststatement}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
               </div>
 
               {/* Artist Bios Section */}
