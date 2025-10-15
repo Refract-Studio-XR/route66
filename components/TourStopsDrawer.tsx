@@ -84,6 +84,14 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
             <SheetDescription className="text-gray-200 drop-shadow-md">
               Explore tour stops. Scroll to see more.
             </SheetDescription>
+            <a
+              href="https://refractstudio.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-200 drop-shadow-md text-sm underline hover:text-white transition-colors"
+            >
+              built by refract studio
+            </a>
           </SheetHeader>
           <div className="flex-1 overflow-y-auto px-4 pb-4 min-h-0">
             <TourStopList onSelectTourStop={handleSelectTourStop} />
