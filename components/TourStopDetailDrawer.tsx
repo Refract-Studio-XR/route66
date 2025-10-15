@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import {
   Drawer,
   DrawerContent,
@@ -11,7 +12,7 @@ import {
 import { useLocalStorage } from "usehooks-ts";
 import ARPlayer from "./ARPlayer";
 
-import { LocationData, ArtistData, artistData } from "@/data";
+import { LocationData, ArtistData, artistData, artistImages } from "@/data";
 import { getAudioUrl } from "@/lib/utils";
 
 interface TourStopDetailDrawerProps {
@@ -133,8 +134,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     key={index}
                     className="text-gray-400"
                   >
-                    {artist.credittitle}:{" "}
-                    <span className="text-white">{artist.fullname}</span>
+                    {artist.credittitle.length > 0
+                      ? artist.credittitle
+                      : "Artist"}
+                    :
+                    <span className="text-white">
+                      {artist.fullname || tourStop.artist}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -261,7 +267,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 </h3>
                 {stopArtistData.map((artist: ArtistData) => (
                   <div
-                    key={artist.fullname}
+                    key={tourStop.artist}
                     className="mb-4"
                   >
                     <p className="whitespace-pre-line">
@@ -279,63 +285,50 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 {stopArtistData.map((artist, index) => (
                   <div
                     key={index}
-                    className="mb-4"
+                    className="mb-6"
                   >
-                    {stopArtistData.length > 1 && (
-                      <h4 className="text-white text-base font-medium mb-2">
-                        {artist.fullname}
-                      </h4>
+                    {artistImages[artist.fullname || tourStop.artist] && (
+                      <div className="mb-3">
+                        <Image
+                          src={artistImages[artist.fullname || tourStop.artist]}
+                          alt={`${artist.fullname || tourStop.artist} portrait`}
+                          width={200}
+                          height={200}
+                          className="rounded-lg shadow-lg object-cover max-w-[200px] h-auto"
+                        />
+                      </div>
                     )}
-                    <p className="whitespace-pre-line">{artist.artistbio}</p>
+                    <h4 className="text-white text-base font-semibold mb-1">
+                      {artist.fullname || tourStop.artist}
+                    </h4>
+                    {artist.pronouns && (
+                      <p className="text-gray-400 text-sm mb-3">
+                        {artist.pronouns}
+                      </p>
+                    )}
+                    <p className="whitespace-pre-line mb-3">
+                      {artist.artistbio}
+                    </p>
+                    {artist.links && artist.links.length > 0 && (
+                      <div className="space-y-2">
+                        {artist.links.map((link, linkIndex) => (
+                          <a
+                            key={linkIndex}
+                            href={
+                              link.startsWith("http") ? link : `https://${link}`
+                            }
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-route66Turquoise hover:text-white underline transition-colors"
+                          >
+                            {link}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
-
-              {/* Links Section */}
-              {stopArtistData.some(
-                (artist: ArtistData) => artist.links && artist.links.length > 0
-              ) && (
-                <div>
-                  <h3 className="text-white text-lg font-semibold mb-3">
-                    {stopArtistData.length > 1
-                      ? "Artist Links"
-                      : "Artist Links"}
-                  </h3>
-                  {stopArtistData.map(
-                    (artist: ArtistData) =>
-                      artist.links &&
-                      artist.links.length > 0 && (
-                        <div
-                          key={artist.fullname}
-                          className="mb-4"
-                        >
-                          {stopArtistData.length > 1 && (
-                            <h4 className="text-white text-base font-medium mb-2">
-                              {artist.fullname}
-                            </h4>
-                          )}
-                          <div className="space-y-2">
-                            {artist.links.map((link, linkIndex) => (
-                              <a
-                                key={linkIndex}
-                                href={
-                                  link.startsWith("http")
-                                    ? link
-                                    : `https://${link}`
-                                }
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="block text-route66Turquoise hover:text-white underline transition-colors"
-                              >
-                                {link}
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      )
-                  )}
-                </div>
-              )}
             </div>
           ) : (
             <p className="text-gray-400 italic">
