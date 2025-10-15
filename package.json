@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "npm run location-data && npm run artist-data && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "location-data": "node scripts/generateLocationData.js",
