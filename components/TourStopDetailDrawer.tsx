@@ -157,13 +157,14 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             }}
             aria-label={isPlayingAudio ? "Pause" : "Play"}
           >
-            <div className="relative flex items-center justify-center w-full pointer-events-none">
+            <div className="relative flex items-center justify-center w-full">
               <div
                 className={`flex items-center gap-2 transition-all duration-500 ${
                   !isPlayingAudio
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-4 absolute"
                 }`}
+                style={{ pointerEvents: !isPlayingAudio ? "auto" : "none" }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -185,6 +186,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-4 absolute"
                 }`}
+                style={{ pointerEvents: isPlayingAudio ? "auto" : "none" }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -210,16 +212,16 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     fill="currentColor"
                   />
                 </svg>
-                <div className="flex-1 min-w-0 px-1 pointer-events-auto">
+                <div className="flex-1 min-w-0 px-1">
                   <input
                     type="range"
                     min={0}
                     max={100}
                     value={audioProgress}
                     onChange={(e) => handleSeek(Number(e.target.value))}
+                    onClick={(e) => e.stopPropagation()}
                     className="w-full h-1 accent-white/80 cursor-pointer transition-opacity duration-300"
                     aria-label="Audio progress"
-                    onClick={(e) => e.stopPropagation()}
                   />
                 </div>
               </div>
