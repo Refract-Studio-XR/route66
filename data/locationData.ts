@@ -70,7 +70,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Talin Market",
     artist: "Helen Atkins",
     locationParam: "neon-platano",
-    arURL: "https://refractstudio.8thwall.app/route66-talin-mkt/",
+    arURL: "https://refractstudio.8thwall.app/route66-talin-market/",
     isAR: true,
   },
   {

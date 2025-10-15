@@ -285,7 +285,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           </button>
           {tourStop.isAR && (
             <button
-              disabled={!hasPlayedAudio || !tourStop.arURL}
+              disabled={!tourStop.arURL}
               onClick={() => {
                 if (audioRef.current) {
                   audioRef.current.pause();
@@ -294,7 +294,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 setShowAR(true);
               }}
               className={`text-white bg-white/20 hover:bg-white/30 rounded-full px-4 py-2 mx-2 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center whitespace-nowrap ${
-                !hasPlayedAudio ? "" : "border-2 border-route66Turquoise"
+                tourStop.arURL ? "border-2 border-route66Turquoise" : ""
               }`}
               style={{
                 minWidth: 100,
