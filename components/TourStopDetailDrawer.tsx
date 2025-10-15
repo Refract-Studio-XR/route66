@@ -110,6 +110,15 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
     setIsPlayingAudio((p) => !p);
   };
 
+  // Open maps with location
+  const openMaps = () => {
+    if (!tourStop?.location) return;
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      tourStop.location
+    )}`;
+    window.open(mapsUrl, "_blank");
+  };
+
   if (!tourStop) return null;
 
   return (
@@ -150,8 +159,30 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 <span className="text-white">{tourStop.artist}</span>
               </div>
             ) : null}
-            <DrawerDescription className="text-gray-200 text-base mt-2">
-              {tourStop.locationDescription}
+            <DrawerDescription className="text-gray-200 text-base mt-2 flex items-center gap-3">
+              <span>{tourStop.locationDescription}</span>
+              {tourStop.location && (
+                <button
+                  onClick={openMaps}
+                  className="text-white bg-route66Turquoise/80 hover:bg-route66Turquoise transition-all flex-shrink-0 rounded-md p-1 ml-1 -mt-0.5"
+                  aria-label="Open in maps"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                    />
+                  </svg>
+                </button>
+              )}
             </DrawerDescription>
           </div>
         </DrawerHeader>
