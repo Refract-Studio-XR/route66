@@ -222,11 +222,11 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                       : "Artist Links"}
                   </h3>
                   {stopArtistData.map(
-                    (artist, index) =>
+                    (artist: ArtistData) =>
                       artist.links &&
                       artist.links.length > 0 && (
                         <div
-                          key={index}
+                          key={artist.fullname}
                           className="mb-4"
                         >
                           {stopArtistData.length > 1 && (
