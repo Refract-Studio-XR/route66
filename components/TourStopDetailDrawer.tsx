@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Drawer,
   DrawerContent,
@@ -12,6 +12,7 @@ import { useLocalStorage } from "usehooks-ts";
 import ARPlayer from "./ARPlayer";
 
 import { LocationData, ArtistData, artistData } from "@/data";
+import { getAudioUrl } from "@/lib/utils";
 
 interface TourStopDetailDrawerProps {
   tourStop: LocationData | null;
@@ -25,8 +26,12 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   onClose,
 }) => {
   const stopArtistData = artistData.filter(
-    (artist: ArtistData) => artist.stop === tourStop?.stop
+    (artist: ArtistData) =>
+      Math.floor(parseFloat(artist.stop)) ===
+      Math.floor(parseFloat(tourStop?.stop || "0"))
   );
+  const audioUrl = getAudioUrl(tourStop?.stop);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [showAR, setShowAR] = useState(false);
   const [audioProgress, setAudioProgress] = useState(0);
@@ -34,6 +39,76 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
     `hasPlayed-${tourStop?.artTitle}`,
     false
   );
+  const [savedTimestamp, setSavedTimestamp] = useLocalStorage(
+    `audioTime-${tourStop?.stop}`,
+    0
+  );
+
+  // Load saved timestamp when audio is ready
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !audioUrl) return;
+
+    const loadSavedTime = () => {
+      if (savedTimestamp > 0 && audio.duration) {
+        audio.currentTime = savedTimestamp;
+      }
+    };
+
+    audio.addEventListener("loadedmetadata", loadSavedTime);
+    return () => {
+      audio.removeEventListener("loadedmetadata", loadSavedTime);
+    };
+  }, [audioUrl, savedTimestamp]);
+
+  // Handle play/pause
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    if (isPlayingAudio) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlayingAudio]);
+
+  // Update progress as audio plays and save timestamp
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const updateProgress = () => {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      setAudioProgress(progress || 0);
+      setSavedTimestamp(audio.currentTime);
+    };
+
+    audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("ended", () => {
+      setIsPlayingAudio(false);
+      setAudioProgress(0);
+      setSavedTimestamp(0);
+    });
+
+    return () => {
+      audio.removeEventListener("timeupdate", updateProgress);
+    };
+  }, [audioUrl, setSavedTimestamp]);
+
+  // Handle seeking
+  const handleSeek = (value: number) => {
+    if (!audioRef.current) return;
+    const time = (value / 100) * audioRef.current.duration;
+    audioRef.current.currentTime = time;
+    setAudioProgress(value);
+  };
+
+  // Toggle play/pause
+  const toggleAudio = () => {
+    if (!hasPlayedAudio) setHasPlayedAudio(true);
+    setIsPlayingAudio((p) => !p);
+  };
+
   if (!tourStop) return null;
 
   return (
@@ -71,10 +146,8 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
         </DrawerHeader>
         <div className="flex items-center justify-start py-2 pl-4 flex-shrink-0">
           <button
-            onClick={() => {
-              if (!hasPlayedAudio) setHasPlayedAudio(true);
-              setIsPlayingAudio((p) => !p);
-            }}
+            onClick={toggleAudio}
+            disabled={!audioUrl}
             className="text-white bg-route66Turquoise hover:bg-route66Turquoise/80 rounded-full py-2 px-4 text-sm flex items-center whitespace-nowrap overflow-hidden"
             style={{
               width: isPlayingAudio ? 200 : 180,
@@ -83,7 +156,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             }}
             aria-label={isPlayingAudio ? "Pause" : "Play"}
           >
-            <div className="relative flex items-center justify-center w-full">
+            <div className="relative flex items-center justify-center w-full pointer-events-none">
               <div
                 className={`flex items-center gap-2 transition-all duration-500 ${
                   !isPlayingAudio
@@ -136,13 +209,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     fill="currentColor"
                   />
                 </svg>
-                <div className="flex-1 min-w-0 px-1">
+                <div className="flex-1 min-w-0 px-1 pointer-events-auto">
                   <input
                     type="range"
                     min={0}
                     max={100}
                     value={audioProgress}
-                    onChange={(e) => setAudioProgress(Number(e.target.value))}
+                    onChange={(e) => handleSeek(Number(e.target.value))}
                     className="w-full h-1 accent-white/80 cursor-pointer transition-opacity duration-300"
                     aria-label="Audio progress"
                     onClick={(e) => e.stopPropagation()}
@@ -155,6 +228,10 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             <button
               disabled={!hasPlayedAudio || !tourStop.arURL}
               onClick={() => {
+                if (audioRef.current) {
+                  audioRef.current.pause();
+                  setIsPlayingAudio(false);
+                }
                 setShowAR(true);
               }}
               className={`text-white bg-white/20 hover:bg-white/30 rounded-full px-4 py-2 mx-2 text-sm font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center whitespace-nowrap ${
@@ -264,6 +341,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           )}
         </div>
       </DrawerContent>
+      {audioUrl && (
+        <audio
+          ref={audioRef}
+          src={audioUrl}
+          preload="metadata"
+        />
+      )}
       {showAR && tourStop.arURL && (
         <ARPlayer
           url={tourStop.arURL}
