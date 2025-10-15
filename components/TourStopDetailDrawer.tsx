@@ -53,7 +53,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             </DrawerTitle>
             {stopArtistData.length > 0 && (
               <div className="mt-2 text-sm">
-                {stopArtistData.map((artist, index) => (
+                {stopArtistData.map((artist: ArtistData, index) => (
                   <div
                     key={index}
                     className="text-gray-400"
