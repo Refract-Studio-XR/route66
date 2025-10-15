@@ -139,7 +139,7 @@ export const locationData: LocationData[] = [
     stop: "8.1",
     artTitle: 'The "Old Road" - El Viejo Camino',
     location: "416 Central Ave SW, Albuquerque, NM 87102",
-    coordinates: [35.0843558, 35.0843558],
+    coordinates: [-106.65138, 35.08442],
     locationDescription: "4th and Central",
     artist: "Carmen Montes",
     locationParam: "the-old-road---el-viejo-camino",

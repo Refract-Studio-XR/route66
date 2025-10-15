@@ -36,8 +36,8 @@ const useMapbox = (options?: Options) => {
       // @ts-expect-error - mapbox-gl types issue
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/standard",
-      center: [-106.65145, 35.08443],
-      zoom: 11,
+      center: [-106.6514, 35.08445],
+      zoom: 10.8,
       pitch: 40,
     });
 
