@@ -409,6 +409,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                               } portrait`}
                               width={150}
                               height={150}
+                              priority
                               className="rounded-lg shadow-lg object-cover w-[150px] h-auto"
                             />
                           </div>
@@ -468,6 +469,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                             alt={`${tourStop.artist} portrait`}
                             width={150}
                             height={150}
+                            priority
                             className="rounded-lg shadow-lg object-cover w-[150px] h-auto"
                           />
                         </div>

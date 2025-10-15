@@ -40,6 +40,7 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
             alt={artist}
             width={64}
             height={64}
+            priority
             className="w-16 h-16 flex-shrink-0 rounded-lg object-cover border border-white/20"
           />
         ) : (
