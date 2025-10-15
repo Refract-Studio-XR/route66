@@ -37,6 +37,10 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
     setOnMapMarkerClick((data: MarkerData) => {
       const tourStop = locationData.find((stop) => stop.id === data.id);
       if (tourStop) {
+        // Don't allow opening stops that are AR but have no AR URL
+        const isComingSoon = tourStop.isAR && !tourStop.arURL.length;
+        if (isComingSoon) return;
+
         handleSelectTourStop(tourStop);
       }
     });

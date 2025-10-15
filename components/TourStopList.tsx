@@ -16,9 +16,12 @@ const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
       {sortedLocations.map((location: LocationData) => (
         <TourStopListItem
           key={location.id}
+          id={location.id}
           location={location.locationDescription}
           title={location.artTitle}
           artist={location.artist}
+          isAR={location.isAR}
+          arURL={location.arURL}
           onClick={() => onSelectTourStop && onSelectTourStop(location)}
         />
       ))}

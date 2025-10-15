@@ -1,316 +1,257 @@
 // Auto-generated from CSV
 export interface LocationData {
-  stop: string
-  id: string
-  artTitle: string
-  location: string
-  coordinates: [number, number]
-  locationDescription: string
-  artist: string
-  locationParam: string
-  arURL: string
-  isAR: boolean
+  stop: string;
+  id: string;
+  artTitle: string;
+  location: string;
+  coordinates: [number, number];
+  locationDescription: string;
+  artist: string;
+  locationParam: string;
+  arURL: string;
+  isAR: boolean;
 }
 
 export const locationData: LocationData[] = [
   {
-    "id": "0",
-    "stop": "0",
-    "artTitle": "Portal Intro",
-    "location": "",
-    "coordinates": [
-      0,
-      0
-    ],
-    "locationDescription": "",
-    "artist": "Hakim Bellamy",
-    "locationParam": "portal-intro",
-    "arURL": "",
-    "isAR": false
+    id: "0",
+    stop: "0",
+    artTitle: "Portal Intro",
+    location: "",
+    coordinates: [0, 0],
+    locationDescription: "",
+    artist: "Hakim Bellamy",
+    locationParam: "portal-intro",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "1",
-    "stop": "1",
-    "artTitle": "Tuei",
-    "location": "13200 Wenonah Ave SE, Albuquerque, NM 87123",
-    "coordinates": [
-      -106.498378,
-      35.0645682
-    ],
-    "locationDescription": "Singing Arrow Park",
-    "artist": "Deb Jojola",
-    "locationParam": "tuei",
-    "arURL": "",
-    "isAR": true
+    id: "1",
+    stop: "1",
+    artTitle: "Tuei",
+    location: "13200 Wenonah Ave SE, Albuquerque, NM 87123",
+    coordinates: [-106.498378, 35.0645682],
+    locationDescription: "Singing Arrow Park",
+    artist: "Deb Jojola",
+    locationParam: "tuei",
+    arURL: "",
+    isAR: true,
   },
   {
-    "id": "2.1",
-    "stop": "2.1",
-    "artTitle": "Keep 66 Rolling",
-    "location": "6808 Central Ave SE, Albuquerque, 87108",
-    "coordinates": [
-      -106.5715979,
-      35.0759315
-    ],
-    "locationDescription": "International District (hubcap sign)",
-    "artist": "Nazario Sandoval (aka Wemfer)",
-    "locationParam": "keep-66-rolling",
-    "arURL": "",
-    "isAR": false
+    id: "2.1",
+    stop: "2.1",
+    artTitle: "Keep 66 Rolling",
+    location: "6808 Central Ave SE, Albuquerque, 87108",
+    coordinates: [-106.5715979, 35.0759315],
+    locationDescription: "International District (hubcap sign)",
+    artist: "Nazario Sandoval (aka Wemfer)",
+    locationParam: "keep-66-rolling",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "2",
-    "stop": "2",
-    "artTitle": "\n The Mother Road",
-    "location": "\n\n10921 Central Ave NE, Albuquerque, 87123",
-    "coordinates": [
-      -106.5250996,
-      35.07165
-    ],
-    "locationDescription": "\nEast Gateway (Jones surplus sign)",
-    "artist": "Nazario Sandoval (aka Wemfer)",
-    "locationParam": "the-mother-road",
-    "arURL": "",
-    "isAR": false
+    id: "2",
+    stop: "2",
+    artTitle: "\n The Mother Road",
+    location: "\n\n10921 Central Ave NE, Albuquerque, 87123",
+    coordinates: [-106.5250996, 35.07165],
+    locationDescription: "\nEast Gateway (Jones surplus sign)",
+    artist: "Nazario Sandoval (aka Wemfer)",
+    locationParam: "the-mother-road",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "3",
-    "stop": "3",
-    "artTitle": "Neon Platano",
-    "location": "88 Louisiana Blvd SE, Albuquerque, NM 87108",
-    "coordinates": [
-      -106.5680389,
-      35.0752639
-    ],
-    "locationDescription": "Talin Market",
-    "artist": "Helen Atkins",
-    "locationParam": "neon-platano",
-    "arURL": "",
-    "isAR": true
+    id: "3",
+    stop: "3",
+    artTitle: "Neon Platano",
+    location: "88 Louisiana Blvd SE, Albuquerque, NM 87108",
+    coordinates: [-106.5680389, 35.0752639],
+    locationDescription: "Talin Market",
+    artist: "Helen Atkins",
+    locationParam: "neon-platano",
+    arURL: "https://refractstudio.8thwall.app/route66-talin-mkt/",
+    isAR: true,
   },
   {
-    "id": "4",
-    "stop": "4",
-    "artTitle": "…let’s not forget, Albuquerque is a Character Too.",
-    "location": "3405 Central Ave NE, Albuquerque, NM 87106",
-    "coordinates": [
-      -106.6067075,
-      35.0802125
-    ],
-    "locationDescription": "Guild Cinema",
-    "artist": "Dale Deforest",
-    "locationParam": "lets-not-forget-albuquerque-is-a-character-too",
-    "arURL": "",
-    "isAR": true
+    id: "4",
+    stop: "4",
+    artTitle: "…let’s not forget, Albuquerque is a Character Too.",
+    location: "3405 Central Ave NE, Albuquerque, NM 87106",
+    coordinates: [-106.6067075, 35.0802125],
+    locationDescription: "Guild Cinema",
+    artist: "Dale Deforest",
+    locationParam: "lets-not-forget-albuquerque-is-a-character-too",
+    arURL: "",
+    isAR: true,
   },
   {
-    "id": "5",
-    "stop": "5",
-    "artTitle": "The Route 66 Throne",
-    "location": "3222 Central Ave SE, Albuquerque, NM 87106",
-    "coordinates": [
-      -106.6086845,
-      35.0800445
-    ],
-    "locationDescription": "M'tucci's Bar Roma",
-    "artist": "Nazario Sandoval (aka Wemfer)",
-    "locationParam": "the-route-66-throne",
-    "arURL": "",
-    "isAR": false
+    id: "5",
+    stop: "5",
+    artTitle: "The Route 66 Throne",
+    location: "3222 Central Ave SE, Albuquerque, NM 87106",
+    coordinates: [-106.6086845, 35.0800445],
+    locationDescription: "M'tucci's Bar Roma",
+    artist: "Nazario Sandoval (aka Wemfer)",
+    locationParam: "the-route-66-throne",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "6",
-    "stop": "6",
-    "artTitle": "Mother: Moment",
-    "location": "131 Pine St NE, Albuquerque, NM 87106",
-    "coordinates": [
-      -106.6273151,
-      35.0818343
-    ],
-    "locationDescription": "UNM Arts Lab",
-    "artist": "Noé Barnett & Travis Black",
-    "locationParam": "mother-moment",
-    "arURL": "",
-    "isAR": false
+    id: "6",
+    stop: "6",
+    artTitle: "Mother: Moment",
+    location: "131 Pine St NE, Albuquerque, NM 87106",
+    coordinates: [-106.6273151, 35.0818343],
+    locationDescription: "UNM Arts Lab",
+    artist: "Noé Barnett & Travis Black",
+    locationParam: "mother-moment",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "7",
-    "stop": "7",
-    "artTitle": "The Mother Road Blooms - 100 Years Special Collection Library",
-    "location": "423 Central Ave. NE, Albuquerque, NM 87102",
-    "coordinates": [
-      -106.6424639,
-      35.0838227
-    ],
-    "locationDescription": "Special Collections Library",
-    "artist": "Jessica Helen Lopez",
-    "locationParam": "the-mother-road-blooms---100-years-special-collection-library",
-    "arURL": "",
-    "isAR": true
+    id: "7",
+    stop: "7",
+    artTitle: "The Mother Road Blooms - 100 Years Special Collection Library",
+    location: "423 Central Ave. NE, Albuquerque, NM 87102",
+    coordinates: [-106.6424639, 35.0838227],
+    locationDescription: "Special Collections Library",
+    artist: "Jessica Helen Lopez",
+    locationParam:
+      "the-mother-road-blooms---100-years-special-collection-library",
+    arURL: "",
+    isAR: true,
   },
   {
-    "id": "8",
-    "stop": "8",
-    "artTitle": "Mother Road Cruise",
-    "location": "416 Central Ave SW, Albuquerque, NM 87102",
-    "coordinates": [
-      -106.6514649,
-      35.0843558
-    ],
-    "locationDescription": "4th and Central",
-    "artist": "Gael Luna",
-    "locationParam": "mother-road-cruise",
-    "arURL": "",
-    "isAR": false
+    id: "8",
+    stop: "8",
+    artTitle: "Mother Road Cruise",
+    location: "416 Central Ave SW, Albuquerque, NM 87102",
+    coordinates: [-106.6514649, 35.0843558],
+    locationDescription: "4th and Central",
+    artist: "Gael Luna",
+    locationParam: "mother-road-cruise",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "8.1",
-    "stop": "8.1",
-    "artTitle": "The \"Old Road\" - El Viejo Camino",
-    "location": "416 Central Ave SW, Albuquerque, NM 87102",
-    "coordinates": [
-      35.0843558,
-      35.0843558
-    ],
-    "locationDescription": "4th and Central",
-    "artist": "Carmen Montes",
-    "locationParam": "the-old-road---el-viejo-camino",
-    "arURL": "",
-    "isAR": true
+    id: "8.1",
+    stop: "8.1",
+    artTitle: 'The "Old Road" - El Viejo Camino',
+    location: "416 Central Ave SW, Albuquerque, NM 87102",
+    coordinates: [35.0843558, 35.0843558],
+    locationDescription: "4th and Central",
+    artist: "Carmen Montes",
+    locationParam: "the-old-road---el-viejo-camino",
+    arURL: "",
+    isAR: true,
   },
   {
-    "id": "9",
-    "stop": "9",
-    "artTitle": "Cultural Crossroads",
-    "location": "505 Central Ave NW, Albuquerque, NM 87102",
-    "coordinates": [
-      -106.6531616,
-      35.0848362
-    ],
-    "locationDescription": "505 Food Hall",
-    "artist": "Lynnette Haozous",
-    "locationParam": "cultural-crossroads",
-    "arURL": "",
-    "isAR": false
+    id: "9",
+    stop: "9",
+    artTitle: "Cultural Crossroads",
+    location: "505 Central Ave NW, Albuquerque, NM 87102",
+    coordinates: [-106.6531616, 35.0848362],
+    locationDescription: "505 Food Hall",
+    artist: "Lynnette Haozous",
+    locationParam: "cultural-crossroads",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "10",
-    "stop": "10",
-    "artTitle": "Buffalo Return to Route 66",
-    "location": "622 Central Ave SW, Albuquerque, NM 87102",
-    "coordinates": [
-      -106.6551248,
-      35.0848071
-    ],
-    "locationDescription": "7th and Central",
-    "artist": "Jesse Littlebird & Thomas Haag",
-    "locationParam": "buffalo-return-to-route-66",
-    "arURL": "",
-    "isAR": false
+    id: "10",
+    stop: "10",
+    artTitle: "Buffalo Return to Route 66",
+    location: "622 Central Ave SW, Albuquerque, NM 87102",
+    coordinates: [-106.6551248, 35.0848071],
+    locationDescription: "7th and Central",
+    artist: "Jesse Littlebird & Thomas Haag",
+    locationParam: "buffalo-return-to-route-66",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "11",
-    "stop": "11",
-    "artTitle": "Albuquerque Museum Sculpture Garden AR Experience",
-    "location": "2000 Mountain Rd NW, Albuquerque, NM 87104",
-    "coordinates": [
-      -106.66752,
-      35.09761
-    ],
-    "locationDescription": "Abq Museum",
-    "artist": "Sonja Killer",
-    "locationParam": "albuquerque-museum-sculpture-garden-ar-experience",
-    "arURL": "",
-    "isAR": true
+    id: "11",
+    stop: "11",
+    artTitle: "Albuquerque Museum Sculpture Garden AR Experience",
+    location: "2000 Mountain Rd NW, Albuquerque, NM 87104",
+    coordinates: [-106.66752, 35.09761],
+    locationDescription: "Abq Museum",
+    artist: "Sonja Killer",
+    locationParam: "albuquerque-museum-sculpture-garden-ar-experience",
+    arURL: "",
+    isAR: true,
   },
   {
-    "id": "12",
-    "stop": "12",
-    "artTitle": "Enchanted Pond",
-    "location": "2601 Central Ave NW, Albuquerque, NM 87104",
-    "coordinates": [
-      -106.6809347,
-      35.0932029
-    ],
-    "locationDescription": "Bio Park",
-    "artist": "Lea Anderson",
-    "locationParam": "enchanted-pond",
-    "arURL": "",
-    "isAR": true
+    id: "12",
+    stop: "12",
+    artTitle: "Enchanted Pond",
+    location: "2601 Central Ave NW, Albuquerque, NM 87104",
+    coordinates: [-106.6809347, 35.0932029],
+    locationDescription: "Bio Park",
+    artist: "Lea Anderson",
+    locationParam: "enchanted-pond",
+    arURL: "",
+    isAR: true,
   },
   {
-    "id": "13",
-    "stop": "13",
-    "artTitle": "Cruising Cultura: Route 66",
-    "location": "7620 Central AVE SW,  Albuquerque, NM 87121",
-    "coordinates": [
-      -106.7208944,
-      35.0770494
-    ],
-    "locationDescription": "Central Ave. SW at Unser Blvd",
-    "artist": "Rob Vanderslice",
-    "locationParam": "cruising-cultura-route-66",
-    "arURL": "",
-    "isAR": false
+    id: "13",
+    stop: "13",
+    artTitle: "Cruising Cultura: Route 66",
+    location: "7620 Central AVE SW,  Albuquerque, NM 87121",
+    coordinates: [-106.7208944, 35.0770494],
+    locationDescription: "Central Ave. SW at Unser Blvd",
+    artist: "Rob Vanderslice",
+    locationParam: "cruising-cultura-route-66",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "14",
-    "stop": "14",
-    "artTitle": "Sunset to Sunrise — Route 66 Centennial ART Bus",
-    "location": "ART Old Town Bus Stop, Central Ave NW, Albuquerque, NM 87104",
-    "coordinates": [
-      -106.6700994,
-      35.0941611
-    ],
-    "locationDescription": "Old Town Bus Stop",
-    "artist": "Dante Betsch",
-    "locationParam": "sunset-to-sunrise-route-66-centennial-art-bus",
-    "arURL": "",
-    "isAR": false
+    id: "14",
+    stop: "14",
+    artTitle: "Sunset to Sunrise — Route 66 Centennial ART Bus",
+    location: "ART Old Town Bus Stop, Central Ave NW, Albuquerque, NM 87104",
+    coordinates: [-106.6700994, 35.0941611],
+    locationDescription: "Old Town Bus Stop",
+    artist: "Dante Betsch",
+    locationParam: "sunset-to-sunrise-route-66-centennial-art-bus",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "15",
-    "stop": "15",
-    "artTitle": "Origin Route\n\n",
-    "location": "12300 Central Ave SW, Albuquerque, NM 87121",
-    "coordinates": [
-      -106.7772985,
-      35.0643201
-    ],
-    "locationDescription": "Abq Visitor Center",
-    "artist": "Akilah Martinez",
-    "locationParam": "origin-route",
-    "arURL": "",
-    "isAR": true
+    id: "15",
+    stop: "15",
+    artTitle: "Origin Route\n\n",
+    location: "12300 Central Ave SW, Albuquerque, NM 87121",
+    coordinates: [-106.7772985, 35.0643201],
+    locationDescription: "Abq Visitor Center",
+    artist: "Akilah Martinez",
+    locationParam: "origin-route",
+    arURL: "",
+    isAR: true,
   },
   {
-    "id": "16",
-    "stop": "16",
-    "artTitle": "As The Crow Flies/Rez Truck Revisited",
-    "location": "12300 Central Ave SW, Albuquerque, NM 87121",
-    "coordinates": [
-      -106.7772985,
-      35.0643201
-    ],
-    "locationDescription": "Abq Visitor Center",
-    "artist": "Paz Echecatl",
-    "locationParam": "as-the-crow-fliesrez-truck-revisited",
-    "arURL": "",
-    "isAR": false
+    id: "16",
+    stop: "16",
+    artTitle: "As The Crow Flies/Rez Truck Revisited",
+    location: "12300 Central Ave SW, Albuquerque, NM 87121",
+    coordinates: [-106.7772985, 35.0643201],
+    locationDescription: "Abq Visitor Center",
+    artist: "Paz Echecatl",
+    locationParam: "as-the-crow-fliesrez-truck-revisited",
+    arURL: "",
+    isAR: false,
   },
   {
-    "id": "17",
-    "stop": "17",
-    "artTitle": "Signs of Life",
-    "location": "224 Pso Del Volcan SW Albuquerque, NM 87121",
-    "coordinates": [
-      -106.7819044,
-      35.0635634
-    ],
-    "locationDescription": "Sign West of Visitor Center",
-    "artist": "Karl Orozco",
-    "locationParam": "signs-of-life",
-    "arURL": "",
-    "isAR": true
-  }
-]
+    id: "17",
+    stop: "17",
+    artTitle: "Signs of Life",
+    location: "224 Pso Del Volcan SW Albuquerque, NM 87121",
+    coordinates: [-106.7819044, 35.0635634],
+    locationDescription: "Sign West of Visitor Center",
+    artist: "Karl Orozco",
+    locationParam: "signs-of-life",
+    arURL: "",
+    isAR: true,
+  },
+];

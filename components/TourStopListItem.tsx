@@ -1,21 +1,30 @@
 interface TourStopListItemProps {
+  id: string;
   location: string;
   title: string;
   artist: string;
+  isAR?: boolean;
+  arURL?: string;
   onClick?: () => void;
 }
 
 const TourStopListItem: React.FC<TourStopListItemProps> = ({
+  id,
   location,
   title,
   artist,
+  isAR,
+  arURL,
   onClick,
 }) => {
+  const isComingSoon = isAR && !arURL;
   return (
     <div
-      className="flex flex-col bg-white/10 backdrop-blur-sm rounded-xl p-3 mb-3 shadow-lg border border-white/10"
-      onClick={onClick}
-      style={{ cursor: onClick ? "pointer" : undefined }}
+      className="flex flex-col bg-white/10 backdrop-blur-sm rounded-xl p-3 mb-3 shadow-lg border border-white/10 relative"
+      onClick={isComingSoon ? undefined : onClick}
+      style={{
+        cursor: isComingSoon ? "default" : onClick ? "pointer" : undefined,
+      }}
     >
       <div className="flex gap-2.5">
         <div className="w-16 h-16 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
@@ -31,6 +40,13 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
           </div>
         </div>
       </div>
+      {isComingSoon && (
+        <div className="absolute inset-0 bg-black/75 backdrop-blur-md rounded-xl flex items-center justify-center">
+          <span className="text-white text-xl font-semibold drop-shadow-lg">
+            Coming Soon
+          </span>
+        </div>
+      )}
     </div>
   );
 };
