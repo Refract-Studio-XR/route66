@@ -118,10 +118,18 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
 
   // Open maps with location
   const openMaps = () => {
-    if (!tourStop?.location) return;
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      tourStop.location
-    )}`;
+    if (!tourStop?.coordinates) return;
+
+    const [lng, lat] = tourStop.coordinates;
+
+    // Detect iOS device
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+    // Use platform-specific URL
+    const mapsUrl = isIOS
+      ? `http://maps.apple.com/?q=${lat},${lng}`
+      : `https://maps.google.com/?q=${lat},${lng}`;
+
     window.open(mapsUrl, "_blank");
   };
 
@@ -167,7 +175,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             ) : null}
             <DrawerDescription className="text-gray-200 text-base mt-2 flex items-center gap-3">
               <span>{tourStop.locationDescription}</span>
-              {tourStop.location && (
+              {tourStop.coordinates && tourStop.coordinates[0] !== 0 && (
                 <button
                   onClick={openMaps}
                   className="text-white bg-route66Turquoise/80 hover:bg-route66Turquoise transition-all flex-shrink-0 rounded-md p-1 ml-1 -mt-0.5"
