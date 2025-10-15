@@ -7,6 +7,8 @@ const MAPBOX_TOKEN =
 export type MarkerData = {
   coordinates: [number, number];
   id: string | number;
+  isAR?: boolean;
+  arURL?: string;
 };
 
 type Options = {
@@ -35,13 +37,18 @@ const useMapbox = (options?: Options) => {
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/standard",
       center: [-106.65145, 35.08443],
-      zoom: 11.3,
+      zoom: 11,
       pitch: 40,
     });
 
     options?.data.forEach((data) => {
+      // Determine if this is a "coming soon" AR location
+      const isComingSoon =
+        data.isAR && (!data.arURL || data.arURL.length === 0);
+      const markerColor = isComingSoon ? "#9CA3AF" : "#C50E3D"; // grey-400 : red
+
       const marker = new mapboxgl.Marker({
-        color: "#C50E3D",
+        color: markerColor,
       })
         .setLngLat(data.coordinates)
         // @ts-expect-error - mapbox-gl types issue
