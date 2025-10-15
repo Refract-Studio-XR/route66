@@ -179,9 +179,9 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     ? "Artist Statements"
                     : "Artist Statement"}
                 </h3>
-                {stopArtistData.map((artist, index) => (
+                {stopArtistData.map((artist: ArtistData) => (
                   <div
-                    key={index}
+                    key={artist.fullname}
                     className="mb-4"
                   >
                     <p className="whitespace-pre-line">
