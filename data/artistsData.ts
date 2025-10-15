@@ -98,7 +98,7 @@ export const artistData: ArtistData[] = [
   },
   {
     stop: "2",
-    fullname: "Nazario Sandoval",
+    fullname: "Nazario Sandoval (aka Wemfer)",
     pronouns: "",
     credittitle: "Artist",
     artiststatement:
@@ -110,7 +110,7 @@ export const artistData: ArtistData[] = [
   },
   {
     stop: "5",
-    fullname: "Nazario Sandoval",
+    fullname: "Nazario Sandoval (aka Wemfer)",
     pronouns: "",
     credittitle: "Artist",
     artiststatement:
