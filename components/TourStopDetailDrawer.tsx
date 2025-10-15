@@ -127,7 +127,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
             <DrawerTitle className="text-white text-xl tracking-wide">
               {tourStop.artTitle}
             </DrawerTitle>
-            {stopArtistData.length > 0 && (
+            {stopArtistData.length > 0 ? (
               <div className="mt-2 text-sm">
                 {stopArtistData.map((artist: ArtistData, index) => (
                   <div
@@ -144,7 +144,12 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                   </div>
                 ))}
               </div>
-            )}
+            ) : tourStop.artist ? (
+              <div className="mt-2 text-sm text-gray-400">
+                Artist:
+                <span className="text-white">{tourStop.artist}</span>
+              </div>
+            ) : null}
             <DrawerDescription className="text-gray-200 text-base mt-2">
               {tourStop.locationDescription}
             </DrawerDescription>
@@ -261,13 +266,11 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               {/* Artist Statements Section */}
               <div>
                 <h3 className="text-white text-lg font-semibold mb-3">
-                  {stopArtistData.length > 1
-                    ? "Artist Statement"
-                    : "Artist Statement"}
+                  Artist Statement
                 </h3>
-                {stopArtistData.map((artist: ArtistData) => (
+                {stopArtistData.map((artist: ArtistData, index) => (
                   <div
-                    key={tourStop.artist}
+                    key={index}
                     className="mb-4"
                   >
                     <p className="whitespace-pre-line">
@@ -287,47 +290,88 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     key={index}
                     className="mb-6"
                   >
-                    {artistImages[artist.fullname || tourStop.artist] && (
-                      <div className="mb-3">
-                        <Image
-                          src={artistImages[artist.fullname || tourStop.artist]}
-                          alt={`${artist.fullname || tourStop.artist} portrait`}
-                          width={200}
-                          height={200}
-                          className="rounded-lg shadow-lg object-cover max-w-[200px] h-auto"
-                        />
+                    <div className="flex flex-col md:flex-row gap-4">
+                      <div className="flex-shrink-0">
+                        {artistImages[artist.fullname || tourStop.artist] && (
+                          <div className="mb-2">
+                            <Image
+                              src={
+                                artistImages[artist.fullname || tourStop.artist]
+                              }
+                              alt={`${
+                                artist.fullname || tourStop.artist
+                              } portrait`}
+                              width={150}
+                              height={150}
+                              className="rounded-lg shadow-lg object-cover w-[150px] h-auto"
+                            />
+                          </div>
+                        )}
+                        <h4 className="text-white text-base font-semibold mb-1">
+                          {artist.fullname || tourStop.artist}
+                        </h4>
+                        {artist.pronouns && (
+                          <p className="text-gray-400 text-sm mb-3">
+                            {artist.pronouns}
+                          </p>
+                        )}
                       </div>
-                    )}
-                    <h4 className="text-white text-base font-semibold mb-1">
-                      {artist.fullname || tourStop.artist}
-                    </h4>
-                    {artist.pronouns && (
-                      <p className="text-gray-400 text-sm mb-3">
-                        {artist.pronouns}
-                      </p>
-                    )}
-                    <p className="whitespace-pre-line mb-3">
-                      {artist.artistbio}
-                    </p>
-                    {artist.links && artist.links.length > 0 && (
-                      <div className="space-y-2">
-                        {artist.links.map((link, linkIndex) => (
-                          <a
-                            key={linkIndex}
-                            href={
-                              link.startsWith("http") ? link : `https://${link}`
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block text-route66Turquoise hover:text-white underline transition-colors"
-                          >
-                            {link}
-                          </a>
-                        ))}
+                      <div className="flex-1">
+                        <p className="whitespace-pre-line mb-3">
+                          {artist.artistbio}
+                        </p>
+                        {artist.links && artist.links.length > 0 && (
+                          <div className="space-y-2">
+                            {artist.links.map((link, linkIndex) => (
+                              <a
+                                key={linkIndex}
+                                href={
+                                  link.startsWith("http")
+                                    ? link
+                                    : `https://${link}`
+                                }
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block text-route66Turquoise hover:text-white underline transition-colors"
+                              >
+                                {link}
+                              </a>
+                            ))}
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </div>
                   </div>
                 ))}
+              </div>
+            </div>
+          ) : tourStop.artist ? (
+            <div className="space-y-6">
+              {/* Artist Bios Section - Fallback to locationData */}
+              <div>
+                <h3 className="text-white text-lg font-semibold mb-3">
+                  Artist Bio
+                </h3>
+                <div className="mb-6">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex-shrink-0">
+                      {artistImages[tourStop.artist] && (
+                        <div className="mb-2">
+                          <Image
+                            src={artistImages[tourStop.artist]}
+                            alt={`${tourStop.artist} portrait`}
+                            width={150}
+                            height={150}
+                            className="rounded-lg shadow-lg object-cover w-[150px] h-auto"
+                          />
+                        </div>
+                      )}
+                      <h4 className="text-white text-base font-semibold mb-1">
+                        {tourStop.artist}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
