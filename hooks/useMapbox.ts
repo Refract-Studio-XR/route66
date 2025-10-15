@@ -35,7 +35,7 @@ const useMapbox = (options?: Options) => {
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/standard",
       center: [-106.65145, 35.08443],
-      zoom: 14,
+      zoom: 11.3,
       pitch: 40,
     });
 

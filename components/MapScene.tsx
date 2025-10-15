@@ -5,7 +5,7 @@ type Props = {
 const MapScene = ({ mapContainerRef }: Props) => {
   return (
     <div
-      className="w-full h-[65vh] min-h-[300px] rounded-xl overflow-hidden relative"
+      className="w-full h-[55vh] min-h-[300px] rounded-xl overflow-hidden relative"
       style={{
         boxShadow:
           "0 20px 20px -20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2)",
