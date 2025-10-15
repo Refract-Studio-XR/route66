@@ -16,7 +16,7 @@ export const locationData: LocationData[] = [
   {
     id: "0",
     stop: "0",
-    artTitle: "Portal Intro",
+    artTitle: "Introduction",
     location: "",
     coordinates: [0, 0],
     locationDescription: "",
