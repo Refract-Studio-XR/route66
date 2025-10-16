@@ -184,16 +184,6 @@ export const artistData: ArtistData[] = [
     links: [],
   },
   {
-    stop: "14",
-    fullname: "",
-    pronouns: "",
-    credittitle: "",
-    artiststatement: "",
-    artistbio: "",
-    additionalcredits: "",
-    links: [],
-  },
-  {
     stop: "15",
     fullname: "",
     pronouns: "",
