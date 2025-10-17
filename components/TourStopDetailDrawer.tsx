@@ -183,8 +183,6 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           }`}
           style={{ pointerEvents: open ? "auto" : "none" }}
         >
-          {/* Blurred dark background - full screen */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
           {/* "Look for this view" label - only show on first image */}
           {currentImageIndex === 0 && (
             <div className="absolute bottom-[53%] left-6 z-30">
@@ -198,7 +196,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           <div className="absolute inset-0 flex items-center">
             <div
               ref={galleryScrollRef}
-              className="flex gap-4 overflow-x-auto w-full h-full snap-x snap-mandatory scrollbar-hide px-2"
+              className="flex overflow-x-auto w-full h-full snap-x snap-mandatory scrollbar-hide"
               onScroll={(e) => {
                 const scrollLeft = e.currentTarget.scrollLeft;
                 const imageWidth = window.innerWidth;
@@ -209,9 +207,9 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               {tourStop.images.map((imageSrc, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 snap-center w-full h-full relative px-1 flex items-start justify-center"
+                  className="flex-shrink-0 snap-center w-full h-full relative flex items-start justify-center"
                 >
-                  <div className="relative w-[95%] h-[60%] z-10">
+                  <div className="relative w-full h-[60%] z-10">
                     <Image
                       src={imageSrc}
                       alt={`${tourStop.artTitle} - Image ${index + 1}`}
