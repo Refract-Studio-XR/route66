@@ -49,6 +49,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   );
   const [isStatementExpanded, setIsStatementExpanded] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
 
   // Reset statement expansion when tour stop changes
@@ -56,6 +57,19 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
     setIsStatementExpanded(false);
     setCurrentImageIndex(0);
   }, [tourStop?.id]);
+
+  // Handle gallery visibility based on drawer open state
+  useEffect(() => {
+    if (open && tourStop?.images && tourStop.images.length > 0) {
+      setIsGalleryVisible(true);
+    } else if (!open && isGalleryVisible) {
+      // Add delay for fade out animation
+      const timer = setTimeout(() => {
+        setIsGalleryVisible(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [open, tourStop?.images, isGalleryVisible]);
 
   // Load saved timestamp when audio is ready
   useEffect(() => {
@@ -160,8 +174,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   return (
     <>
       {/* Gallery overlay above the drawer */}
-      {tourStop.images && tourStop.images.length > 0 && open && (
-        <div className="fixed inset-0 z-20 pointer-events-auto">
+      {tourStop.images && tourStop.images.length > 0 && isGalleryVisible && (
+        <div
+          className={`fixed inset-0 z-20 pointer-events-auto transition-opacity duration-300 ${
+            open ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ pointerEvents: open ? "auto" : "none" }}
+        >
           <div className="absolute inset-0 flex items-center">
             <div
               ref={galleryScrollRef}
@@ -183,8 +202,8 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                     alt={`${tourStop.artTitle} - Image ${index + 1}`}
                     fill
                     className="object-cover opacity-0 animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                    priority={index === 0}
+                    style={{ animationDelay: `${index * 0.05}s` }}
+                    priority={true}
                   />
                 </div>
               ))}
