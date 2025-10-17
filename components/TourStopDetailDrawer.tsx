@@ -185,7 +185,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
         >
           {/* "Look for this view" label - only show on first image */}
           {currentImageIndex === 0 && (
-            <div className="absolute bottom-[53%] left-6 z-30">
+            <div className="absolute bottom-[53%] left-0 z-30">
               <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-2">
                 <p className="text-white text-sm font-bold">
                   Look for this view
