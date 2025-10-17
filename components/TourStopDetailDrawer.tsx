@@ -51,11 +51,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
+  const [snap, setSnap] = useState<number | string | null>("450px");
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
     setIsStatementExpanded(false);
     setCurrentImageIndex(0);
+    setSnap("450px");
   }, [tourStop?.id]);
 
   // Handle gallery visibility based on drawer open state
@@ -239,12 +241,19 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
       <Drawer
         open={open}
         onOpenChange={(v) => {
+          console.log("onOpenChange", v);
           if (!v) onClose();
         }}
-        dismissible
+        onClose={() => {
+          console.log("onClose");
+          onClose();
+        }}
         modal={false}
+        snapPoints={["450px", 0.75, 1]}
+        activeSnapPoint={snap}
+        setActiveSnapPoint={setSnap}
       >
-        <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-[53vh] flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
+        <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
           <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
             <div>
               <DrawerTitle className="text-white text-xl tracking-wide">
