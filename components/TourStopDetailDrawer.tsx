@@ -51,13 +51,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
-  const [snap, setSnap] = useState<number | string | null>(0.45);
+  const [snap, setSnap] = useState<number | string | null>("40vh");
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
     setIsStatementExpanded(false);
     setCurrentImageIndex(0);
-    setSnap(0.45);
+    setSnap("40vh");
   }, [tourStop?.id]);
 
   // Handle gallery visibility based on drawer open state
@@ -252,7 +252,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           onClose();
         }}
         modal={false}
-        snapPoints={[0, 0.45, 0.75, 1]}
+        snapPoints={[0, "40vh", "75vh", 1]}
         activeSnapPoint={snap}
         setActiveSnapPoint={(snapPoint) => {
           setSnap(snapPoint);
