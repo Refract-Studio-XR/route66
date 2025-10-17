@@ -7,6 +7,8 @@ interface TourStopListProps {
 }
 
 const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
+  const showComingSoon = process.env.NEXT_PUBLIC_SHOW_COMING_SOON === "true";
+
   const sortedLocations = [...locationData].sort((a, b) => {
     return parseFloat(a.stop) - parseFloat(b.stop);
   });
@@ -33,6 +35,8 @@ const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
             isAR={location.isAR}
             arURL={location.arURL}
             hasArtistStatement={hasArtistStatement}
+            coverImage={location.coverImage}
+            showComingSoon={showComingSoon}
             onClick={() => onSelectTourStop && onSelectTourStop(location)}
           />
         );

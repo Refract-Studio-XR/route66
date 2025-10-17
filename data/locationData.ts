@@ -10,6 +10,8 @@ export interface LocationData {
   locationParam: string;
   arURL: string;
   isAR: boolean;
+  coverImage?: string;
+  images?: string[];
 }
 
 export const locationData: LocationData[] = [
@@ -181,6 +183,13 @@ export const locationData: LocationData[] = [
     locationParam: "albuquerque-museum-sculpture-garden-ar-experience",
     arURL: "",
     isAR: true,
+    coverImage: "/locations/cover-images/abq_museum_location.jpg",
+    images: [
+      "/locations/gallery/abq_museum_location.jpg",
+      "/locations/gallery/abq_museum_location.jpg",
+      "/locations/gallery/abq_museum_location.jpg",
+      "/locations/gallery/abq_museum_location.jpg",
+    ],
   },
   {
     id: "12",
@@ -193,6 +202,13 @@ export const locationData: LocationData[] = [
     locationParam: "enchanted-pond",
     arURL: "",
     isAR: true,
+    coverImage: "/locations/cover-images/bio_park_location.jpg",
+    images: [
+      "/locations/gallery/bio_park_location.jpg",
+      "/locations/gallery/bio_park_location.jpg",
+      "/locations/gallery/bio_park_location.jpg",
+      "/locations/gallery/bio_park_location.jpg",
+    ],
   },
   {
     id: "13",
