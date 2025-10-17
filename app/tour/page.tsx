@@ -8,7 +8,6 @@ import useMapbox from "@/hooks/useMapbox";
 import { locationData, artistData } from "@/data";
 
 export default function TourPage() {
-  // Enhance location data with hasArtistStatement flag
   const enhancedLocationData = useMemo(() => {
     return locationData.map((location) => {
       const hasArtistStatement = artistData.some(

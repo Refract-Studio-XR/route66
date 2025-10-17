@@ -51,13 +51,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
-  const [snap, setSnap] = useState<number | string | null>("450px");
+  const [snap, setSnap] = useState<number | string | null>(0.45);
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
     setIsStatementExpanded(false);
     setCurrentImageIndex(0);
-    setSnap("450px");
+    setSnap(0.45);
   }, [tourStop?.id]);
 
   // Handle gallery visibility based on drawer open state
@@ -186,7 +186,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           <div className="absolute inset-0 flex items-center">
             <div
               ref={galleryScrollRef}
-              className="flex gap-0 overflow-x-auto w-full h-full snap-x snap-mandatory scrollbar-hide"
+              className="flex gap-4 overflow-x-auto w-full h-full snap-x snap-mandatory scrollbar-hide px-2"
               onScroll={(e) => {
                 const scrollLeft = e.currentTarget.scrollLeft;
                 const imageWidth = window.innerWidth;
@@ -197,14 +197,17 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               {tourStop.images.map((imageSrc, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 snap-center w-full h-full relative"
+                  className="flex-shrink-0 snap-center w-full h-full relative px-1"
                 >
                   <Image
                     src={imageSrc}
                     alt={`${tourStop.artTitle} - Image ${index + 1}`}
                     fill
-                    className="object-cover opacity-0 animate-fade-in"
-                    style={{ animationDelay: `${index * 0.05}s` }}
+                    className="object-contain opacity-0 animate-fade-in"
+                    style={{
+                      animationDelay: `${index * 0.05}s`,
+                      objectPosition: "center 5%",
+                    }}
                     priority={true}
                   />
                 </div>
@@ -249,9 +252,14 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           onClose();
         }}
         modal={false}
-        snapPoints={["450px", 0.75, 1]}
+        snapPoints={[0, 0.45, 0.75, 1]}
         activeSnapPoint={snap}
-        setActiveSnapPoint={setSnap}
+        setActiveSnapPoint={(snapPoint) => {
+          setSnap(snapPoint);
+          if (snapPoint === 0) {
+            onClose();
+          }
+        }}
       >
         <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
           <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
@@ -447,9 +455,6 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                               </p>
                             </div>
                           ))}
-                          {!isStatementExpanded && (
-                            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent pointer-events-none" />
-                          )}
                         </div>
                         <button
                           onClick={() =>
