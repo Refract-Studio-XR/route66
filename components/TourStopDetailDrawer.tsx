@@ -51,13 +51,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
-  const [snap, setSnap] = useState<number | string | null>(0.46);
+  const [snap, setSnap] = useState<number | string | null>(0.49);
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
     setIsStatementExpanded(false);
     setCurrentImageIndex(0);
-    setSnap(0.46);
+    setSnap(0.49);
   }, [tourStop?.id]);
 
   // Handle gallery visibility based on drawer open state
@@ -183,6 +183,14 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           }`}
           style={{ pointerEvents: open ? "auto" : "none" }}
         >
+          {/* Blurred dark background - full screen */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
+          {/* "Look for this view" label */}
+          <div className="absolute top-[46vh] left-6 z-30">
+            <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-2">
+              <p className="text-white text-sm font-bold">Look for this view</p>
+            </div>
+          </div>
           <div className="absolute inset-0 flex items-center">
             <div
               ref={galleryScrollRef}
@@ -197,26 +205,27 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               {tourStop.images.map((imageSrc, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 snap-center w-full h-full relative px-1"
+                  className="flex-shrink-0 snap-center w-full h-full relative px-1 flex items-start justify-center"
                 >
-                  <Image
-                    src={imageSrc}
-                    alt={`${tourStop.artTitle} - Image ${index + 1}`}
-                    fill
-                    className="object-contain opacity-0 animate-fade-in"
-                    style={{
-                      animationDelay: `${index * 0.05}s`,
-                      objectPosition: "center 5%",
-                    }}
-                    priority={true}
-                  />
+                  <div className="relative w-[95%] h-[60%] z-10">
+                    <Image
+                      src={imageSrc}
+                      alt={`${tourStop.artTitle} - Image ${index + 1}`}
+                      fill
+                      className="object-cover opacity-0 animate-fade-in rounded-2xl"
+                      style={{
+                        animationDelay: `${index * 0.05}s`,
+                      }}
+                      priority={true}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
             {/* Scroll indicator arrow */}
             {tourStop.images.length > 1 &&
               currentImageIndex < tourStop.images.length - 1 && (
-                <div className="absolute right-4 top-1/3 transform -translate-y-1/2 pointer-events-auto">
+                <div className="absolute right-4 top-1/3 transform -translate-y-1/2 pointer-events-auto z-20">
                   <button
                     onClick={scrollToNext}
                     className="bg-black/30 backdrop-blur-sm rounded-lg p-3 hover:bg-black/40 transition-colors"
@@ -252,7 +261,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           onClose();
         }}
         modal={false}
-        snapPoints={[0, 0.46, 1]}
+        snapPoints={[0, 0.49, 1]}
         activeSnapPoint={snap}
         setActiveSnapPoint={(snapPoint) => {
           setSnap(snapPoint);
@@ -326,7 +335,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 width: isPlayingAudio ? 200 : 180,
                 height: 40,
                 transition:
-                  "width 500ms cubic-bezier(0.46, 0, 0.2, 1), background-color 300ms",
+                  "width 500ms cubic-bezier(0.49, 0, 0.2, 1), background-color 300ms",
               }}
               aria-label={isPlayingAudio ? "Pause" : "Play"}
             >
