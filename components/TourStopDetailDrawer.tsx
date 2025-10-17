@@ -51,13 +51,13 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
-  const [snap, setSnap] = useState<number | string | null>(0.44);
+  const [snap, setSnap] = useState<number | string | null>(0.46);
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
     setIsStatementExpanded(false);
     setCurrentImageIndex(0);
-    setSnap(0.44);
+    setSnap(0.46);
   }, [tourStop?.id]);
 
   // Handle gallery visibility based on drawer open state
@@ -252,7 +252,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           onClose();
         }}
         modal={false}
-        snapPoints={[0, 0.44, 1]}
+        snapPoints={[0, 0.46, 1]}
         activeSnapPoint={snap}
         setActiveSnapPoint={(snapPoint) => {
           setSnap(snapPoint);
@@ -326,7 +326,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 width: isPlayingAudio ? 200 : 180,
                 height: 40,
                 transition:
-                  "width 500ms cubic-bezier(0.44, 0, 0.2, 1), background-color 300ms",
+                  "width 500ms cubic-bezier(0.46, 0, 0.2, 1), background-color 300ms",
               }}
               aria-label={isPlayingAudio ? "Pause" : "Play"}
             >
