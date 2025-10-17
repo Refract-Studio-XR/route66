@@ -185,12 +185,16 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
         >
           {/* Blurred dark background - full screen */}
           <div className="absolute inset-0 bg-black/40 backdrop-blur-md" />
-          {/* "Look for this view" label */}
-          <div className="absolute top-[46vh] left-6 z-30">
-            <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-2">
-              <p className="text-white text-sm font-bold">Look for this view</p>
+          {/* "Look for this view" label - only show on first image */}
+          {currentImageIndex === 0 && (
+            <div className="absolute bottom-[53%] left-6 z-30">
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-2">
+                <p className="text-white text-sm font-bold">
+                  Look for this view
+                </p>
+              </div>
             </div>
-          </div>
+          )}
           <div className="absolute inset-0 flex items-center">
             <div
               ref={galleryScrollRef}
