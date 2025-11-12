@@ -11,7 +11,7 @@ export interface LocationData {
   arURL: string;
   isAR: boolean;
   coverImage?: string;
-  images?: string[];
+  images?: string;
 }
 
 export const locationData: LocationData[] = [
@@ -84,7 +84,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Guild Cinema",
     artist: "Dale Deforest",
     locationParam: "lets-not-forget-albuquerque-is-a-character-too",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-guild-cinema/",
     isAR: true,
   },
   {
@@ -145,7 +145,7 @@ export const locationData: LocationData[] = [
     locationDescription: "4th and Central",
     artist: "Carmen Montes",
     locationParam: "the-old-road---el-viejo-camino",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-fourth-central/",
     isAR: true,
   },
   {
@@ -181,15 +181,9 @@ export const locationData: LocationData[] = [
     locationDescription: "Abq Museum",
     artist: "Sonja Killer",
     locationParam: "albuquerque-museum-sculpture-garden-ar-experience",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-museum/",
     isAR: true,
     coverImage: "/locations/cover-images/abq_museum_location.jpg",
-    images: [
-      "/locations/gallery/abq_museum_location.jpg",
-      "/locations/gallery/abq_museum_location.jpg",
-      "/locations/gallery/abq_museum_location.jpg",
-      "/locations/gallery/abq_museum_location.jpg",
-    ],
   },
   {
     id: "12",
@@ -203,12 +197,6 @@ export const locationData: LocationData[] = [
     arURL: "",
     isAR: true,
     coverImage: "/locations/cover-images/bio_park_location.jpg",
-    images: [
-      "/locations/gallery/bio_park_location.jpg",
-      "/locations/gallery/bio_park_location.jpg",
-      "/locations/gallery/bio_park_location.jpg",
-      "/locations/gallery/bio_park_location.jpg",
-    ],
   },
   {
     id: "13",

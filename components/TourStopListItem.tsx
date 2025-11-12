@@ -52,9 +52,21 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
         ) : (
           <div className="w-16 h-16 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
         )}
-        <div className="flex flex-col justify-center">
-          <div className="font-bold text-white text-base leading-tight drop-shadow-lg">
-            {title}
+        <div className="flex flex-col justify-center flex-1">
+          <div className="flex items-center gap-2">
+            <div className="font-bold text-white text-base leading-tight drop-shadow-lg">
+              {title}
+            </div>
+            {isAR && (
+              <Image
+                src="/ar-icon.svg"
+                alt="AR Experience Available"
+                width={20}
+                height={20}
+                className="flex-shrink-0"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+            )}
           </div>
           <div className="text-gray-300 text-sm mt-0.5 drop-shadow-sm">
             {artist}
