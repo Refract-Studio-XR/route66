@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Sheet,
   SheetContent,
@@ -12,13 +12,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
-import {
-  allTourStops,
-  TourStop,
-  LocationData,
-  locationData,
-  artistData,
-} from "@/data/";
+import { LocationData, locationData } from "@/data/";
 import { MarkerData } from "@/hooks/useMapbox";
 
 type Props = {
@@ -33,34 +27,27 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
     locationData.find((stop) => stop.locationParam === tourStopLocation) || null
   );
 
-  const handleSelectTourStop = (location: LocationData) => {
-    setSelectedTourStop(location);
-    router.push(`?location=${location.locationParam}`);
-  };
+  const handleSelectTourStop = useCallback(
+    (location: LocationData) => {
+      setSelectedTourStop(location);
+      router.push(`?location=${location.locationParam}`);
+    },
+    [router]
+  );
 
   // Set up the marker click handler when component mounts
   useEffect(() => {
     setOnMapMarkerClick((data: MarkerData) => {
       const tourStop = locationData.find((stop) => stop.id === data.id);
       if (tourStop) {
-        // Check if has artist statement
-        const hasArtistStatement = artistData.some(
-          (artist) =>
-            Math.floor(parseFloat(artist.stop)) ===
-              Math.floor(parseFloat(tourStop.stop)) &&
-            artist.artiststatement &&
-            artist.artiststatement.length > 0
-        );
-
-        // Don't allow opening stops that are AR but have no AR URL or have no artist statement
-        const isComingSoon =
-          (tourStop.isAR && !tourStop.arURL.length) || !hasArtistStatement;
+        // Don't allow opening stops that are AR but have no AR URL
+        const isComingSoon = tourStop.isAR && !tourStop.arURL.length;
         if (isComingSoon) return;
 
         handleSelectTourStop(tourStop);
       }
     });
-  }, [setOnMapMarkerClick]);
+  }, [setOnMapMarkerClick, handleSelectTourStop]);
 
   const handleCloseDetail = () => {
     setSelectedTourStop(null);
@@ -75,7 +62,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
       >
         <SheetContent
           side="bottom"
-          className="h-[45vh] rounded-t-2xl bg-black/50 backdrop-blur-md  p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto"
+          className="h-[45vh] rounded-t-2xl bg-black/50 backdrop-blur-md border-0 p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto"
         >
           <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0">
             <SheetTitle className="text-white drop-shadow-lg text-3xl">

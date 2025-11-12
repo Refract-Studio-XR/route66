@@ -8,7 +8,7 @@ interface TourStopListItemProps {
   artist: string;
   isAR?: boolean;
   arURL?: string;
-  hasArtistStatement?: boolean;
+  coverImage?: string;
   onClick?: () => void;
 }
 
@@ -19,11 +19,12 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
   artist,
   isAR,
   arURL,
-  hasArtistStatement,
+  coverImage,
   onClick,
 }) => {
-  const isComingSoon = (isAR && !arURL) || !hasArtistStatement;
+  const isComingSoon = isAR && !arURL;
   const squareImage = artistSquareImages[artist];
+  const displayImage = coverImage || squareImage;
 
   return (
     <div
@@ -33,11 +34,11 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
         cursor: isComingSoon ? "default" : onClick ? "pointer" : undefined,
       }}
     >
-      <div className="flex gap-2.5">
-        {squareImage ? (
+      <div className="flex gap-2.5 items-center">
+        {displayImage ? (
           <Image
-            src={squareImage}
-            alt={artist}
+            src={displayImage}
+            alt={coverImage ? title : artist}
             width={64}
             height={64}
             priority
@@ -46,7 +47,7 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
         ) : (
           <div className="w-16 h-16 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
         )}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center flex-1">
           <div className="font-bold text-white text-base leading-tight drop-shadow-lg">
             {title}
           </div>
@@ -57,6 +58,16 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
             {location}
           </div>
         </div>
+        {isAR && (
+          <Image
+            src="/ar-icon.svg"
+            alt="AR Experience Available"
+            width={40}
+            height={40}
+            className="flex-shrink-0"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
+        )}
       </div>
       {isComingSoon && (
         <div className="absolute inset-0 bg-black/75 backdrop-blur-md rounded-xl flex items-center justify-center">
