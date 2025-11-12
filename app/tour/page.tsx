@@ -1,28 +1,15 @@
 "use client";
-import { Suspense, useMemo } from "react";
+import { Suspense } from "react";
 import Image from "next/image";
 import MapScene from "@/components/MapScene";
 import TourStopsDrawer from "@/components/TourStopsDrawer";
 import LoadingScreen from "@/components/LoadingScreen";
 import useMapbox from "@/hooks/useMapbox";
-import { locationData, artistData } from "@/data";
+import { locationData } from "@/data";
 
 export default function TourPage() {
-  const enhancedLocationData = useMemo(() => {
-    return locationData.map((location) => {
-      const hasArtistStatement = artistData.some(
-        (artist) =>
-          Math.floor(parseFloat(artist.stop)) ===
-            Math.floor(parseFloat(location.stop)) &&
-          artist.artiststatement &&
-          artist.artiststatement.length > 0
-      );
-      return { ...location, hasArtistStatement };
-    });
-  }, []);
-
   const { mapContainerRef, setOnMarkerClick, isMapLoaded } = useMapbox({
-    data: enhancedLocationData,
+    data: locationData,
   });
 
   return (

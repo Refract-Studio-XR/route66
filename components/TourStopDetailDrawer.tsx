@@ -28,8 +28,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
 }) => {
   const stopArtistData = artistData.filter(
     (artist: ArtistData) =>
-      Math.floor(parseFloat(artist.stop)) ===
-        Math.floor(parseFloat(tourStop?.stop || "0")) &&
+      artist.stop === tourStop?.stop &&
       artist.fullname &&
       artist.fullname.length > 0 &&
       (artist.artiststatement?.length > 0 || artist.artistbio?.length > 0)
