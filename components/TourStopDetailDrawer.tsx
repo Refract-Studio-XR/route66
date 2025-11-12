@@ -184,7 +184,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           style={{ pointerEvents: open ? "auto" : "none" }}
         >
           {/* "Look for this view" label - only show on first image */}
-          {currentImageIndex === 0 && (
+          {/* {currentImageIndex === 0 && (
             <div className="absolute bottom-[53%] left-0 z-30">
               <div className="bg-black/30 backdrop-blur-sm rounded-lg px-4 py-2">
                 <p className="text-white text-sm font-bold">
@@ -192,7 +192,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 </p>
               </div>
             </div>
-          )}
+          )} */}
           <div className="absolute inset-0 flex items-center">
             <div
               ref={galleryScrollRef}

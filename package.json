@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "location-data": "node scripts/generateLocationData.js",
-    "artist-data": "node scripts/generateArtistData.js"
+    "artist-data": "node scripts/generateArtistData.js",
+    "update-images": "node scripts/updateLocationImages.js"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^1.1.2",
