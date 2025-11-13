@@ -76,6 +76,7 @@ export const locationData: LocationData[] = [
     arURL: "https://refractstudio.8thwall.app/route66-talin-market/",
     isAR: true,
     images: [
+      "/locations/cover-images/helen_cover.jpg",
       "/locations/neon-platano/250728_CityofABQ_Rt66_HelenAtkins_Photos_00006-2.jpg",
       "/locations/neon-platano/250728_CityofABQ_Rt66_HelenAtkins_Photos_00048.jpg",
       "/locations/neon-platano/250728_CityofABQ_Rt66_HelenAtkins_Photos_00085.jpg",
@@ -94,6 +95,7 @@ export const locationData: LocationData[] = [
     locationParam: "lets-not-forget-albuquerque-is-a-character-too",
     arURL: "https://refractstudio.8thwall.app/route66-guild-cinema/",
     isAR: true,
+    images: ["/locations/cover-images/dale_cover.jpg"],
   },
   {
     id: "5",
@@ -176,6 +178,7 @@ export const locationData: LocationData[] = [
     arURL: "https://refractstudio.8thwall.app/route66-fourth-central/",
     isAR: true,
     images: [
+      "/locations/cover-images/carmen_cover.jpg",
       "/locations/the-old-road---el-viejo-camino/22BC1892-8B92-4DCD-B9EA-81F2F90CFAA4.jpg",
       "/locations/the-old-road---el-viejo-camino/250910_CityofABQ_Rt66_CasaFlameca_Photos_00217.jpg",
       "/locations/the-old-road---el-viejo-camino/363A8AD1-099B-409B-BCC1-546842F17A31.jpg",
@@ -233,6 +236,7 @@ export const locationData: LocationData[] = [
     isAR: true,
     coverImage: "/locations/cover-images/sonja_cover.jpg",
     images: [
+      "/locations/cover-images/sonja_cover.jpg",
       "/locations/albuquerque-museum-sculpture-garden-ar-experience/250908_CityofABQ_Rt66_ABQMuseum_Photos_21.jpg",
       "/locations/albuquerque-museum-sculpture-garden-ar-experience/250908_CityofABQ_Rt66_ABQMuseum_Photos_7.jpg",
     ],
