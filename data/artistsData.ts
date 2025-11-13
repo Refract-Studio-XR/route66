@@ -19,7 +19,7 @@ export const artistData: ArtistData[] = [
     artiststatement:
       "As The Crow Flies/Rez Truck Revisited is a whimsical play on the idea of Route 66 as a portal for transport; both physically and metaphorically. The crow serves as guardian and guide. Horned toad is witness to the scene.",
     artistbio:
-      "PAZ is a native New Mexican of Indigenous and Hispanic ethnicity whose career has spanned more than five decades. PAZ is an accomplished sculptor, painter, ceramic tile artist and jeweler. Throughout a long and rewarding career, PAZ has maintained a close relationship with the community. PAZ enjoys teaching, whether mentoring youth or facilitating the artistic efforts of senior citizens.  PAZ has sat on the boards of various nonprofit organizations dedicated to indigenous rights and preservation of indigenous culture. PAZ is Tleyankanki or Guide of Kalpulli Ehecatl, an indigenous community focused on retribalization and cultural sharing. PAZ also sat on the committee that developed the Cultural Plan for Albuquerque, New Mexico. Internationally recognized and awarded, PAZ focused artistic efforts on public art from 1996 through 2009. In 2009 PAZ returned to artistic roots as a master jeweler. In 2016, PAZ shifted emphasis back to public art. “Art is medicine; when a person  walks  away from  my artwork feeling better than before they experienced it, my goal has been achieved.”",
+      "PAZ\n   pazehecatl@hotmail.com\n505-268-6943  \n\nPAZ is a native New Mexican of Indigenous and Hispanic ethnicity whose career has spanned more than five decades. PAZ is an accomplished sculptor, painter, ceramic tile artist and jeweler. Throughout a long and rewarding career, PAZ has maintained a close relationship with the community. PAZ enjoys teaching, whether mentoring youth or facilitating the artistic efforts of senior citizens.  PAZ has sat on the boards of various nonprofit organizations dedicated to indigenous rights and preservation of indigenous culture. PAZ is Tleyankanki or Guide of Kalpulli Ehecatl, an indigenous community focused on retribalization and cultural sharing. PAZ also sat on the committee that developed the Cultural Plan for Albuquerque, New Mexico. Internationally recognized and awarded, PAZ focused artistic efforts on public art from 1996 through 2009. In 2009 PAZ returned to artistic roots as a master jeweler. In 2016, PAZ shifted emphasis back to public art. “Art is medicine; when a person  walks  away from  my artwork feeling better than before they experienced it, my goal has been achieved.”",
     additionalcredits: "",
     links: ["pazehecatl.com"],
   },
@@ -53,7 +53,7 @@ export const artistData: ArtistData[] = [
     pronouns: "He",
     credittitle: "Artist",
     artiststatement:
-      "Mother: Moment is a composition between artists Noe Barnett and Travis Bruce Black to serve the celebration of the 100th anniversary of Route 66. In the piece a woman (Noe’s mom, Albuquerque Resident) indulges a moment to remember her adventures on Route66, the sights, the sounds and the feelings.\nIn the act of remembering a virtual space is birthed. The mind is a flower expanding outward. This work is a simulated portal containing her memory, bearing witness to the joys of a trip through Albuquerque on the Mother Road.  On the trip a purple Impala pulled to the side of the road, a Wolf siting, a lucky roadrunner, and a moment of catching air in the Station Wagon.",
+      "Mother: Moment is a composition between artists Noe Barnett and Travis Bruce Black to serve the celebration of the 100th anniversary of Route 66. In the piece a woman (Noe’s mom, Albuquerque Resident) indulges a moment to remember her adventures on Route66, the sights, the sounds and the feelings.\nIn the act of remembering a virtual space is birthed. The mind is a flower expanding outward. This work is a simulated portal containing her memory, bearing witness to the joys of a trip through Albuquerque on the Mother Road.  On the trip a purple Impala pulled to the side of the road, a Wolf siting, a lucky roadrunner, and a moment of catching air in the Station Wagon. \n.",
     artistbio:
       "Travis Black is an artist living in Albuquerque, New Mexico with his Wife and 7 year old twins.  He creates meditative modernist nature paintings.  His newest paintings, influenced by his kids and his own childhood, are a playful series of retro-video-game and Lego inspired subjects that are abstracted down to faux colored blocks.",
     additionalcredits: "no",
@@ -90,7 +90,7 @@ export const artistData: ArtistData[] = [
     pronouns: "She",
     credittitle: "Artist",
     artiststatement:
-      'This mural, "Cultural Crossroads," celebrates the rich cultural heritage of the Indigenous communities through which Route 66 passes, acknowledging the iconic American road that connects and intersects with diverse cultures and communities. \n\nRoute 66 weaves through the ancestral lands of numerous Native American tribes, its path intertwined with the stories, traditions, and histories of the region\'s Indigenous peoples. This region of Route 66 intersects with many Indigenous ancestral homelands, those of the many Pueblos communities who live along the Rio Grande, as well as the Navajo (Diné), and Apache. \n\nThe title "Cultural Crossroads" reflects the intersection of cultures, traditions, and histories that converge along Route 66, a mixture of Native American, Southwestern, American, Chicano, Mexican, and Spanish influences.\n\nBy weaving together Navajo (Diné) rug inspired designs, ancestral Pueblo landscapes, and vibrant depictions of everyday life, this artwork brings to life the stories and traditions of the land\'s original inhabitants. The incorporation of Navajo-inspired geometric patterns in the background create a portal designed of Native heritage, New Mexico colors, and Route 66 themes.\n\nThe mural depicts a Navajo (Diné) rider on horseback amidst Southwestern flora like cacti and sunflowers, juxtaposed with a vintage car traveling down Route 66. The Route 66 sign in the mural serves as a symbol of the historic highway\'s impact on the American Southwest and Indigenous communities. The vintage car represents the travelers and adventurers who journeyed along this iconic route, interacting with and influencing the local cultures they encountered. The Navajo rider on horseback embodies the enduring spirit and traditions of the Native American communities, who have lived on this land for centuries. The juxtaposition of these elements invites the viewer to consider the complex history and cultural exchanges that have shaped the region.\n\nThis artwork is a celebration of the intersection of cultures, traditions, and histories that make the Southwest region of Route 66 so unique. It is an invitation to explore, learn, and appreciate the beauty and complexity of Native American communities, and to recognize the important role that Route 66 plays in shaping our shared cultural identity. By engaging with this mural, viewers are encouraged to consider the multiple narratives and histories that intersect along Route 66, fostering a deeper appreciation for the cultural richness of the region. \n\n-By Lynnette Haozous, 2025.',
+      '"Cultural Crossroads"\n\nThis mural, "Cultural Crossroads," celebrates the rich cultural heritage of the Indigenous communities through which Route 66 passes, acknowledging the iconic American road that connects and intersects with diverse cultures and communities. \n\nRoute 66 weaves through the ancestral lands of numerous Native American tribes, its path intertwined with the stories, traditions, and histories of the region\'s Indigenous peoples. This region of Route 66 intersects with many Indigenous ancestral homelands, those of the many Pueblos communities who live along the Rio Grande, as well as the Navajo (Diné), and Apache. \n\nThe title "Cultural Crossroads" reflects the intersection of cultures, traditions, and histories that converge along Route 66, a mixture of Native American, Southwestern, American, Chicano, Mexican, and Spanish influences.\n\nBy weaving together Navajo (Diné) rug inspired designs, ancestral Pueblo landscapes, and vibrant depictions of everyday life, this artwork brings to life the stories and traditions of the land\'s original inhabitants. The incorporation of Navajo-inspired geometric patterns in the background create a portal designed of Native heritage, New Mexico colors, and Route 66 themes.\n\nThe mural depicts a Navajo (Diné) rider on horseback amidst Southwestern flora like cacti and sunflowers, juxtaposed with a vintage car traveling down Route 66. The Route 66 sign in the mural serves as a symbol of the historic highway\'s impact on the American Southwest and Indigenous communities. The vintage car represents the travelers and adventurers who journeyed along this iconic route, interacting with and influencing the local cultures they encountered. The Navajo rider on horseback embodies the enduring spirit and traditions of the Native American communities, who have lived on this land for centuries. The juxtaposition of these elements invites the viewer to consider the complex history and cultural exchanges that have shaped the region.\n\nThis artwork is a celebration of the intersection of cultures, traditions, and histories that make the Southwest region of Route 66 so unique. It is an invitation to explore, learn, and appreciate the beauty and complexity of Native American communities, and to recognize the important role that Route 66 plays in shaping our shared cultural identity. By engaging with this mural, viewers are encouraged to consider the multiple narratives and histories that intersect along Route 66, fostering a deeper appreciation for the cultural richness of the region. \n\n-By Lynnette Haozous, 2025.',
     artistbio:
       "Lynnette Haozous is an enrolled member of the San Carlos Apache Tribe (Chiricahua Apache), and is part Diné, and Taos Pueblo. Haozous is a muralist, painter, and artist educator, currently based in Albuquerque, New Mexico. She works in large scale paintings, digital illustrations , and mural installations.\n\nThe majority of Haozous’ work is murals, creating murals as a professional artist for over ten years that span across New Mexico, as far as Portland, OR.  Her mural work includes working with communities, museum installations, city/county commissions, schools, local organizations, collectives, hotels, local businesses, and private commissions, to name a few. Since receiving her Bachelors degree in Social Work from New Mexico Highlands University in 2016, much of Haozous’ mural work has been community based, and informed by social work principles. \n\nHaozous has worked as a Youth Artist Educator with local art education programs and has received notable artist residencies through SWAIA/Nativo Lodge, Harwood Art Center, the Santa Fe Art Institute, and an apprenticeship through the Native Arts and Culture Foundation 2020-2021 Mentorship program. In 2023, Haozous was selected as Southwest Contemporary’s “12 New Mexico Artists to Know Now”, and as Harwood Museum of Art in Taos’s Centennial Call to Artist winner for the Harwood’s Centennial Exhibition.  \n\nIn 2023, Haozous was featured in a videos series, “Only In” , made by Square, highlighting her art business and in 2023, Haozous was commissioned  by Google to create a Google Doodle honoring artist Allan Houser Haozous.  Most recently in 2025, Haozous was commissioned by Harper Collin’s to illustrate a cover art for a new book to be released in 2026, and commissioned a painting by Kellogs Foundation, for its “Caring with Courage” project.",
     additionalcredits: "",
@@ -98,19 +98,7 @@ export const artistData: ArtistData[] = [
   },
   {
     stop: "2",
-    fullname: "Nazario Sandoval (aka Wemfer)",
-    pronouns: "",
-    credittitle: "Artist",
-    artiststatement:
-      "Urban Abstract Muralist. Giving back to community's with color.",
-    artistbio:
-      "Southern New Mexico artists. Born in Albuquerque by way of Las Cruces by way of Denver back to Albuquerque.",
-    additionalcredits: "",
-    links: [],
-  },
-  {
-    stop: "5",
-    fullname: "Nazario Sandoval (aka Wemfer)",
+    fullname: "Nazario Sandoval",
     pronouns: "",
     credittitle: "Artist",
     artiststatement:
@@ -145,36 +133,51 @@ export const artistData: ArtistData[] = [
   },
   {
     stop: "10",
-    fullname: "",
-    pronouns: "",
-    credittitle: "",
-    artiststatement: "",
-    artistbio: "",
+    fullname: "Jesse Raine Littlebird",
+    pronouns: "He/Him",
+    credittitle: "Artist",
+    artiststatement:
+      "The inspiration behind the installation stems from a deep reverence for the land and its history, particularly the time before Route 66 transformed the landscape. We wanted to honor the bison, a creature that once roamed freely across this territory and is central to Native American traditions. The idea was to convey a sense of what the world looked like before modern highways carved through it—an image of nature and wildlife in their purest form. By using vibrant colors and symbolic patterns, like the checkered design that represents hope and rebirth, we aimed to merge the cultural and natural history of this region, inviting people to reconnect with what was here long before the asphalt roads.",
+    artistbio:
+      "Jesse Raine Littlebird (Laguna/Kewa Pueblos) Born 1992 at the Indian Hospital in Santa Fe, New Mexico is an artist, painter, and film director. Expression through the medium of painting and film is a vital part of life for Jesse with his Indigenous heritage deeply rooted in the oral tradition culture of his Pueblo Indian lineage and growing up in a creative household of art, film and story.\nLittlebird’s provocative paintings have garnished recognition in the Southwest art scene with several solo exhibitions and group shows during 2018-2026 and with several collectors commissioning his work nationally and globally. You will see one of his panoramic landscapes leaving the ABQ Sunport and his 2024 project “Petrol-glyph” a 1973 Dodge Dart painted like a Anasazi piece of pottery has garnered recognition worldwide.\n\nLittlebird says this about his art,”My work is inspired by teachings, prophecies, and stories that are commonplace among my people. It presents the viewer with a unification of Southwestern landscapes, Indigenous Cosmologies, and their historicization.\nMy true allegiance lies solely in acknowledging the significance of my birth until my eventual passing.\nMy work is an Detournement of various elements from Western and Indigenous thought and histories, provoking critical reflection and serving as a testament to the enduring spirit of indigenous cultural realities.\nThe paintings serve as storytellers, capturing narratives that can be discovered by those who truly listen and engage with the artwork.\nEach piece is a field for intricately intertwined symbolic representations that draw direct inspiration from the timeless cultural traditions found within the lands my people have inhabited since long before the Settler Colonial and will exist long after its passing.”\n\nHe is a Sundance Institute 2017 Full Circle Fellow, and Andy Warhol Foundation recipient. He is the founder and curator at Kukani Gallery. He works full time as an artist and resides in Albuquerque, New Mexico.",
     additionalcredits: "",
-    links: [],
+    links: ["www.jesselittlebird.com"],
   },
   {
     stop: "11",
-    fullname: "",
-    pronouns: "",
-    credittitle: "",
-    artiststatement: "",
-    artistbio: "",
+    fullname: "Sonja Vigil-Killer",
+    pronouns: "She/They",
+    credittitle: "Artist",
+    artiststatement:
+      "As a Pueblo person, I know that I am deeply connected to this land. This pottery piece is a reflection of that connection, that extends far beyond any manmade borders, or timelines. It’s an homage to all the Indigenous communities who have called these lands home since time immemorial. \n\nBefore any of these routes held names like Central Ave or Route 66, our ancestors used them to be in constant relation with each other. It was so much more than trading; it was ceremonial to be in community with one another. With this piece, I wanted to honor these traditions by giving glimpses into different directions and points in time, showing that we remain in constant relation with the land.\n\nThis piece serves as a reminder that this land has always been the one to guide us. As we gather to celebrate the centennial anniversary of Route 66, may we also celebrate the Indigenous Peoples who were the first to lead the way. There is no beginning or end, just ancient footsteps forever running through the high desert.",
+    artistbio:
+      "Sonja Vigil-Killer (Taos Pueblo) she/they- is a queer visual artist based in Albuquerque, NM.\n\nSonja was born and raised in Taos, New Mexico but has called Albuquerque home for nearly a decade. She is the co-owner of O Siiem Tatu which is the first Queer and Indigenous owned Tattoo shop in Albuquerque. Her work is inspired by the sacred connection between Pueblo communities and the natural world around them. She creates work meant to honor Pueblo heritage, while also helping Indigenous people find connection to the ancient art of Tatu through a modern/contemporary Indigenous perspective. \n\nSonja splits her time between tattooing and working as Media Associate for Indigenous Women Rising, an Indigenous-led reproductive justice organization. When she’s not working, she can be found outdoors hiking,  with her family, and spending time with the land.",
     additionalcredits: "",
     links: [],
   },
   {
     stop: "12",
-    fullname: "",
-    pronouns: "",
-    credittitle: "",
-    artiststatement: "",
+    fullname: "Lea Anderson",
+    pronouns: "she/her",
+    credittitle: "Artist",
+    artiststatement:
+      "Albuquerque is a living place! And Route 66 is more than a highway… it symbolizes a moving channel of energy that vitalizes our community. \n\n     Within our community, life abounds, an ecosystem comprised of human beings, animals, fish, birds, reptiles, insects, and even microorganisms. \n\n     For this project, I wanted to acknowledge the micro-world as a part of our ecologic community. I visited the ABQ BioPark’s Botanical Gardens where I took samples of pond water. Under a microscope, I looked at small drops of this water, where I discovered diatoms, rotifers, amoebas, algae, fungi and many other fascinating, beautiful, tiny living microbes, swimming and exploring in their watery world. I then created 66 colorful portraits of some of these living microscopic organisms.\n \n     With this project, I hope to not only celebrate the Centennial of Route 66, but to also inspire our community to appreciate and care for our water resources, our wildlife and the beautiful place we all share. \n     ALL LIVING THINGS ARE INTERCONNECTED.",
     artistbio: "",
     additionalcredits: "",
     links: [],
   },
   {
     stop: "13",
+    fullname: "",
+    pronouns: "",
+    credittitle: "",
+    artiststatement: "",
+    artistbio: "",
+    additionalcredits: "",
+    links: [],
+  },
+  {
+    stop: "14",
     fullname: "",
     pronouns: "",
     credittitle: "",
@@ -212,5 +215,16 @@ export const artistData: ArtistData[] = [
     artistbio: "",
     additionalcredits: "",
     links: [],
+  },
+  {
+    stop: "8.1",
+    fullname: "Carmen Montes  'la chispa'",
+    pronouns: "",
+    credittitle: "Artist",
+    artiststatement:
+      'Central and 4th - the end of Route 66 and the beginning of the new Route 66.\n\nThe "old road" symbolizes our past and the journey we\'ve taken, embodying a familiar way of life. Its endpoint represents a powerful finality—a point of no return—leading us boldly into the unknown. This road has shaped who we are today, guiding us toward new paths, experiences, and encounters.\n\nOur journey reflects our growth and development, showcasing the profound changes in our lives. Ultimately, we strive to arrive at a place of peace and belonging. Our journeys are beautifully intertwined along this road, inspiring us to embrace the adventure ahead.',
+    artistbio: "",
+    additionalcredits: "Music and voice Juani de la Isla",
+    links: ["https://www.casaflamenca.org/"],
   },
 ];

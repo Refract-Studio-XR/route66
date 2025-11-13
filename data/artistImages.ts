@@ -10,4 +10,5 @@ export const artistImages: Record<string, string> = {
   "Nazario Sandoval": "/artists/nazario_bio.jpg",
   "Helen Juliet Atkins": "/artists/helen_bio.jpg",
   "Noé Barnett": "/artists/noe_bio.jpg",
+  "Jesse Littlebird": "/artists/j-littlebird_bio.jpg",
 };
