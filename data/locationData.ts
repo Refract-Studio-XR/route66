@@ -115,6 +115,7 @@ export const locationData: LocationData[] = [
     coordinates: [-106.6273151, 35.0818343],
     locationDescription: "UNM Arts Lab",
     artist: "Noé Barnett & Travis Black",
+    coverImage: "/locations/cover-images/mother_moment_cover.jpg",
     locationParam: "mother-moment",
     arURL: "",
     isAR: false,
@@ -147,6 +148,7 @@ export const locationData: LocationData[] = [
     locationDescription: "4th and Central",
     artist: "Gael Luna",
     locationParam: "mother-road-cruise",
+    coverImage: "/locations/cover-images/gael_cover.jpg",
     arURL: "",
     isAR: false,
     images: [
@@ -188,6 +190,7 @@ export const locationData: LocationData[] = [
     locationDescription: "505 Food Hall",
     artist: "Lynnette Haozous",
     locationParam: "cultural-crossroads",
+    coverImage: "/locations/cover-images/lynnette_cover.jpg",
     arURL: "",
     isAR: false,
     images: [
@@ -206,6 +209,7 @@ export const locationData: LocationData[] = [
     locationDescription: "7th and Central",
     artist: "Jesse Littlebird & Thomas Haag",
     locationParam: "buffalo-return-to-route-66",
+    coverImage: "/locations/cover-images/buffalo_cover.jpg",
     arURL: "",
     isAR: false,
     images: [
@@ -273,6 +277,7 @@ export const locationData: LocationData[] = [
     coordinates: [-106.6700994, 35.0941611],
     locationDescription: "Old Town Bus Stop",
     artist: "Dante Betsch",
+    coverImage: "/locations/cover-images/dante_cover.jpg",
     locationParam: "sunset-to-sunrise-route-66-centennial-art-bus",
     arURL: "",
     isAR: false,
