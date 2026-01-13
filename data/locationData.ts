@@ -138,7 +138,7 @@ export const locationData: LocationData[] = [
     artist: "Jessica Helen Lopez",
     locationParam:
       "the-mother-road-blooms---100-years-special-collection-library",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-special-collections-lib/",
     isAR: true,
   },
   {
@@ -250,7 +250,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Bio Park",
     artist: "Lea Anderson",
     locationParam: "enchanted-pond",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-biopark-pond/",
     isAR: true,
     coverImage: "/locations/cover-images/bio_park_location.jpg",
     images: [
