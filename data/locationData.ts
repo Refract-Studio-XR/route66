@@ -306,7 +306,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Abq Visitor Center",
     artist: "Akilah Martinez",
     locationParam: "origin-route",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-abq-visitor-center/",
     isAR: true,
   },
   {
@@ -330,7 +330,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Sign West of Visitor Center",
     artist: "Karl Orozco",
     locationParam: "signs-of-life",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-west-central-sign/",
     isAR: true,
   },
 ];
