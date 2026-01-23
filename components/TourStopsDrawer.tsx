@@ -26,6 +26,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const [selectedTourStop, setSelectedTourStop] = useState<LocationData | null>(
     locationData.find((stop) => stop.locationParam === tourStopLocation) || null
   );
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleSelectTourStop = useCallback(
     (location: LocationData) => {
@@ -49,6 +50,13 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
     });
   }, [setOnMapMarkerClick, handleSelectTourStop]);
 
+  // Collapse drawer when a tour stop is selected
+  useEffect(() => {
+    if (selectedTourStop) {
+      setIsExpanded(false);
+    }
+  }, [selectedTourStop]);
+
   const handleCloseDetail = () => {
     setSelectedTourStop(null);
     router.push("/tour");
@@ -62,9 +70,46 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
       >
         <SheetContent
           side="bottom"
-          className="h-[45vh] rounded-t-2xl bg-black/50 backdrop-blur-md border-0 p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto"
+          className={`${isExpanded ? 'h-[95vh]' : 'h-[52vh]'} rounded-t-2xl bg-black/50 backdrop-blur-md border-0 p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto transition-all duration-300`}
         >
-          <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0">
+          <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0 relative">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="absolute top-2 right-4 text-white/70 hover:text-white transition-colors z-10"
+              aria-label={isExpanded ? "Collapse sheet" : "Expand sheet"}
+            >
+              {isExpanded ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 15l7-7 7 7"
+                  />
+                </svg>
+              )}
+            </button>
             <SheetTitle className="text-white drop-shadow-lg text-3xl">
               Route 66 Remixed
             </SheetTitle>
