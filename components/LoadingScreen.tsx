@@ -36,12 +36,11 @@ export default function LoadingScreen({ isMapLoaded }: LoadingScreenProps) {
           height={240}
           className="object-contain w-full h-auto"
           style={{
-            filter: "blur(0px) drop-shadow(0 0 40px rgba(255, 199, 0, 0.3))",
-            maskImage: "radial-gradient(circle, black 60%, transparent 100%)",
-            WebkitMaskImage:
-              "radial-gradient(circle, black 60%, transparent 100%)",
+            filter: "drop-shadow(0 0 40px rgba(255, 199, 0, 0.3))",
+            WebkitFilter: "drop-shadow(0 0 40px rgba(255, 199, 0, 0.3))",
           }}
           priority
+          unoptimized
         />
       </div>
     </div>
