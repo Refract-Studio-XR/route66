@@ -305,7 +305,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 {tourStop.coordinates && tourStop.coordinates[0] !== 0 && (
                   <button
                     onClick={openMaps}
-                    className="text-white bg-route66Turquoise/80 hover:bg-route66Turquoise transition-all flex-shrink-0 rounded-md p-1 ml-1 -mt-0.5"
+                    className="text-white bg-route66Turquoise/80 hover:bg-route66Turquoise transition-all flex-shrink-0 rounded-md p-1 ml-1 -mt-.49"
                     aria-label="Open in maps"
                   >
                     <svg
