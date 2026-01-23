@@ -138,7 +138,7 @@ export const locationData: LocationData[] = [
     artist: "Jessica Helen Lopez",
     locationParam:
       "the-mother-road-blooms---100-years-special-collection-library",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-special-collections-lib/",
     isAR: true,
   },
   {
@@ -250,7 +250,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Bio Park",
     artist: "Lea Anderson",
     locationParam: "enchanted-pond",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-biopark-pond/",
     isAR: true,
     coverImage: "/locations/cover-images/bio_park_location.jpg",
     images: [
@@ -306,7 +306,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Abq Visitor Center",
     artist: "Akilah Martinez",
     locationParam: "origin-route",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-abq-visitor-center/",
     isAR: true,
   },
   {
@@ -330,7 +330,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Sign West of Visitor Center",
     artist: "Karl Orozco",
     locationParam: "signs-of-life",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-west-central-sign/",
     isAR: true,
   },
 ];
