@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useCallback } from "react";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import TourStopList from "./TourStopList";
@@ -26,6 +26,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   const [selectedTourStop, setSelectedTourStop] = useState<LocationData | null>(
     locationData.find((stop) => stop.locationParam === tourStopLocation) || null
   );
+  const [snap, setSnap] = useState<number | string | null>(0.45);
 
   const handleSelectTourStop = useCallback(
     (location: LocationData) => {
@@ -56,21 +57,21 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
 
   return (
     <>
-      <Sheet
+      <Drawer
         open={true}
         modal={false}
+        snapPoints={[0, 0.45, 1]}
+        activeSnapPoint={snap}
+        setActiveSnapPoint={setSnap}
       >
-        <SheetContent
-          side="bottom"
-          className="h-[45vh] rounded-t-2xl bg-black/50 backdrop-blur-md border-0 p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto"
-        >
-          <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0">
-            <SheetTitle className="text-white drop-shadow-lg text-3xl">
+        <DrawerContent className="bg-black/50 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto p-0 [&>div:first-child]:hidden">
+          <DrawerHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0">
+            <DrawerTitle className="text-white drop-shadow-lg text-3xl">
               Route 66 Remixed
-            </SheetTitle>
-            <SheetDescription className="text-gray-200 drop-shadow-md">
+            </DrawerTitle>
+            <DrawerDescription className="text-gray-200 drop-shadow-md">
               Explore tour stops. Scroll to see more.
-            </SheetDescription>
+            </DrawerDescription>
             <a
               href="https://refractstudio.net"
               target="_blank"
@@ -79,12 +80,12 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
             >
               built by refract studio
             </a>
-          </SheetHeader>
+          </DrawerHeader>
           <div className="flex-1 overflow-y-auto px-4 pb-4 min-h-0">
             <TourStopList onSelectTourStop={handleSelectTourStop} />
           </div>
-        </SheetContent>
-      </Sheet>
+        </DrawerContent>
+      </Drawer>
       <TourStopDetailDrawer
         key={selectedTourStop?.id}
         tourStop={selectedTourStop}
