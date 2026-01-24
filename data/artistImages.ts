@@ -11,4 +11,5 @@ export const artistImages: Record<string, string> = {
   "Helen Juliet Atkins": "/artists/helen_bio.jpg",
   "Noé Barnett": "/artists/noe_bio.jpg",
   "Jesse Littlebird": "/artists/j-littlebird_bio.jpg",
+  "Carmen Montes  'la chispa'": "/artists/carmen_bio.jpg",
 };
