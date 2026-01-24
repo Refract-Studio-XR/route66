@@ -230,7 +230,7 @@ export const locationData: LocationData[] = [
     location: "2000 Mountain Rd NW, Albuquerque, NM 87104",
     coordinates: [-106.66752, 35.09761],
     locationDescription: "Abq Museum",
-    artist: "Sonja Killer",
+    artist: "Sonja Vigil-Killer",
     locationParam: "albuquerque-museum-sculpture-garden-ar-experience",
     arURL: "https://refractstudio.8thwall.app/route66-museum/",
     isAR: true,
