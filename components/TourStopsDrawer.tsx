@@ -76,11 +76,11 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
           className={`${isExpanded ? 'h-[95vh]' : 'h-[52vh]'} rounded-t-2xl bg-black/50 backdrop-blur-md border-0 p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto transition-all duration-300`}
         >
           <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0 relative">
-            <div className="absolute top-2 right-4 flex items-center gap-2 z-10">
+            <div className="absolute top-2 right-4 flex items-center gap-4 z-10">
               <button
                 type="button"
                 onClick={() => setIntroOpen(true)}
-                className="rounded-full p-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="rounded-full p-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
                 aria-label="Tips for the tour"
               >
                 <Info className="w-6 h-6" />
