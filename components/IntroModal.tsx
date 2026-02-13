@@ -75,7 +75,11 @@ export default function IntroModal({
           Tour tips — step {step + 1} of {slides.length}
         </DialogTitle>
 
-        <div className="flex-1 min-h-0 overflow-y-auto space-y-4">
+        <div
+          className={`flex-1 min-h-0 overflow-y-auto space-y-4 ${
+            !currentSlide.image ? "flex flex-col justify-center" : ""
+          }`}
+        >
           {step === 0 && (
             <div className="flex justify-center">
               <Image src="/rt66logo.png" alt="Route 66" width={72} height={72} className="object-contain" />

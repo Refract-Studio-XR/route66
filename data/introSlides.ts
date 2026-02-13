@@ -8,7 +8,7 @@ export interface IntroSlide {
 export const INTRO_SLIDES: IntroSlide[] = [
   {
     body:
-      "This is an augmented reality tour. Here's some tips to make your experience go smoothly!",
+      "This is an augmented reality tour. Here are some tips to make your experience go smoothly!",
   },
   {
     image: "/intro/headphones_suggested.webp",
