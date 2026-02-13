@@ -55,6 +55,17 @@ export default function IntroModal({
     else setStep(step + 1);
   }
 
+  // Preload all webp images when modal opens
+  useEffect(() => {
+    if (!open) return;
+    slides.forEach((s) => {
+      if (s.image) {
+        const img = new window.Image();
+        img.src = s.image;
+      }
+    });
+  }, [open, slides]);
+
   if (!mounted || !open) return null;
 
   const slide = slides[step];
@@ -104,9 +115,9 @@ export default function IntroModal({
             onClick={close}
             style={{
               position: "absolute",
-              top: 12,
-              right: 12,
-              padding: 6,
+              top: 8,
+              right: 8,
+              padding: 12,
               borderRadius: "50%",
               background: "transparent",
               border: "none",
