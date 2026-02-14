@@ -10,8 +10,10 @@ import {
 } from "@/components/ui/sheet";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { Info } from "lucide-react";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
+import IntroModal from "./IntroModal";
 import { LocationData, locationData } from "@/data/";
 import { MarkerData } from "@/hooks/useMapbox";
 
@@ -27,6 +29,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
     locationData.find((stop) => stop.locationParam === tourStopLocation) || null
   );
   const [isExpanded, setIsExpanded] = useState(false);
+  const [introOpen, setIntroOpen] = useState(false);
 
   const handleSelectTourStop = useCallback(
     (location: LocationData) => {
@@ -73,11 +76,20 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
           className={`${isExpanded ? 'h-[95vh]' : 'h-[52vh]'} rounded-t-2xl bg-black/50 backdrop-blur-md border-0 p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto transition-all duration-300`}
         >
           <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0 relative">
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="absolute top-2 right-4 text-white/70 hover:text-white transition-colors z-10"
-              aria-label={isExpanded ? "Collapse sheet" : "Expand sheet"}
-            >
+            <div className="absolute top-2 right-4 flex items-center gap-4 z-10">
+              <button
+                type="button"
+                onClick={() => setIntroOpen(true)}
+                className="rounded-full p-2 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+                aria-label="Tips for the tour"
+              >
+                <Info className="w-6 h-6" />
+              </button>
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label={isExpanded ? "Collapse sheet" : "Expand sheet"}
+              >
               {isExpanded ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +121,8 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
                   />
                 </svg>
               )}
-            </button>
+              </button>
+            </div>
             <SheetTitle className="text-white drop-shadow-lg text-3xl">
               Route 66 Remixed
             </SheetTitle>
@@ -136,6 +149,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
         open={!!selectedTourStop}
         onClose={handleCloseDetail}
       />
+      <IntroModal open={introOpen} onOpenChange={setIntroOpen} />
     </>
   );
 };

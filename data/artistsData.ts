@@ -12,6 +12,27 @@ export interface ArtistData {
 
 export const artistData: ArtistData[] = [
   {
+    stop: "1",
+    fullname: "Deborah A. Jojola",
+    pronouns: "She/Her",
+    credittitle: "Artist",
+    artiststatement:
+      `"Augmented Reality" was not a media of choice within my work; it was never known to me how I would implement this technology. A new A.R. has not registered in my brain nor have I seen art created using this medium.
+The project was new and challenging with my concepts, as I approach this with an open mind and creative process. I wanted my current work to link with this innovative technique with my personal stories of my Cultural History, Relationship to Land and Contemporary lives of our Tiwa Nation.
+Most importantly stories of the land Tuei and memories of early Tiwa people travelling the foot trails in their daily lives; hunting, trading, and purposeful spiritual journeys. The land was wide with no boundaries; the Desert climate is hot and can be dangerous.
+My work and research have been focusing on reviving the history & techniques of Tiwa frescos. The use of natural soil for plasters and earthen pigments for color all come from the land. These resources are parts of earth's abundant gifts to all life. Water is Life, so vital to our survival, carried by women to Indigenous community all over the world.
+Archival images of Native women carrying water is a favorite in my work. Water Carriers also travelled the trails holding pots of water on their heads, strong and resilient, nurturing their communities so life continues for traditional practices. I use the shape of these water carriers forms to carry content, visual stories giving sense of our damaging earth in need of Care and Respect.
+I incorporated both the archival photos with my Water Carrier frescos to emerge from the sky as orbs of energy or spirits of the past, coming to the foreground. The vision projects colorful shaped frescos and photos that encompass and integrate with gentle movement back into the sky.`,
+    artistbio:
+      `In my work, I explore the unique position held by Native women artists, curators, and art consultants as essential keepers of tradition and cultural identity. Utilizing centuries-old art forms, symbols of the past, while creating symbolic imagery for the future. My art carries a dialogue of history and resilience with an understanding of our environmental relationship that embraces all life.
+I was honored and selected by the National Park Services to serve as an Artist in Residence at Rocky Mountain National Park in Colorado. This experience with the land and all its active wildlife daily for two weeks gave me knowledge of various levels of understanding and respect for our protected National Parks. Listening and watching life within the park and the movement each day become so unique. The seasonal change as a beautiful color palette was so astonishing and remarkable.
+The relationship to land and its resources are important in my creativity. It gives me strength within my personal growth and inspires my ideas with compositional approaches and symbolic imagery for new work and meaningful concepts.
+As a working artist, I have exhibited my work at national and international museums; include Museum of Fine Arts in Yekaterinburg, Russia and the International Symposium in Tokyo, Japan. Gallery shows include Landmark Art Gallery-University of Texas Tech, Lubbock, Texas. The Museum of Contemporary Native Arts in Santa Fe, 516 Arts Museum, Kimo Gallery and Poeh Arts Center Museum. My works of art are in permanent museum collections throughout the world. The New Mexico Public Art is a venue incorporating my Fresco artwork in places throughout the state of New Mexico.
+I served as the former curator of exhibitions at the Indian Pueblo Cultural Center in Albuquerque, New Mexico for 4 years. As an independent curator, exhibits installation entitled, "The Journey of Tamaya" at the Tamaya Hyatt Regency Resort & Spa, Santa Ana Pueblo. Current curated exhibition with local Native artists entitled, "Walls of Resilience - Indigenous Wisdom Confronting Planetary Crisis," with Native Mural Artists exhibition, Spring/Summer 2025, South Broadway Cultural Center-ABQ, NM.`,
+    additionalcredits: "",
+    links: ["https://www.debjojolaart.com/home"],
+  },
+  {
     stop: "16",
     fullname: "PAZ",
     pronouns: "We, ours, us",
@@ -104,8 +125,20 @@ export const artistData: ArtistData[] = [
     artiststatement:
       "Urban Abstract Muralist. Giving back to community's with color.",
     artistbio:
-      "Southern New Mexico artists. Born in Albuquerque by way of Las Cruces by way of Denver back to Albuquerque.",
+      "Nazario Sandoval Wemfer, Urban abstract muralist. Southern New Mexico artists. Born in Albuquerque by way of Las Cruces by way of Denver back to Albuquerque.",
     additionalcredits: "",
+    links: [],
+  },
+  {
+    stop: "5",
+    fullname: "Nazario Sandoval",
+    pronouns: "",
+    credittitle: "Artist",
+    artiststatement:
+      "We cut a 1951 Ford flex in half. Completely gutted and refabricated into a seating bench where you can take pictures.",
+    artistbio:
+      "Nazario Sandoval Wemfer, Urban abstract muralist. Southern New Mexico artists. Born in Albuquerque by way of Las Cruces by way of Denver back to Albuquerque.",
+    additionalcredits: "My dad was fabricator of the project. Andy Sandoval",
     links: [],
   },
   {
@@ -188,11 +221,13 @@ export const artistData: ArtistData[] = [
   },
   {
     stop: "15",
-    fullname: "",
-    pronouns: "",
-    credittitle: "",
-    artiststatement: "",
-    artistbio: "",
+    fullname: "Akilah Martinez",
+    pronouns: "she/her",
+    credittitle: "Creative Technologist and Founder of Glittering World Girl",
+    artiststatement:
+      "Origin Route celebrates historical footpaths, trade routes and transfer of goods among Indigenous communities from all over the Americas. These sophisticated trails shaped major highway pathways today, one being Route 66. In Origin Route, you'll experience an AR portal and in selfie mode, you'll be able to experience hand tracking AR.",
+    artistbio:
+      "Akilah Martinez (Glittering World Girl) is an award-winning Diné creative technologist and cultural bearer from the Navajo Nation focusing on the creation of building an Indigenous-based circular economic ecosystem that cycles off of language & culture futurism through video art and XR technology. Akilah is a 2024 New Mexico Women in Tech Emerging Leader Award, a guest speaker at the MIT Reality Hack in Cambridge, MA and Bridge Innovation Studio UCLA. Akilah's team, Inkovator, won 1st place for the Snap track at Stanford XR Immerse The Bay 2024 and team, Yeigo, won two 1st place Gold Prizes at MIT Reality Hack 2025.",
     additionalcredits: "",
     links: [],
   },

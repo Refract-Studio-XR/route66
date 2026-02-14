@@ -10,7 +10,9 @@ import {
   DrawerDescription,
 } from "@/components/ui/drawer";
 import { useLocalStorage } from "usehooks-ts";
+import { Info } from "lucide-react";
 import ARPlayer from "./ARPlayer";
+import IntroModal from "./IntroModal";
 
 import { LocationData, ArtistData, artistData, artistImages } from "@/data";
 import { getAudioUrl } from "@/lib/utils";
@@ -51,6 +53,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
   const [snap, setSnap] = useState<number | string | null>(0.55);
+  const [introOpen, setIntroOpen] = useState(false);
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
@@ -273,8 +276,9 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
       >
         <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
           <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
-            <div>
-              <DrawerTitle className="text-white text-xl tracking-wide">
+            <div className="flex justify-between items-start w-full gap-2">
+              <div className="min-w-0 flex-1">
+                <DrawerTitle className="text-white text-xl tracking-wide">
                 {tourStop.artTitle}
               </DrawerTitle>
               {stopArtistData.length > 0 ? (
@@ -325,6 +329,15 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                   </button>
                 )}
               </DrawerDescription>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIntroOpen(true)}
+                className="flex-shrink-0 rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+                aria-label="Tips for the tour"
+              >
+                <Info className="w-6 h-6" />
+              </button>
             </div>
           </DrawerHeader>
           <div className="flex items-center justify-start py-2 pl-4 flex-shrink-0">
@@ -631,6 +644,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           />
         )}
       </Drawer>
+      <IntroModal open={introOpen} onOpenChange={setIntroOpen} />
     </>
   );
 };

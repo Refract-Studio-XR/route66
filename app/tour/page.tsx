@@ -4,6 +4,7 @@ import Image from "next/image";
 import MapScene from "@/components/MapScene";
 import TourStopsDrawer from "@/components/TourStopsDrawer";
 import LoadingScreen from "@/components/LoadingScreen";
+import IntroModal from "@/components/IntroModal";
 import useMapbox from "@/hooks/useMapbox";
 import { locationData } from "@/data";
 
@@ -14,6 +15,7 @@ export default function TourPage() {
 
   return (
     <>
+      <IntroModal />
       <LoadingScreen isMapLoaded={isMapLoaded} />
       <div className="container mx-auto max-w-[480px] md:max-w-[640px] lg:max-w-[900px] px-3 pt-2 pb-4 relative">
         <MapScene mapContainerRef={mapContainerRef} />
