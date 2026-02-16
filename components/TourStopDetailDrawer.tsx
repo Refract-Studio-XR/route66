@@ -54,6 +54,21 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const galleryScrollRef = useRef<HTMLDivElement>(null);
   const [snap, setSnap] = useState<number | string | null>(0.55);
   const [introOpen, setIntroOpen] = useState(false);
+  const [showPulse, setShowPulse] = useState(false);
+  const [pulseFading, setPulseFading] = useState(false);
+
+  useEffect(() => {
+    const handler = () => { setShowPulse(true); setPulseFading(false); };
+    window.addEventListener("route66_intro_pulse", handler);
+    return () => window.removeEventListener("route66_intro_pulse", handler);
+  }, []);
+
+  useEffect(() => {
+    if (!showPulse) return;
+    const fadeTimer = setTimeout(() => setPulseFading(true), 3000);
+    const removeTimer = setTimeout(() => setShowPulse(false), 4000);
+    return () => { clearTimeout(fadeTimer); clearTimeout(removeTimer); };
+  }, [showPulse]);
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
@@ -332,10 +347,16 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               </div>
               <button
                 type="button"
-                onClick={() => setIntroOpen(true)}
-                className="flex-shrink-0 rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+                onClick={() => { setShowPulse(false); setIntroOpen(true); }}
+                className="relative flex-shrink-0 rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
                 aria-label="Tips for the tour"
               >
+                {showPulse && (
+                  <span
+                    className="absolute inset-0 rounded-full border-2 border-white/60 animate-ping pointer-events-none"
+                    style={{ opacity: pulseFading ? 0 : 1, transition: "opacity 1s ease-out" }}
+                  />
+                )}
                 <Info className="w-6 h-6" />
               </button>
             </div>

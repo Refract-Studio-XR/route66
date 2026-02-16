@@ -45,7 +45,11 @@ export default function IntroModal({
   }, [open]);
 
   function close() {
+    const wasFirstTime = !hasSeenIntro;
     if (typeof window !== "undefined") localStorage.setItem(storageKey, "true");
+    if (wasFirstTime) {
+      window.dispatchEvent(new CustomEvent("route66_intro_pulse"));
+    }
     setStep(0);
     setOpen(false);
   }
@@ -95,7 +99,7 @@ export default function IntroModal({
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: "min(24rem, 92vw)",
-          height: 450,
+          height: 460,
           display: "flex",
           flexDirection: "column",
           padding: 20,
@@ -144,8 +148,9 @@ export default function IntroModal({
           }}
         >
           {step === 0 && (
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16 }}>
               <Image src="/rt66logo.png" alt="Route 66" width={94} height={94} style={{ objectFit: "contain" }} />
+              <Image src="/ar-icon.svg" alt="AR Experience" width={82} height={82} style={{ objectFit: "contain", filter: "brightness(0) invert(1)" }} />
             </div>
           )}
           {slide.image && (
