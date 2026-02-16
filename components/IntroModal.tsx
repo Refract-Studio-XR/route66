@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { INTRO_SLIDES, type IntroSlide } from "@/data/introSlides";
 
-const STORAGE_KEY = "route66_intro_seen";
+const STORAGE_KEY = "route66_intro_seen_v2";
 
 export interface IntroModalProps {
   slides?: IntroSlide[];
