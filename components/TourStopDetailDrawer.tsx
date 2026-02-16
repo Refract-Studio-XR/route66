@@ -10,7 +10,11 @@ import {
   DrawerDescription,
 } from "@/components/ui/drawer";
 import { useLocalStorage } from "usehooks-ts";
+<<<<<<< HEAD
 import { Info, X } from "lucide-react";
+=======
+import { Info } from "lucide-react";
+>>>>>>> origin/main
 import ARPlayer from "./ARPlayer";
 import IntroModal from "./IntroModal";
 
@@ -54,6 +58,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const galleryScrollRef = useRef<HTMLDivElement>(null);
   const [snap, setSnap] = useState<number | string | null>(0.55);
   const [introOpen, setIntroOpen] = useState(false);
+<<<<<<< HEAD
   const [showPulse, setShowPulse] = useState(false);
   const [pulseFading, setPulseFading] = useState(false);
 
@@ -69,6 +74,8 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
     const removeTimer = setTimeout(() => setShowPulse(false), 4000);
     return () => { clearTimeout(fadeTimer); clearTimeout(removeTimer); };
   }, [showPulse]);
+=======
+>>>>>>> origin/main
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
