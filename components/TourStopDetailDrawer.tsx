@@ -10,7 +10,7 @@ import {
   DrawerDescription,
 } from "@/components/ui/drawer";
 import { useLocalStorage } from "usehooks-ts";
-import { Info } from "lucide-react";
+import { Info, X } from "lucide-react";
 import ARPlayer from "./ARPlayer";
 import IntroModal from "./IntroModal";
 
@@ -345,20 +345,30 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 )}
               </DrawerDescription>
               </div>
-              <button
-                type="button"
-                onClick={() => { setShowPulse(false); setIntroOpen(true); }}
-                className="relative flex-shrink-0 rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
-                aria-label="Tips for the tour"
-              >
-                {showPulse && (
-                  <span
-                    className="absolute inset-0 rounded-full border-2 border-white/60 animate-ping pointer-events-none"
-                    style={{ opacity: pulseFading ? 0 : 1, transition: "opacity 1s ease-out" }}
-                  />
-                )}
-                <Info className="w-6 h-6" />
-              </button>
+              <div className="flex items-center gap-4 flex-shrink-0">
+                <button
+                  type="button"
+                  onClick={() => { setShowPulse(false); setIntroOpen(true); }}
+                  className="relative rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+                  aria-label="Tips for the tour"
+                >
+                  {showPulse && (
+                    <span
+                      className="absolute inset-0 rounded-full border-2 border-white/60 animate-ping pointer-events-none"
+                      style={{ opacity: pulseFading ? 0 : 1, transition: "opacity 1s ease-out" }}
+                    />
+                  )}
+                  <Info className="w-6 h-6" />
+                </button>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+                  aria-label="Close drawer"
+                >
+                  <X size={22} />
+                </button>
+              </div>
             </div>
           </DrawerHeader>
           <div className="flex items-center justify-start py-2 pl-4 flex-shrink-0">
