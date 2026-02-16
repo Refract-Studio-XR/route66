@@ -345,11 +345,11 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                 )}
               </DrawerDescription>
               </div>
-              <div className="flex items-center gap-4 flex-shrink-0">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <button
                   type="button"
                   onClick={() => { setShowPulse(false); setIntroOpen(true); }}
-                  className="relative rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+                  className="relative rounded-full p-1.5 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
                   aria-label="Tips for the tour"
                 >
                   {showPulse && (
@@ -358,15 +358,15 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                       style={{ opacity: pulseFading ? 0 : 1, transition: "opacity 1s ease-out" }}
                     />
                   )}
-                  <Info className="w-6 h-6" />
+                  <Info className="w-5 h-5" />
                 </button>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+                  className="rounded-full p-1.5 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
                   aria-label="Close drawer"
                 >
-                  <X size={22} />
+                  <X size={20} />
                 </button>
               </div>
             </div>
