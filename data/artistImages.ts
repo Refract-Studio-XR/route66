@@ -15,4 +15,6 @@ export const artistImages: Record<string, string> = {
   "Sonja Vigil-Killer": "/artists/sonja_bio.jpg",
   "Lea Anderson": "/artists/lea_bio.jpg",
   "Jesse Raine Littlebird": "/artists/j-littlebird-bio.jpg",
+  "Deborah A. Jojola": "/artists/deb_bio.jpg",
+  "Akilah Martinez": "/artists/akilah_bio.jpg",
 };
