@@ -147,12 +147,14 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
             <SheetTitle className="text-white drop-shadow-lg text-[1.65rem] tracking-tight pr-16">
               Route 66 Remixed
             </SheetTitle>
-            <SheetDescription className="text-gray-200 drop-shadow-md text-sm">
-              Explore tour stops. Scroll to see more. · <a
+            <SheetDescription className="text-gray-200 drop-shadow-md text-xs leading-tight">
+              Explore tour stops. Scroll to see more.
+              <br />
+              <a
                 href="https://refractstudio.net"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-white transition-colors"
+                className="text-gray-400 underline hover:text-white transition-colors text-[11px]"
               >built by refract studio</a>
             </SheetDescription>
           </SheetHeader>
