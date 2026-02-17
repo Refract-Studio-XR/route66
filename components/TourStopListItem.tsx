@@ -28,7 +28,7 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
 
   return (
     <div
-      className="flex flex-col bg-white/10 backdrop-blur-sm rounded-xl p-3 mb-3 shadow-lg border border-white/10 relative"
+      className="flex flex-col bg-white/10 backdrop-blur-sm rounded-xl p-2.5 mb-2.5 shadow-lg border border-white/10 relative"
       onClick={isComingSoon ? undefined : onClick}
       style={{
         cursor: isComingSoon ? "default" : onClick ? "pointer" : undefined,
@@ -42,19 +42,19 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
             width={64}
             height={64}
             priority
-            className="w-16 h-16 flex-shrink-0 rounded-lg object-cover border border-white/20"
+            className="w-14 h-14 flex-shrink-0 rounded-lg object-cover border border-white/20"
           />
         ) : (
-          <div className="w-16 h-16 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
+          <div className="w-14 h-14 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
         )}
         <div className="flex flex-col justify-center flex-1">
-          <div className="font-bold text-white text-base leading-tight drop-shadow-lg">
+          <div className="font-bold text-white text-sm leading-tight drop-shadow-lg">
             {title}
           </div>
-          <div className="text-gray-300 text-sm mt-0.5 drop-shadow-sm">
+          <div className="text-gray-300 text-xs mt-0.5 drop-shadow-sm">
             {artist}
           </div>
-          <div className="text-gray-200 text-xs mt-0.5 drop-shadow-md">
+          <div className="text-gray-200 text-[11px] mt-0.5 drop-shadow-md">
             {location}
           </div>
         </div>
