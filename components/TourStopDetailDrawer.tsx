@@ -53,6 +53,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [isGalleryVisible, setIsGalleryVisible] = useState(false);
   const galleryScrollRef = useRef<HTMLDivElement>(null);
   const [snap, setSnap] = useState<number | string | null>(0.55);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [introOpen, setIntroOpen] = useState(false);
   const [showPulse, setShowPulse] = useState(false);
   const [pulseFading, setPulseFading] = useState(false);
@@ -74,6 +75,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   useEffect(() => {
     setIsStatementExpanded(false);
     setCurrentImageIndex(0);
+    setLoadedImages(new Set());
     setSnap(0.55);
   }, [tourStop?.id]);
 
@@ -231,10 +233,10 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                       src={imageSrc}
                       alt={`${tourStop.artTitle} - Image ${index + 1}`}
                       fill
-                      className="object-cover opacity-0 animate-fade-in rounded-2xl"
-                      style={{
-                        animationDelay: `${index * 0.05}s`,
-                      }}
+                      className={`object-cover rounded-2xl transition-all duration-700 ease-out ${
+                        loadedImages.has(index) ? "opacity-100 scale-100" : "opacity-0 scale-[0.9]"
+                      }`}
+                      onLoad={() => setLoadedImages(prev => new Set(prev).add(index))}
                       priority={true}
                     />
                   </div>
