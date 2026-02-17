@@ -201,9 +201,65 @@ I served as the former curator of exhibitions at the Indian Pueblo Cultural Cent
   },
   {
     stop: "13",
-    fullname: "",
+    fullname: "Rob Vanderslice",
     pronouns: "",
-    credittitle: "",
+    credittitle: "Artist",
+    artiststatement:
+      `For the 100-year anniversary of Route 66, Rob Vanderslice was honored to contribute the painted surface design and color story to this commemorative sculpture. While the three-dimensional structure was pre-engineered, Vanderslice transformed the form through custom Lowrider paint techniques, bringing movement, depth, and cultural storytelling to the piece.
+
+The color palette was intentionally selected to reflect the New Mexico sunset — rich tones of orange, magenta, sunset gold, and purple layered in luminous fades. Much like the sky over Albuquerque at dusk, the transitions are fluid and radiant, capturing the warmth and spirit of the Southwest. These sunset hues serve as a visual metaphor for reflection — honoring the past while illuminating the road ahead.
+
+Throughout the surface design, Vanderslice incorporated stylistic elements from different phases of his career, spanning over three decades in the custom automotive paint industry. From traditional scrollwork and ribbons, to more refined blends, symmetry, and evolved pattern work seen in his later years, the piece becomes a timeline in paint. Each section subtly represents growth — not only of the artist, but of Route 66 itself.
+
+The layered patterns and hand-painted details reference the rich history of Lowrider culture and the communities that have long shaped the identity of the Southwest. By applying techniques traditionally reserved for custom cars onto a public sculpture, Vanderslice bridges street culture and civic art, demonstrating that Lowrider paint is both craftsmanship and fine art.
+
+As light moves across the sculpture throughout the day, the candy tones and metallic layers shift in intensity — creating motion within a stationary form. This interaction mirrors Route 66 as a living symbol: a road that has carried generations, stories, and cultural exchange for a century.
+
+For Vanderslice, contributing to this centennial piece represents legacy — honoring where he began, acknowledging how his style has evolved, and celebrating the cultural road that continues forward. Through color, pattern, and technique, he pays tribute not only to Route 66, but to 100 years of movement, memory, and artistic expression in the American Southwest.`,
+    artistbio:
+      `Rob Vanderslice is a nationally recognized custom paint artist based in Albuquerque, New Mexico, with more than three decades of experience in the automotive refinishing and Lowrider paint industry. As the founder of Vanderslice Kustom Shop, he has built a reputation for masterful candy finishes, intricate hand-striping, layered scrollwork, and bold color transitions that reflect the culture and visual language of the American Southwest.
+
+Throughout his career, Vanderslice has painted award-winning vehicles, led educational workshops, hosted live demonstrations, and contributed to large-scale public art projects. His work bridges traditional Lowrider heritage with contemporary public art, elevating automotive paint techniques into sculptural and civic spaces. Rooted in precision, discipline, and evolution, his style reflects decades of refinement — honoring where he began while continuing to grow artistically.
+
+This project was completed with the hands-on assistance of Steve Mora, Martin Valencia, and Vanderslice's son (Allante Vanderslice) and daughter (Dacia Vanderslice), who each played an active role in the execution of the painted surfaces. From preparation and layout to taping, detailing, and finishing, the team worked collaboratively to bring the vision to life. Their combined efforts reflect both artistic unity and generational legacy.`,
+    additionalcredits: "",
+    links: ["https://www.vanderslicekustomshop.com/"],
+  },
+  {
+    stop: "13",
+    fullname: "Allante Vanderslice",
+    pronouns: "",
+    credittitle: "Supporting Artist",
+    artiststatement: "",
+    artistbio: "",
+    additionalcredits: "",
+    links: [],
+  },
+  {
+    stop: "13",
+    fullname: "Dacia Vanderslice",
+    pronouns: "",
+    credittitle: "Supporting Artist",
+    artiststatement: "",
+    artistbio: "",
+    additionalcredits: "",
+    links: [],
+  },
+  {
+    stop: "13",
+    fullname: "Stephen Mora",
+    pronouns: "",
+    credittitle: "Supporting Artist",
+    artiststatement: "",
+    artistbio: "",
+    additionalcredits: "",
+    links: [],
+  },
+  {
+    stop: "13",
+    fullname: "Martin Valencia",
+    pronouns: "",
+    credittitle: "Supporting Artist",
     artiststatement: "",
     artistbio: "",
     additionalcredits: "",
@@ -243,13 +299,15 @@ I served as the former curator of exhibitions at the Indian Pueblo Cultural Cent
   },
   {
     stop: "17",
-    fullname: "",
-    pronouns: "",
-    credittitle: "",
-    artiststatement: "",
-    artistbio: "",
-    additionalcredits: "",
-    links: [],
+    fullname: "Karl Orozco",
+    pronouns: "he/him",
+    credittitle: "Artist",
+    artiststatement:
+      `"Signs of Life" considers the life cycles of New Mexico's urban landscape through a study of abandoned roadside signs. From 2020 to 2025, I photographed, mapped, and archived over 100 out-of-use signs across the state. Some signs are captured in a brief moment of business turnover, while others exist in a perpetual limbo state. I rebuild these signs using Blender to capture a wide spectrum of vacancy to obsolescence. For this augmented reality experience, I wanted to showcase a collection of skeleton signs found along Route 66 at their original, monumental scale. While many might consider them to be symbols of disrepair, I find these signs to be an integral, authentic part of the contemporary New Mexican landscape.`,
+    artistbio:
+      `Karl Orozco is a visual artist and working in printmaking, video, and installation. He repurposes broken graphic communication tools such as inkjet printers and road signs to create vibrant prints, dynamic animations, and immersive installations. His work repurposes obsolete technologies to explore how messages persist within a machine after systems fail. Orozco's work has been exhibited at MoMA PS1, the Bronx Museum, the Neon Museum of Las Vegas, 1415 Gallery and Sanitary Tortilla Factory. Orozco is the co-founder of Risolana, a community risograph studio in Albuquerque's South Valley guided by the New Mexican concept of la resolana, a south-facing wall where people gather, share, and reflect.`,
+    additionalcredits: "Audio by Drew Miller",
+    links: ["https://www.karlorozco.com", "https://www.instagram.com/yung_buko"],
   },
   {
     stop: "8.1",

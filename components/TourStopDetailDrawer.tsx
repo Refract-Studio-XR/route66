@@ -236,6 +236,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
                       className={`object-cover rounded-2xl transition-all duration-700 ease-out ${
                         loadedImages.has(index) ? "opacity-100 scale-100" : "opacity-0 scale-[0.9]"
                       }`}
+                      style={tourStop.coverImagePosition ? { objectPosition: tourStop.coverImagePosition } : undefined}
                       onLoad={() => setLoadedImages(prev => new Set(prev).add(index))}
                       priority={true}
                     />
