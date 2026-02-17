@@ -90,7 +90,7 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
           side="bottom"
           className={`${isExpanded ? 'h-[95vh]' : 'h-[52vh]'} rounded-t-2xl bg-black/50 backdrop-blur-md border-0 p-0 [&>button]:hidden flex flex-col max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto transition-all duration-300`}
         >
-          <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0 relative">
+          <SheetHeader className="text-left px-4 pt-2 pb-0 flex-shrink-0 relative !space-y-0.5">
             <div className="absolute top-4 right-3 flex items-center gap-2 z-10">
               <button
                 type="button"
@@ -147,17 +147,16 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
             <SheetTitle className="text-white drop-shadow-lg text-[1.65rem] tracking-tight pr-16">
               Route 66 Remixed
             </SheetTitle>
-            <SheetDescription className="text-gray-200 drop-shadow-md">
+            <SheetDescription className="text-gray-200 drop-shadow-md text-xs leading-tight">
               Explore tour stops. Scroll to see more.
+              <br />
+              <a
+                href="https://refractstudio.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 underline hover:text-white transition-colors text-[11px]"
+              >built by refract studio</a>
             </SheetDescription>
-            <a
-              href="https://refractstudio.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-200 drop-shadow-md text-sm underline hover:text-white transition-colors"
-            >
-              built by refract studio
-            </a>
           </SheetHeader>
           <div className="flex-1 overflow-y-auto px-4 pb-4 min-h-0">
             <TourStopList onSelectTourStop={handleSelectTourStop} />

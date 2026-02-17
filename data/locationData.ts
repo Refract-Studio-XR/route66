@@ -11,6 +11,7 @@ export interface LocationData {
   arURL: string;
   isAR: boolean;
   coverImage?: string;
+  coverImagePosition?: string;
   images?: string[];
 }
 
@@ -140,6 +141,12 @@ export const locationData: LocationData[] = [
       "the-mother-road-blooms---100-years-special-collection-library",
     arURL: "https://refractstudio.8thwall.app/route66-special-collections-lib/",
     isAR: true,
+    coverImage: "/locations/special-collection-library/library_1.jpg",
+    images: [
+      "/locations/special-collection-library/library_1.jpg",
+      "/locations/special-collection-library/library_2.jpg",
+      "/locations/special-collection-library/library_3.jpg",
+    ],
   },
   {
     id: "8",
@@ -252,9 +259,9 @@ export const locationData: LocationData[] = [
     locationParam: "enchanted-pond",
     arURL: "https://refractstudio.8thwall.app/route66-biopark-pond/",
     isAR: true,
-    coverImage: "/locations/cover-images/bio_park_location.jpg",
+    coverImage: "/locations/enchanted-pond/pond1.jpg",
     images: [
-      "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_57.jpg",
+      "/locations/enchanted-pond/pond1.jpg",
       "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_owen_12-2.jpg",
       "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_owen_12.jpg",
       "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_owen_15.jpg",
@@ -264,12 +271,12 @@ export const locationData: LocationData[] = [
   {
     id: "13",
     stop: "13",
-    artTitle: "Cruising Cultura: Route 66",
+    artTitle: "505 Sunset Blvd.",
     location: "7620 Central AVE SW,  Albuquerque, NM 87121",
     coordinates: [-106.7208944, 35.0770494],
     locationDescription: "Central Ave. SW at Unser Blvd",
     artist: "Rob Vanderslice",
-    locationParam: "cruising-cultura-route-66",
+    locationParam: "505-sunset-blvd",
     arURL: "",
     isAR: false,
   },
@@ -308,6 +315,13 @@ export const locationData: LocationData[] = [
     locationParam: "origin-route",
     arURL: "https://refractstudio.8thwall.app/route66-abq-visitor-center/",
     isAR: true,
+    coverImage: "/locations/visitor-center/center3.jpg",
+    coverImagePosition: "center 20%",
+    images: [
+      "/locations/visitor-center/center_1.jpg",
+      "/locations/visitor-center/center_2.jpg",
+      "/locations/visitor-center/center3.jpg",
+    ],
   },
   {
     id: "16",
@@ -332,5 +346,12 @@ export const locationData: LocationData[] = [
     locationParam: "signs-of-life",
     arURL: "https://refractstudio.8thwall.app/route66-west-central-sign/",
     isAR: true,
+    coverImage: "/locations/west-central-sign/sign_1.jpg",
+    coverImagePosition: "center 20%",
+    images: [
+      "/locations/west-central-sign/sign_1.jpg",
+      "/locations/west-central-sign/sign_2.jpg",
+      "/locations/west-central-sign/sign_3.jpg",
+    ],
   },
 ];

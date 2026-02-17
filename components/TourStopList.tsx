@@ -24,6 +24,7 @@ const TourStopList: React.FC<TourStopListProps> = ({ onSelectTourStop }) => {
             isAR={location.isAR}
             arURL={location.arURL}
             coverImage={location.coverImage}
+            coverImagePosition={location.coverImagePosition}
             onClick={() => onSelectTourStop && onSelectTourStop(location)}
           />
         );
