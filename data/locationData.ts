@@ -254,7 +254,6 @@ export const locationData: LocationData[] = [
     isAR: true,
     coverImage: "/locations/cover-images/bio_park_location.jpg",
     images: [
-      "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_57.jpg",
       "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_owen_12-2.jpg",
       "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_owen_12.jpg",
       "/locations/enchanted-pond/250818_CityofABQ_Rt66_BotanicGardens_Photos_owen_15.jpg",
