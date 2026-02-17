@@ -11,6 +11,7 @@ export interface LocationData {
   arURL: string;
   isAR: boolean;
   coverImage?: string;
+  coverImagePosition?: string;
   images?: string[];
 }
 
@@ -140,6 +141,12 @@ export const locationData: LocationData[] = [
       "the-mother-road-blooms---100-years-special-collection-library",
     arURL: "https://refractstudio.8thwall.app/route66-special-collections-lib/",
     isAR: true,
+    coverImage: "/locations/special-collection-library/library_1.jpg",
+    images: [
+      "/locations/special-collection-library/library_1.jpg",
+      "/locations/special-collection-library/library_2.jpg",
+      "/locations/special-collection-library/library_3.jpg",
+    ],
   },
   {
     id: "8",
@@ -307,6 +314,13 @@ export const locationData: LocationData[] = [
     locationParam: "origin-route",
     arURL: "https://refractstudio.8thwall.app/route66-abq-visitor-center/",
     isAR: true,
+    coverImage: "/locations/visitor-center/center3.jpg",
+    coverImagePosition: "center 20%",
+    images: [
+      "/locations/visitor-center/center_1.jpg",
+      "/locations/visitor-center/center_2.jpg",
+      "/locations/visitor-center/center3.jpg",
+    ],
   },
   {
     id: "16",

@@ -9,6 +9,7 @@ interface TourStopListItemProps {
   isAR?: boolean;
   arURL?: string;
   coverImage?: string;
+  coverImagePosition?: string;
   onClick?: () => void;
 }
 
@@ -20,6 +21,7 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
   isAR,
   arURL,
   coverImage,
+  coverImagePosition,
   onClick,
 }) => {
   const isComingSoon = isAR && !arURL;
@@ -36,14 +38,14 @@ const TourStopListItem: React.FC<TourStopListItemProps> = ({
     >
       <div className="flex gap-2.5 items-center">
         {displayImage ? (
-          <Image
-            src={displayImage}
-            alt={coverImage ? title : artist}
-            width={64}
-            height={64}
-            priority
-            className="w-14 h-14 flex-shrink-0 rounded-lg object-cover border border-white/20"
-          />
+          <div className="w-14 h-14 flex-shrink-0 rounded-lg border border-white/20 overflow-hidden">
+            <img
+              src={displayImage}
+              alt={coverImage ? title : artist}
+              className="w-full h-full object-cover"
+              style={coverImagePosition ? { objectPosition: coverImagePosition } : undefined}
+            />
+          </div>
         ) : (
           <div className="w-14 h-14 flex-shrink-0 bg-zinc-900 rounded-lg border border-white/20" />
         )}
