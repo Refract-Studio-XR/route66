@@ -1,8 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoicmVmcmFjdHN0dWRpbyIsImEiOiJjbWM5YXQ1aDEwaGZqMmtwa2hha3YyeWo5In0.Cv4DzsXyLOR50dtNin7r1Q";
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? "";
 
 export type MarkerData = {
   coordinates: [number, number];
@@ -33,11 +32,11 @@ const useMapbox = (options?: Options) => {
     mapboxgl.accessToken = MAPBOX_TOKEN;
 
     mapRef.current = new mapboxgl.Map({
-      // @ts-expect-error - mapbox-gl types issue
+      // @ts-expect-error - mapbox-gl types issue//
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/standard",
       center: [-106.6514, 35.08445],
-      zoom: 10.8,
+      zoom: 9.3,
       pitch: 40,
     });
 
