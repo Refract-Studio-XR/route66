@@ -17,4 +17,5 @@ export const artistImages: Record<string, string> = {
   "Jesse Raine Littlebird": "/artists/j-littlebird-bio.jpg",
   "Deborah A. Jojola": "/artists/deb_bio.jpg",
   "Akilah Martinez": "/artists/akilah_bio.jpg",
+  "Rob Vanderslice": "/artists/vanderslice_bio.jpg",
 };

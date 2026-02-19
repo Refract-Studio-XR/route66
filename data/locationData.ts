@@ -37,8 +37,15 @@ export const locationData: LocationData[] = [
     locationDescription: "Singing Arrow is Ancestral Tiwa Land",
     artist: "Deborah A. Jojola",
     locationParam: "tuei-foot-trails-and-watercarriers",
-    arURL: "",
+    arURL: "https://refractstudio.8thwall.app/route66-singing-arrow/",
     isAR: true,
+    coverImage: "/locations/singing-arrow/singing-arrow-3.jpg",
+    images: [
+      "/locations/singing-arrow/singing-arrow-0.jpg",
+      "/locations/singing-arrow/singing-arrow-1.jpg",
+      "/locations/singing-arrow/singing-arrow-2.jpg",
+      "/locations/singing-arrow/singing-arrow-3.jpg",
+    ],
   },
   {
     id: "2.1",
