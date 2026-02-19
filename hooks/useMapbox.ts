@@ -32,7 +32,7 @@ const useMapbox = (options?: Options) => {
     mapboxgl.accessToken = MAPBOX_TOKEN;
 
     mapRef.current = new mapboxgl.Map({
-      // @ts-expect-error - mapbox-gl types issue
+      // @ts-expect-error - mapbox-gl types issue//
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/standard",
       center: [-106.6514, 35.08445],
