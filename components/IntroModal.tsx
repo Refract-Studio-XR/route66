@@ -56,7 +56,7 @@ export default function IntroModal({
 
   function next() {
     if (step === slides.length - 1) close();
-    else setStep(step + 1);
+    else setStep((currentStep) => currentStep + 1);
   }
 
   // Preload all webp images when modal opens
@@ -154,7 +154,7 @@ export default function IntroModal({
             </div>
           )}
           {slide.image && (
-            <div style={{ position: "relative", width: "100%", aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", background: "rgba(255,255,255,0.05)", flexShrink: 0 }}>
+            <div key={slide.image} style={{ position: "relative", width: "100%", aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", background: "rgba(255,255,255,0.05)", flexShrink: 0 }}>
               <Image src={slide.image} alt="" fill style={{ objectFit: "contain" }} sizes="24rem" />
             </div>
           )}

@@ -246,7 +246,7 @@ export const locationData: LocationData[] = [
     locationDescription: "Abq Museum",
     artist: "Sonja Vigil-Killer",
     locationParam: "albuquerque-museum-sculpture-garden-ar-experience",
-    arURL: "https://refractstudio.8thwall.app/route66-museum/",
+    arURL: "https://radiant-blancmange-8c2f5f.netlify.app/",
     isAR: true,
     coverImage: "/locations/cover-images/sonja_cover.jpg",
     images: [
