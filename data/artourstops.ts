@@ -76,7 +76,7 @@ export const tourStops: TourStop[] = [
     description: `In this immersive art experience created in collaboration between PAZ and his daughter Crystal, dancers made of energy and light perform an invocation to the 4 directions.`,
     artistStatement: `Within Mexikayotl (Mexika-Chichimeka tradition) an invocation to Nawitlanpa Chanekeh (The guardians of the four cardinal directions) precedes most any ritual ceremony whether private or public. The energetic intent of this invocation is to acknowledge the presence of and the desire to interface with the non ordinary aspects of the world that are present albeit not generally recognized. The dance that is presented is a continuation of the relationship with the world that has been respectfully requested via the invocation. Nawi Olin (Four Movement) represents the manner in which we as humans move within the space/time continuum.`,
     artistImage: "/olivia.jpg",
-    arUrl: `https://refractstudio.8thwall.app/route66-guild-cinema`,
+    arUrl: `https://singular-palmier-e43d26.netlify.app/`,
     duration: 30,
     coverImage: "/olivia.jpg",
 

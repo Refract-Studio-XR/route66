@@ -311,6 +311,17 @@ This project was completed with the hands-on assistance of Steve Mora, Martin Va
     links: ["https://www.karlorozco.com", "https://www.instagram.com/yung_buko"],
   },
   {
+    stop: "4",
+    fullname: "Dale Deforest",
+    pronouns: "",
+    credittitle: "Artist",
+    artiststatement: "",
+    artistbio:
+      "Dale Deforest is a Diné artist and illustrator from the Four Corners region. A graduate of the Institute of American Indian Arts (IAIA), he works across photography, sequential art, and 2-D illustration. His practice combines high-contrast linework, vivid color, and narrative storytelling to create images that are both visually striking and conceptually grounded. In addition to his visual art practice, Deforest has developed independent illustrated series and has worked on projects that highlight Native entrepreneurship and contemporary Indigenous storytelling.",
+    additionalcredits: "",
+    links: ["https://www.daledeforest.com/about"],
+  },
+  {
     stop: "8.1",
     fullname: "Carmen Montes  'la chispa'",
     pronouns: "",
