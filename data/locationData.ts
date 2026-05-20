@@ -101,7 +101,7 @@ export const locationData: LocationData[] = [
     coverImage: "/locations/cover-images/dale_cover.jpg",
     artist: "Dale Deforest",
     locationParam: "lets-not-forget-albuquerque-is-a-character-too",
-    arURL: "https://refractstudio.8thwall.app/route66-guild-cinema/",
+    arURL: "https://singular-palmier-e43d26.netlify.app/",
     isAR: true,
     images: ["/locations/cover-images/dale_cover.jpg"],
   },
