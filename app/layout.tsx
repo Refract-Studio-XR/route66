@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./globals.css";
 
@@ -32,7 +33,10 @@ export default function RootLayout({
       lang="en"
       className={corma.variable}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
