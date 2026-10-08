@@ -175,3 +175,17 @@ body {
     display: none;
   }
 }
+
+@keyframes intro-pulse-ring {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+  }
+  to {
+    box-shadow: 0 0 0 14px rgba(255, 255, 255, 0);
+  }
+}
+
+.intro-pulse {
+  border-radius: 4px;
+  animation: intro-pulse-ring 1s ease-out 4;
+}

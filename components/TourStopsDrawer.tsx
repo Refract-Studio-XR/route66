@@ -14,6 +14,7 @@ import { Info } from "lucide-react";
 import TourStopList from "./TourStopList";
 import TourStopDetailDrawer from "./TourStopDetailDrawer";
 import IntroModal from "./IntroModal";
+import useIntroPulse from "@/hooks/useIntroPulse";
 import { LocationData, locationData } from "@/data/";
 import { MarkerData } from "@/hooks/useMapbox";
 
@@ -30,21 +31,8 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   );
   const [isExpanded, setIsExpanded] = useState(false);
   const [introOpen, setIntroOpen] = useState(false);
-  const [showPulse, setShowPulse] = useState(false);
-  const [pulseFading, setPulseFading] = useState(false);
-
-  useEffect(() => {
-    const handler = () => { setShowPulse(true); setPulseFading(false); };
-    window.addEventListener("route66_intro_pulse", handler);
-    return () => window.removeEventListener("route66_intro_pulse", handler);
-  }, []);
-
-  useEffect(() => {
-    if (!showPulse) return;
-    const fadeTimer = setTimeout(() => setPulseFading(true), 3000);
-    const removeTimer = setTimeout(() => setShowPulse(false), 4000);
-    return () => { clearTimeout(fadeTimer); clearTimeout(removeTimer); };
-  }, [showPulse]);
+  const infoPulse = useIntroPulse(0);
+  const expandPulse = useIntroPulse(4000);
 
   const handleSelectTourStop = useCallback(
     (location: LocationData) => {
@@ -94,23 +82,29 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
             <div className="absolute top-4 right-3 flex items-center gap-2 z-10">
               <button
                 type="button"
-                onClick={() => { setShowPulse(false); setIntroOpen(true); }}
+                onClick={() => { infoPulse.stopPulse(); setIntroOpen(true); }}
                 className="relative rounded-full p-1.5 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
                 aria-label="Tips for the tour"
               >
-                {showPulse && (
+                {infoPulse.showPulse && (
                   <span
                     className="absolute inset-0 rounded-full border-2 border-white/60 animate-ping pointer-events-none"
-                    style={{ opacity: pulseFading ? 0 : 1, transition: "opacity 1s ease-out" }}
+                    style={{ opacity: infoPulse.pulseFading ? 0 : 1, transition: "opacity 1s ease-out" }}
                   />
                 )}
                 <Info className="w-5 h-5" />
               </button>
               <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="text-white/70 hover:text-white transition-colors"
+                onClick={() => { expandPulse.stopPulse(); setIsExpanded(!isExpanded); }}
+                className="relative rounded-full text-white/70 hover:text-white transition-colors"
                 aria-label={isExpanded ? "Collapse sheet" : "Expand sheet"}
               >
+                {expandPulse.showPulse && (
+                  <span
+                    className="absolute inset-0 rounded-full border-2 border-white/60 animate-ping pointer-events-none"
+                    style={{ opacity: expandPulse.pulseFading ? 0 : 1, transition: "opacity 1s ease-out" }}
+                  />
+                )}
               {isExpanded ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

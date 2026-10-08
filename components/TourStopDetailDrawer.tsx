@@ -13,6 +13,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { Info, X } from "lucide-react";
 import ARPlayer from "./ARPlayer";
 import IntroModal from "./IntroModal";
+import useIntroPulse from "@/hooks/useIntroPulse";
 
 import { LocationData, ArtistData, artistData, artistImages } from "@/data";
 import { getAudioUrl } from "@/lib/utils";
@@ -55,21 +56,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [snap, setSnap] = useState<number | string | null>(0.55);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [introOpen, setIntroOpen] = useState(false);
-  const [showPulse, setShowPulse] = useState(false);
-  const [pulseFading, setPulseFading] = useState(false);
-
-  useEffect(() => {
-    const handler = () => { setShowPulse(true); setPulseFading(false); };
-    window.addEventListener("route66_intro_pulse", handler);
-    return () => window.removeEventListener("route66_intro_pulse", handler);
-  }, []);
-
-  useEffect(() => {
-    if (!showPulse) return;
-    const fadeTimer = setTimeout(() => setPulseFading(true), 3000);
-    const removeTimer = setTimeout(() => setShowPulse(false), 4000);
-    return () => { clearTimeout(fadeTimer); clearTimeout(removeTimer); };
-  }, [showPulse]);
+  const { showPulse, pulseFading, stopPulse } = useIntroPulse(0);
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
@@ -351,7 +338,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
               <div className="flex items-center gap-2 flex-shrink-0">
                 <button
                   type="button"
-                  onClick={() => { setShowPulse(false); setIntroOpen(true); }}
+                  onClick={() => { stopPulse(); setIntroOpen(true); }}
                   className="relative rounded-full p-1.5 text-white/70 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
                   aria-label="Tips for the tour"
                 >

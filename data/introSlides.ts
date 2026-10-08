@@ -13,7 +13,7 @@ export const INTRO_SLIDES: IntroSlide[] = [
   {
     image: "/intro/headphones_suggested.webp",
     body:
-      "We suggest headphones if you have them. Listen to the poem first, then start the experience.",
+      "We suggest headphones if you have them. For the best experience, turn your phone off silent mode. Listen to the poem first, then start the experience.",
   },
   {
     image: "/intro/line_up.webp",

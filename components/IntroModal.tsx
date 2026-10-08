@@ -59,17 +59,6 @@ export default function IntroModal({
     else setStep((currentStep) => currentStep + 1);
   }
 
-  // Preload all webp images when modal opens
-  useEffect(() => {
-    if (!open) return;
-    slides.forEach((s) => {
-      if (s.image) {
-        const img = new window.Image();
-        img.src = s.image;
-      }
-    });
-  }, [open, slides]);
-
   if (!mounted || !open) return null;
 
   const slide = slides[step];
@@ -88,7 +77,7 @@ export default function IntroModal({
           inset: 0,
           background: "rgba(0,0,0,0.8)",
         }}
-        onClick={hasSeenIntro ? close : undefined}
+        onClick={close}
       />
 
       {/* modal box */}
@@ -99,7 +88,7 @@ export default function IntroModal({
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: "min(24rem, 92vw)",
-          height: 460,
+          height: 500,
           display: "flex",
           flexDirection: "column",
           padding: 20,
@@ -112,27 +101,30 @@ export default function IntroModal({
           boxShadow: "0 25px 50px rgba(0,0,0,0.5)",
         }}
       >
-        {/* close button - only if user has seen intro before */}
-        {hasSeenIntro && (
-          <button
-            type="button"
-            onClick={close}
-            style={{
-              position: "absolute",
-              top: 8,
-              right: 8,
-              padding: 12,
-              borderRadius: "50%",
-              background: "transparent",
-              border: "none",
-              color: "rgba(255,255,255,0.8)",
-              cursor: "pointer",
-            }}
-            aria-label="Close"
-          >
-            <X size={20} />
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={close}
+          style={{
+            position: "absolute",
+            top: 6,
+            right: 6,
+            zIndex: 1,
+            width: 48,
+            height: 48,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+            background: "rgba(255,255,255,0.15)",
+            border: "none",
+            color: "white",
+            cursor: "pointer",
+            touchAction: "manipulation",
+          }}
+          aria-label="Close"
+        >
+          <X size={24} />
+        </button>
 
         {/* content */}
         <div
@@ -153,10 +145,16 @@ export default function IntroModal({
               <Image src="/ar-icon.svg" alt="AR Experience" width={82} height={82} style={{ objectFit: "contain", filter: "brightness(0) invert(1)" }} />
             </div>
           )}
-          {slide.image && (
-            <div key={slide.image} style={{ position: "relative", width: "100%", aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", background: "rgba(255,255,255,0.05)", flexShrink: 0 }}>
-              <Image src={slide.image} alt="" fill style={{ objectFit: "contain" }} sizes="24rem" />
-            </div>
+          {/* every slide image is rendered eagerly (hidden until its step) so the optimized files download while the user reads slide 1 */}
+          {slides.map((s, i) =>
+            s.image ? (
+              <div
+                key={s.image}
+                style={{ display: i === step ? "block" : "none", position: "relative", width: "100%", aspectRatio: "4/3", borderRadius: 12, overflow: "hidden", background: "rgba(255,255,255,0.05)", flexShrink: 0 }}
+              >
+                <Image src={s.image} alt="" fill loading="eager" style={{ objectFit: "contain" }} sizes="24rem" />
+              </div>
+            ) : null
           )}
           <p style={{ fontSize: 16, color: "rgba(255,255,255,0.85)", fontWeight: 300, lineHeight: 1.6 }}>
             {slide.body}

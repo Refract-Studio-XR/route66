@@ -1,5 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef, useState, useCallback } from "react";
+import useIntroPulse from "./useIntroPulse";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? "";
 
@@ -27,6 +28,12 @@ const useMapbox = (options?: Options) => {
     Options["data"][0] | null
   >(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const locationButtonPulse = useIntroPulse(8000);
+
+  useEffect(() => {
+    const locationButton = mapContainerRef.current?.querySelector(".mapboxgl-ctrl-geolocate");
+    locationButton?.classList.toggle("intro-pulse", locationButtonPulse.showPulse);
+  }, [locationButtonPulse.showPulse]);
 
   useEffect(() => {
     mapboxgl.accessToken = MAPBOX_TOKEN;
