@@ -293,7 +293,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           }
         }}
       >
-        <DrawerContent handleClassName={handlePulse.showPulse || handleAfterInfoPulse.showPulse ? "intro-pulse" : ""} className="bg-black/60 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
+        <DrawerContent handleClassName={handlePulse.showPulse || handleAfterInfoPulse.showPulse ? "intro-pull-up" : ""} className="bg-black/60 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
           <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
             <div className="flex justify-between items-start w-full gap-2">
               <div className="min-w-0 flex-1">
