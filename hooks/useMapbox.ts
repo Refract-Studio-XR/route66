@@ -28,7 +28,7 @@ const useMapbox = (options?: Options) => {
     Options["data"][0] | null
   >(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const locationButtonPulse = useIntroPulse(8000);
+  const locationButtonPulse = useIntroPulse(5000);
 
   useEffect(() => {
     const locationButton = mapContainerRef.current?.querySelector(".mapboxgl-ctrl-geolocate");

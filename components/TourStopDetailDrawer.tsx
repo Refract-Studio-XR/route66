@@ -56,7 +56,21 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
   const [snap, setSnap] = useState<number | string | null>(0.55);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [introOpen, setIntroOpen] = useState(false);
-  const { showPulse, pulseFading, stopPulse } = useIntroPulse(0);
+  const { showPulse, pulseFading, stopPulse } = useIntroPulse(0, ["route66_intro_pulse", "route66_info_pulse"]);
+  const handlePulse = useIntroPulse(0, ["route66_handle_pulse"]);
+  const handleAfterInfoPulse = useIntroPulse(2500, ["route66_info_pulse"]);
+  const [hasSeenDetailHint, setHasSeenDetailHint] = useLocalStorage("route66_detail_hint_seen", false);
+  const openedOnPageLoad = useRef(open);
+
+  // First ever visit to a location page: highlight the grab bar
+  useEffect(() => {
+    if (!open || hasSeenDetailHint) return;
+    setHasSeenDetailHint(true);
+    const introWillHighlightInfoFirst = document.body.dataset.introLanding === "true";
+    if (introWillHighlightInfoFirst) return;
+    const waitForLoadingScreen = openedOnPageLoad.current ? 3000 : 0;
+    setTimeout(() => window.dispatchEvent(new CustomEvent("route66_handle_pulse")), waitForLoadingScreen);
+  }, [open, hasSeenDetailHint, setHasSeenDetailHint]);
 
   // Reset statement expansion when tour stop changes
   useEffect(() => {
@@ -279,7 +293,7 @@ const TourStopDetailDrawer: React.FC<TourStopDetailDrawerProps> = ({
           }
         }}
       >
-        <DrawerContent className="bg-black/60 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
+        <DrawerContent handleClassName={handlePulse.showPulse || handleAfterInfoPulse.showPulse ? "intro-pulse" : ""} className="bg-black/60 backdrop-blur-md border border-white/20 h-full flex flex-col overflow-hidden max-w-[480px] md:max-w-[640px] lg:max-w-[900px] mx-auto">
           <DrawerHeader className="text-left px-4 flex flex-col items-start flex-shrink-0">
             <div className="flex justify-between items-start w-full gap-2">
               <div className="min-w-0 flex-1">

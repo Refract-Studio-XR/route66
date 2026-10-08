@@ -31,8 +31,8 @@ const TourStopsDrawer = ({ setOnMapMarkerClick }: Props) => {
   );
   const [isExpanded, setIsExpanded] = useState(false);
   const [introOpen, setIntroOpen] = useState(false);
-  const infoPulse = useIntroPulse(0);
-  const expandPulse = useIntroPulse(4000);
+  const infoPulse = useIntroPulse(0, ["route66_intro_pulse", "route66_info_pulse"]);
+  const expandPulse = useIntroPulse(2500);
 
   const handleSelectTourStop = useCallback(
     (location: LocationData) => {

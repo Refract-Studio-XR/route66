@@ -37,7 +37,16 @@ export default function IntroModal({
   useEffect(() => {
     if (isControlled) return;
     if (typeof window === "undefined") return;
-    if (!localStorage.getItem(storageKey)) setInternalOpen(true);
+    if (localStorage.getItem(storageKey)) return;
+
+    const landedOnLocationPage = new URLSearchParams(window.location.search).has("location");
+    if (landedOnLocationPage) {
+      localStorage.setItem(storageKey, "true");
+      document.body.dataset.introLanding = "true";
+      setTimeout(() => window.dispatchEvent(new CustomEvent("route66_info_pulse")), 3000);
+    } else {
+      setInternalOpen(true);
+    }
   }, [isControlled, storageKey]);
 
   useEffect(() => {
